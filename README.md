@@ -5,7 +5,8 @@
 - フォルダを新規作成
 -  フォルダを右クリックし、`Git Bash Here`を選択
 -  `git clone https://github.com/KoukiKensyu/ikkyu.git` を実行
-- ikkyuフォルダ内で `php artisan key:generate`を実行
+-  ikkyuフォルダ内で`compose install`を実行
+-  `php artisan key:generate`を実行
 - `php artisan config:cache`を実行
 - `php artisan serve`でウェブサイトが閲覧できるか確認
 
