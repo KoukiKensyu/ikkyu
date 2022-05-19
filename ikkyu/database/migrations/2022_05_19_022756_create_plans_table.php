@@ -15,7 +15,13 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('hotel_id')->unsigned()->index();
+            $table->string('price', 20)->unsigned();
+            $table->string('rooms')->unsigned();;
             $table->timestamps();
+
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
         });
     }
 
