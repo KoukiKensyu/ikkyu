@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        @include('commons/nav');
+        @include('commons/nav')
     </header>
 </body>
 </html>
