@@ -1,12 +1,16 @@
 <ul class="navigation">
     <li>
-        <a href="">マイページ</a>
+        <a href="">ホーム</a>
     </li>
+    <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('会員登録') }}</a>
+                                </li>
+                                
     <li>
-        <a href="">みんなの蔵書</a>
-    </li>
-    <li>
-        <a href="">お気に入り</a>
+        <a href=""></a>
     </li>
     <li>
         <a href="#">
