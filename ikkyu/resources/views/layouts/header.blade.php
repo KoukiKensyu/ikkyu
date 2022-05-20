@@ -29,7 +29,12 @@ button{
     color: red;
     position: -ms-page;
 }
-
+.width{
+    display:flex;/*横に並べる*/
+}
+.height{
+    display:inline;/*縦に並べる*/
+}
     </style>
 </head>
 <body>
