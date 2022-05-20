@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminHomecontroller;
 */
 
 Route::get('/', function () {
-    return view('toppage');
+    return view('auth/login_administrator');
 });
 
 Auth::routes();
@@ -34,3 +34,21 @@ Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class,
 Route::get('/user_home/index', function () {
     return view('/user_home/index');
 });
+
+Route::get('/register_confirmation', function () {
+    return view('auth/register_confirmation');
+});
+
+Route::get('/register_input', function () {
+    return view('auth/register_input');
+});
+
+Route::get('/login_user', function () {
+    return view('auth/login_user');
+});
+
+Route::get('/login_administrator', function () {
+    return view('auth/login_administrator');
+});
+
+
