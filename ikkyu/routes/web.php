@@ -31,3 +31,6 @@ Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, '
 Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
 Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
 
+Route::get('/user_home/index', function () {
+    return view('/user_home/index');
+});

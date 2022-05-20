@@ -27,5 +27,5 @@
     </tbody>
 </table>
 <button onclick="location.href='store'">予約</button>
-<button>戻る</button>
+<button onclick="location.href='/user_home/index'">戻る</button>
 @endsection

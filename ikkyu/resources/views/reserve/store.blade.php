@@ -34,5 +34,5 @@
     </tbody>
 </table>
 <button onclick="location.href='check'">確認画面へ</button>
-<button>戻る</button>
+<button onclick="location.href='show'">戻る</button>
 @endsection
