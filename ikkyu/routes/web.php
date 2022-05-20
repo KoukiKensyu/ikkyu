@@ -37,6 +37,36 @@ Route::get('/register_input', function () {return view('auth/register_input');})
 Route::get('/login_user', function () {return view('auth/login_user');});
 Route::get('/login_administrator', function () {return view('auth/login_administrator');});
 Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
+Route::get('/user_home/index', function () {
+    return view('/user_home/index');
+});
+
+Route::get('/register_confirmation', function () {
+    return view('auth/register_confirmation');
+});
+
+Route::get('/register_input', function () {
+    return view('auth/register_input');
+});
+
+Route::get('/login_user', function () {
+    return view('auth/login_user');
+});
+
+Route::get('/login_administrator', function () {
+    return view('auth/login_administrator');
+});
+Route::get('/hotel_views/hotelManagement', function () {
+    return view('/hotel_views/hotelManagement');
+});
+Route::get('/hotel_views/store', function () {
+    return view('/hotel_views/store');
+});
+Route::get('/hotel_views/storeConfirmation', function () {
+    return view('/hotel_views/storeConfirmation');
+});
+
+
 
 Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
 Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
