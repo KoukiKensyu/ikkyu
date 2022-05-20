@@ -3,12 +3,20 @@
         <a class="nav-link" href="#">ログアウト</a>
     </div>
     <div class="p-2 bd-highlight">
-        <a class="nav-link" href="{{ route('register') }}">{{ __('会員登録') }}</a>
+        <a class="nav-link" href="/register_input">会員登録</a>
     </div>
     <div class="p-2 bd-highlight">
-        <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+        <a class="nav-link" href="/login_user">会員ログイン</a>
+        
     </div>
     <div class="p-2 bd-highlight">
-        <a class="nav-link" href="">ホーム</a>
+        <a class="nav-link" href="/login_administrator">管理者ログイン</a>
+        
+    </div>
+    <div class="p-2 bd-highlight">
+        <a class="nav-link" href="/home/index">管理者ホーム</a>
+    </div>
+    <div class="p-2 bd-highlight">
+        <a class="nav-link" href="/user_home/index">ホーム</a>
     </div>
 </div>

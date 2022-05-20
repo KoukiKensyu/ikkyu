@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminHomecontroller;
 */
 
 Route::get('/', function () {
-    return view('');
+    return view('toppage');
 });
 
 Route::get('/user_home/index', function () {
@@ -57,6 +57,9 @@ Route::get('/login_user', function () {
 
 Route::get('/login_administrator', function () {
     return view('auth/login_administrator');
+});
+Route::get('/hotel_views/hotelManagement', function () {
+    return view('/hotel_views/hotelManagement');
 });
 
 
