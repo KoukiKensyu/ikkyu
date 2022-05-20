@@ -20,6 +20,26 @@ Route::get('/', function () {
     return view('toppage');
 });
 
+Route::get('/user_home/index', function () {
+    return view('user_home/index');
+});
+
+Route::get('mypage/index', function () {
+    return view('mypage/index');
+});
+
+Route::get('mypage/edit', function () {
+    return view('mypage/edit');
+});
+
+Route::get('mypage/edit_confirmation', function () {
+    return view('mypage/edit_confirmation');
+});
+
+Route::get('mypage/withdrawal', function () {
+    return view('mypage/withdrawal');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

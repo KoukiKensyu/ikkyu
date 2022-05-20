@@ -36,11 +36,11 @@
             </tr>
             <tr>
                 <th>メールアドレス：</th>
-                <td><input type="tel" name="tel" value="{{old('tel')}}"></td>
+                <td><input type="email" name="email" value="{{old('email')}}"></td>
             </tr>
             <tr>
                 <th>生年月日：</th>
-                <td> <input type="birthday" name="birthday" value="{{old('birthday')}}"></td>
+                <td> <input type="date" name="birthday" value="{{old('birthday')}}"></td>
             </tr>
             <tr>
                 <th>パスワード：</th>
@@ -48,7 +48,7 @@
             </tr>
             <tr>
                 <th>パスワード(確認用)：</th>
-                <td><input type="password" name="password" value="" class="textbox"></td>
+                <td><input type="password" name="password_confirmation" value="" class="textbox"></td>
             </tr>
         </table>
     </form>

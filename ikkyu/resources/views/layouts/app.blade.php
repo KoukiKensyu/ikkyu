@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ひとやすみ') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -42,13 +42,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">会員ログイン</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">会員登録</a>
                                 </li>
                             @endif
                         @else
@@ -70,6 +70,15 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user_home/index">会員ホーム</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home/index">管理者ホーム</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login_administrator">管理者ログイン</a>
+                        </li>
                     </ul>
                 </div>
             </div>
