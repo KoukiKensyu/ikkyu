@@ -22,6 +22,27 @@
         .height{
             display:inline;/*縦に並べる*/
         }
+        header .brand{
+    display: block;
+    font-size: 1.3rem;
+}
+.navigation li{
+    padding: 0 10px;
+}
+button{
+    color: red;
+    position: -ms-page;
+}
+table.AdminMem{
+    border-collapse: collapse;
+}
+
+.width{
+    display:flex;/*横に並べる*/
+}
+.height{
+    display:inline;/*縦に並べる*/
+}
     </style>
 </head>
 <body>
