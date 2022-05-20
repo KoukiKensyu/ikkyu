@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+    @include('layouts.header') 
     <div  class="all">
     <h1>ログイン</h1>
     <form action="" method="get">
@@ -40,5 +41,5 @@
             <button onclick="location.href='/register_input'">新規登録</button>
         </p>
 </div>
-</html>    
 </body>
+</html>
