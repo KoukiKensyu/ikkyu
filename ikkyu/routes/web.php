@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('toppage');
 });
 
+Route::get('/user_home/index', function () {
+    return view('user_home/index');
+});
+
+Route::get('mypage/index', function () {
+    return view('mypage/index');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
