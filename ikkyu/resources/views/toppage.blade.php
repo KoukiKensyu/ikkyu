@@ -6,9 +6,15 @@
     body  {
       background-image: url("/images/beach_background.jpg");
       background-color: #cccccc;
+      background-size: cover;
     }
     h1{
-      text-align: center
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      font-size: 150px;
     }
   </style>
   <div>
