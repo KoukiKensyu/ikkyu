@@ -8,13 +8,19 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <title>ひとやすみ</title>
     <style>
-        header .brand{
+        header.brand{
             display: block;
             font-size: 1.3rem;
         }
         button{
             color: red;
             position: -ms-page;
+        }
+        .width{
+            display:flex;/*横に並べる*/
+        }
+        .height{
+            display:inline;/*縦に並べる*/
         }
     </style>
 </head>
