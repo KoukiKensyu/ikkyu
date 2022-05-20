@@ -18,7 +18,7 @@
             <p class="p-2 bd-highlight"><input type="text" name="keyword" placeholder="宿名"></p>
             <p class="p-2 bd-highlight"><label>分類<input type="text" name="hotel_type"></label></p>
            <button class="p-2 bd-highlight" type="submit">検索</button>
-            <button class="p-2 bd-highlight" type="submit">新規登録</button>
+            <button class="p-2 bd-highlight" type="submit" onclick="location.href='/hotel_views/store'">新規登録</button>
         </form>
     </div>
 

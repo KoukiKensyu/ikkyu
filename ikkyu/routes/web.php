@@ -53,5 +53,12 @@ Route::get('/login_administrator', function () {
 Route::get('/hotel_views/hotelManagement', function () {
     return view('/hotel_views/hotelManagement');
 });
+Route::get('/hotel_views/store', function () {
+    return view('/hotel_views/store');
+});
+Route::get('/hotel_views/storeConfirmation', function () {
+    return view('/hotel_views/storeConfirmation');
+});
+
 
 
