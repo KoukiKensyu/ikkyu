@@ -22,6 +22,7 @@
     </style>
 </head>
 <body>
+    @include('layouts.header')  
     <div  class="center">
     <h1>管理者ログイン</h1>
     <form action="" method="post">
@@ -41,5 +42,5 @@
             <button>ログイン</button>
         </p>
     </div>
-</html>    
 </body>
+</html>    

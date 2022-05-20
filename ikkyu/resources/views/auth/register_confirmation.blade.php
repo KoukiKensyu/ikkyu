@@ -21,6 +21,7 @@
 </style>
 </head>
 <body>
+  @include('layouts.header') 
   <div  class="all">
       <h1>登録内容確認</h1>
       <table class="table">
