@@ -9,7 +9,9 @@
 <tr><th>電話番号</th><td>0120-70-3727</td></tr>
 <tr><th>メールアドレス</th><td>2022php42-teacher001@la-study.com</td></tr>
 <tr><th>生年月日</th><td>2001-04-01</td></tr>
+<tr><th>パスワード</th><td>pasword</td></tr><!--伏字にする-->
 </table>
-<button onclick="location.href='/mypage/edit'">変更</button>
-<button onclick="location.href='/withdrawal'">退会</button>
+<p>この内容で確定しますか？</p>
+<button onclick="location.href='/mypage/index'">変更</button>
+<button onclick="location.href='/mypage/edit_confirmation'">戻る</button>
 @endsection

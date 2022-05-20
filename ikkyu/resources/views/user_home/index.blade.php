@@ -1,11 +1,11 @@
 @extends('layouts.header')
 
 @section('content')
-
+<a href="../mypage/index">マイページ</a>
 <h1>会員ホーム</h1>
 <div class="width">
     <form action="" method="post">
-        <div class="height">
+        <div class="height"><!--header.blade.phpに縦・横に並べるcssがある-->
 		<p>タイプ検索</p>
         <input type="checkbox" name="hotel_type[]" id="type1" value="">
         <label for="type1">タイプ1</label><br>
