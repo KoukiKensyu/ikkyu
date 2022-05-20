@@ -33,7 +33,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="/">a</a></th>
+            <th scope="row"><a href="/hotel_views/show">a</a></th>
             <td>a</td>
             <td>a</td>
             <td>a</td>

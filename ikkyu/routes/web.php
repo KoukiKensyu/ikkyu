@@ -30,6 +30,8 @@ Route::get('/reserve/show',[\App\Http\Controllers\AdminHomecontroller::class, 's
 Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, 'store'])->name('store');
 Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
 Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
+Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
+Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
 
 Route::get('/user_home/index', function () {return view('/user_home/index');});
 Route::get('/register_confirmation', function () {return view('auth/register_confirmation');});
@@ -68,7 +70,14 @@ Route::get('/hotel_views/storeConfirmation', function () {
 Route::get('/hotel_views/storeCompletion', function () {
     return view('/hotel_views/storeCompletion');
 });
-
+Route::get('hotel_views/hotelDelete', function () {
+    return view('hotel_views/hotelDelete');
+});
+Route::get('/hotel_views/editConfirmation', function () {
+    return view('/hotel_views/editConfirmation');
+});
+Route::get('/hotel_views/editCompletion', function () {
+    return view('/hotel_views/editCompletion');});
 
 
 
