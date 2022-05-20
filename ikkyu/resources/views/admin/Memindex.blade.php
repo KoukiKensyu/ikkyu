@@ -16,11 +16,11 @@
     </thead>
     <tbody>
         <tr>
-            <td>aaaaaaaa</td>
-            <td>あああ</td>
+            <td><a href="/admin/UserIndex">0123456789</a></td>
+            <td>栗山浩一</td>
         </tr>
         <tr>
-            <td>bbb</td>
+            <td><a href="/admin/UserIndex">0000000000</a></td>
             <td>いいい</td>
         </tr>
     </tbody>
