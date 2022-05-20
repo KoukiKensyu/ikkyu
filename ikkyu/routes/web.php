@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminHomecontroller;
 */
 
 Route::get('/', function () {
-    return view('auth/login_administrator');
+    return view('');
 });
 
 Auth::routes();

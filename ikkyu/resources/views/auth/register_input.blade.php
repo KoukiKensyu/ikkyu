@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+    @include('layouts.header') 
     <div  class="all">
     <h1>会員登録</h1>
     <form action="" method="post">
@@ -59,5 +60,5 @@
             <button onclick="location.href='/login_user'">ログイン</button>
         </p>
     </div>
-</html>    
 </body>
+</html>
