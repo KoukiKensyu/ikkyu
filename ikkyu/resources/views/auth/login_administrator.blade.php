@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    @include('layouts.header')  
+    @include('layouts.app')  
     <div  class="center">
     <h1>管理者ログイン</h1>
     <form action="" method="post">

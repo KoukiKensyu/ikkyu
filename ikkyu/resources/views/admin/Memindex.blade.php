@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts.app')
 
 @section('content')
 <h2>会員管理</h2>

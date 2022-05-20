@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts.app')
 
 @section('content')
 <table border="1">
