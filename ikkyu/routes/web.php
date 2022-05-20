@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user_home/index');
+    return view('toppage');
 });
 
 Auth::routes();
