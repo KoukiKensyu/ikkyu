@@ -2,6 +2,6 @@
 
 @section('content')
 <h2>管理メニュー</h2>
-<button class="bot1" href="">会員管理</a>
-<button  class= "bot2"href="">宿管理</a>
+<button class="bot1" onclick="location.href='/admin/Memindex'">会員管理</button>
+<button  class= "bot2"  onclick="location.href='/admin/Hotelindex'">宿管理</button>
 @endsection

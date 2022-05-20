@@ -29,6 +29,9 @@ button{
     color: red;
     position: -ms-page;
 }
+table.AdminMem{
+    border-collapse: collapse;
+}
 
     </style>
 </head>

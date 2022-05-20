@@ -1,6 +1,6 @@
 <ul class="navigation">
     <li>
-        <a href="">ホーム</a>
+        <a href='/home/index'>ホーム</a>
     </li>
     <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
