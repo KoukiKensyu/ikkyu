@@ -4,32 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="{{asset('js/app.js')}}" defer></script>
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <title>ひとやすみ</title>
     <style>
-        header .container{
-    display: flex;
-    justify-content: space-between;
-    
-}
-        .navigation{
-            display: flex;
-   
-    margin: 0;
-    padding: 0;
-    list-style: none;
-        }
         header .brand{
-    display: block;
-    font-size: 1.3rem;
-}
-.navigation li{
-    padding: 0 10px;
-}
-button{
-    color: red;
-    position: -ms-page;
-}
-
+            display: block;
+            font-size: 1.3rem;
+        }
+        button{
+            color: red;
+            position: -ms-page;
+        }
     </style>
 </head>
 <body>

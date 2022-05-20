@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('toppage');
+    return view('hotel_views/hotelManagement');
 });
 
 Auth::routes();
