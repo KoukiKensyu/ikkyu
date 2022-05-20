@@ -11,7 +11,7 @@
 <tr><th>生年月日</th><td>2001-04-01</td></tr>
 <tr><th>予約情報</th><td>[宿名]東横イン　[宿泊予定日]2022年5月20日</td></tr>
 </table>
-<button onclick="location.href='/home/index'">変更</button>
+<button onclick="location.href='/admin/UserUpdate'">変更</button>
 <button onclick="location.href='/admin/UserDelete'">退会</button>
 <button onclick="location.href='/admin/Memindex'">＜戻る</button>
 

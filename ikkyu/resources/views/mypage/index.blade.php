@@ -11,5 +11,6 @@
 <tr><th>生年月日</th><td>2001-04-01</td></tr>
 </table>
 <button onclick="location.href='/mypage/edit'">変更</button>
-<button onclick="location.href='/withdrawal'">退会</button>
+<button onclick="location.href='/mypage/UserDelete'">退会</button>
+<button onclick="location.href='/user_home/index'">戻る</button>
 @endsection
