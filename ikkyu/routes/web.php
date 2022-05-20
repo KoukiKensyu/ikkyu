@@ -59,6 +59,10 @@ Route::get('/hotel_views/store', function () {
 Route::get('/hotel_views/storeConfirmation', function () {
     return view('/hotel_views/storeConfirmation');
 });
+Route::get('/hotel_views/storeCompletion', function () {
+    return view('/hotel_views/storeCompletion');
+});
+
 
 
 
