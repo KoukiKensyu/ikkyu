@@ -31,27 +31,13 @@ Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, '
 Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
 Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
 
-Route::get('/user_home/index', function () {
-    return view('/user_home/index');
-});
+Route::get('/user_home/index', function () {return view('/user_home/index');});
+Route::get('/register_confirmation', function () {return view('auth/register_confirmation');});
+Route::get('/register_input', function () {return view('auth/register_input');});
+Route::get('/login_user', function () {return view('auth/login_user');});
+Route::get('/login_administrator', function () {return view('auth/login_administrator');});
+Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
 
-Route::get('/register_confirmation', function () {
-    return view('auth/register_confirmation');
-});
-
-Route::get('/register_input', function () {
-    return view('auth/register_input');
-});
-
-Route::get('/login_user', function () {
-    return view('auth/login_user');
-});
-
-Route::get('/login_administrator', function () {
-    return view('auth/login_administrator');
-});
-Route::get('/hotel_views/hotelManagement', function () {
-    return view('/hotel_views/hotelManagement');
-});
-
-
+Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
+Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
+Route::get('/admin/Memindex', function () {return view('admin/Memindex');});
