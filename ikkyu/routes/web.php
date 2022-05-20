@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminHomecontroller;
 */
 
 Route::get('/', function () {
-    return view('home/index');
+    return view('toppage');
 });
 
 Auth::routes();
