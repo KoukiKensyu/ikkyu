@@ -36,8 +36,8 @@ Route::get('mypage/edit_confirmation', function () {
     return view('mypage/edit_confirmation');
 });
 
-Route::get('mypage/withdrawal', function () {
-    return view('mypage/withdrawal');
+Route::get('/mypage/UserDelete', function () {
+    return view('/mypage/UserDelete');
 });
 
 Auth::routes();
@@ -104,3 +104,5 @@ Route::get('/hotel_views/editCompletion', function () {
 Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
 Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
 Route::get('/admin/Memindex', function () {return view('admin/Memindex');});
+Route::get('/admin/UserUpdate', function () {return view('admin/UserUpdate');});
+Route::get('/admin/UserUpdate_confirmation', function () {return view('admin/UserUpdate_confirmation');});

@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts.app')
 
 @section('content')
 <table border="1">
@@ -13,5 +13,5 @@
 </table>
 <p>この内容で確定しますか？</p>
 <button onclick="location.href='/mypage/index'">変更</button>
-<button onclick="location.href='/mypage/edit_confirmation'">戻る</button>
+<button onclick="location.href='/mypage/edit'">戻る</button>
 @endsection

@@ -12,7 +12,7 @@
 <!-- endif-->
 [012345678][氏名]を退会させますか？
 
-<button onclick="location.href='/home/index'">確定</button>
-<button onclick="location.href='/admin/UserIndex'">＜戻る</button>
+<button onclick="location.href='/'">確定</button>
+<button onclick="location.href='/mypage/index'">＜戻る</button>
 
 @endsection

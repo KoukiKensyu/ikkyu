@@ -17,7 +17,7 @@ class CreateHotelsTable extends Migration
             $table->id();
             $table->string("name",50);
             $table->integer("hotel_type")->unsigned();
-            $table->string("adress",100);
+            $table->string("address",100);
             $table->time("checkin_time");
             $table->time("checkout_time");
             $table->integer("max_rooms");

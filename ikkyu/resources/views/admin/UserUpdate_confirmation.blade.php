@@ -10,7 +10,7 @@
 <tr><th>メールアドレス</th><td>2022php42-teacher001@la-study.com</td></tr>
 <tr><th>生年月日</th><td>2001-04-01</td></tr>
 </table>
-<button onclick="location.href='/mypage/edit'">変更</button>
-<button onclick="location.href='/mypage/UserDelete'">退会</button>
-<button onclick="location.href='/user_home/index'">戻る</button>
+<p>この内容で確定しますか？</p>
+<button onclick="location.href='/admin/UserIndex'">変更</button>
+<button onclick="location.href='/admin/UserUpdate'">戻る</button>
 @endsection
