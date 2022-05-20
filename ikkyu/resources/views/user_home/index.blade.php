@@ -24,7 +24,7 @@
 </div>
 <table border="1">
 <tr><th>宿名</th><th>宿泊日</th><th>部屋数</th></tr>
-<tr><td>宿A</td><td>〇月〇日</td><td>〇部屋</td></tr>
+<tr><td><a href='/reserve/show'>宿A</a></td><td>〇月〇日</td><td>〇部屋</td></tr>
 <tr><td>宿B</td><td>〇月〇日</td><td>〇部屋</td></tr>
 </table>
 
