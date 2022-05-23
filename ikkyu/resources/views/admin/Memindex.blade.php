@@ -2,10 +2,10 @@
 
 @section('content')
 <h2>会員管理</h2>
-    <form action=""></form>
-    <input type="text">
-    <input type="text">
-    <button type="submit">検索</button>
+    <form action="{{route('Usearch')}}">
+    <input type="text" name="name" value="{{request('name')}}" placeholder="検索キーワード">
+    <input type="text" name="id" value="{{request('id')}}" placeholder="検索ID">
+    <button type="submit">検索</button></form>
     <br>
     <table class="AdminMem" border="1">
     <tr>
@@ -15,16 +15,14 @@
     </tr>
     </thead>
     <tbody>
+        @foreach($users as $user)
         <tr>
-            <td><a href="/admin/UserIndex">0123456789</a></td>
-            <td>栗山浩一</td>
+            <td><a href="/admin/UserIndex/{{$user ->id}}">{{$user ->id}}</a></td>
+            <td>{{$user ->name}}</td>
         </tr>
-        <tr>
-            <td><a href="/admin/UserIndex">0000000000</a></td>
-            <td>いいい</td>
-        </tr>
+    @endforeach
     </tbody>
     </table>
 
-
+   <p> {{ $users->appends(Request::all())->links() }}</p>
 @endsection

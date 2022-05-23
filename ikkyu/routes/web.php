@@ -63,7 +63,7 @@ Route::prefix('administrator')->group(function() {
 }) ;
 
 
-Route::get('/user_home/index', function () {return view('/user_home/index');});
+// Route::get('/user_home/index', function () {return view('/user_home/index');});
 Route::get('/register_confirmation', function () {return view('auth/register_confirmation');});
 Route::get('/register_input', function () {return view('auth/register_input');});
 Route::get('/login_user', function () {return view('auth/login_user');});
@@ -110,9 +110,14 @@ Route::get('/hotel_views/editCompletion', function () {
     return view('/hotel_views/editCompletion');});
 
 
-
-Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
+Route::get('/admin/UserIndex/{id}',[App\Http\Controllers\UserController::class, 'show'])->name('show');
+// Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
 Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
-Route::get('/admin/Memindex', function () {return view('admin/Memindex');});
-Route::get('/admin/UserUpdate', function () {return view('admin/UserUpdate');});
-Route::get('/admin/UserUpdate_confirmation', function () {return view('admin/UserUpdate_confirmation');});
+
+Route::get('/admin/Memindex',[App\Http\Controllers\UserController::class, 'search'])->name('Usearch');
+// Route::get('/admin/Memindex', function () {return view('admin/Memindex');});
+
+Route::get('/admin/UserUpdate/{id}',[App\Http\Controllers\UserController::class, 'edit'])->name('edit');
+// Route::get('/admin/UserUpdate', function () {return view('admin/UserUpdate');});
+Route::post('/admin/UserUpdate_confirmation/{id}', [App\Http\Controllers\UserController::class, 'confirm'])->name('confirm');
+Route::patch('/admin/UserIndex/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('update');
