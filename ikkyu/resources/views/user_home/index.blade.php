@@ -4,7 +4,7 @@
 <a href="../mypage/index">マイページ</a>
 <h1>会員ホーム</h1>
 <!-- <div class="width"> -->
-    <form action="{{route ('search')}}" method="get">
+    <form action="{{route('search')}}" method="get">
         <!-- <div class="height">header.blade.phpに縦・横に並べるcssがある -->
 		<p>タイプ検索</p>
         <input type="checkbox" name="hotel_type[]" id="type0" value="0">
