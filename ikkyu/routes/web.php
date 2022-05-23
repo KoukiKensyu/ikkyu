@@ -55,7 +55,15 @@ Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class,
 Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
 Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
 
-// Route::get('/user_home/index', function () {return view('/user_home/index');});
+Route::prefix('administrator')->group(function() {
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('administrator.login.submit');
+    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('administrator.logout');
+    Route::get('/', 'AdministratorController@index')->name('administrator.dashboard');
+    Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('administrator.login');
+}) ;
+
+
+Route::get('/user_home/index', function () {return view('/user_home/index');});
 Route::get('/register_confirmation', function () {return view('auth/register_confirmation');});
 Route::get('/register_input', function () {return view('auth/register_input');});
 Route::get('/login_user', function () {return view('auth/login_user');});
