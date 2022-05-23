@@ -27,5 +27,5 @@
     </tbody>
 </table>
 <button onclick="location.href='confirm'">確定</button>
-<button onclick="location.href='store'">戻る</button>
+<button onclick="location.href='reserve/edit'">戻る</button>
 @endsection

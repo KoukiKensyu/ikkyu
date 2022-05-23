@@ -49,10 +49,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home/index',[App\Http\Controllers\AdminHomecontroller::class, 'index']);
 Route::get('/admin/Memindex',[\App\Http\Controllers\AdminHomecontroller::class, 'indexMem'])->name('admin.Memindex');
 Route::get('/admin/Hotelindex',[\App\Http\Controllers\AdminHomecontroller::class, 'indexHotel'])->name('admin.Hotelsindex');
-Route::get('/reserve/show',[\App\Http\Controllers\AdminHomecontroller::class, 'show'])->name('show');
-Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, 'store'])->name('store');
-Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
+
+// Reservation関連
+Route::get('/reserve/show/{id}',[\App\Http\Controllers\AdminHomecontroller::class, 'show'])->name('show');
+Route::post('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, 'store'])->name('reserve.store');
+Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('reserve.check');
+Route::get('/reserve/edit/{id}',[\App\Http\Controllers\AdminHomecontroller::class, 'edit'])->name('reserve.edit');
 Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
+
 Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
 Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
 

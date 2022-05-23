@@ -3,16 +3,16 @@
 @section('content')
 <h2>予約内容入力</h2>
 
-<form action="{{route('check')}}" method="post">
+<form action="{{route('reserve.check')}}" method="get">
     <table border='1'>
         <tbody>
             <tr>
             <td>宿名</td>
-            <td>宿1</td>
+            <td>{{$hotel[0]->name}}</td>
             </tr>
             <tr>
             <td>氏名</td>
-            <td><input type="text" name="name" placeholder="自動入力"></td>
+            <td><input type="text" name="name" value={{Auth::user()->name}}></td>
             </tr> 
             <tr>
             <td>予約部屋数</td>
@@ -36,6 +36,6 @@
         </tbody>
     </table>
     <button type="submit">確認画面へ</button>
-    <button onclick="location.href='show'">戻る</button>
 </form>
+    <button onclick="location.href='show'">戻る</button>
 @endsection
