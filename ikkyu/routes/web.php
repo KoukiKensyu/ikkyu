@@ -112,7 +112,8 @@ Route::get('/hotel_views/editCompletion', function () {
 
 Route::get('/admin/UserIndex/{id}',[App\Http\Controllers\UserController::class, 'show'])->name('show');
 // Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
-Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
+Route::get('/admin/UserDelete/{id}',[App\Http\Controllers\UserController::class, 'Dconfirm'])->name('Dconfirm');
+Route::delete('/admin/UserIndex/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroy');
 
 Route::get('/admin/Memindex',[App\Http\Controllers\UserController::class, 'search'])->name('Usearch');
 // Route::get('/admin/Memindex', function () {return view('admin/Memindex');});

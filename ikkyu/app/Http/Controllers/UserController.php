@@ -48,7 +48,17 @@ class UserController extends Controller
         $user->birthday = $request->birthday;
         $user -> save();
         return redirect('/admin/Memindex');
-
+    }
+    public function Dconfirm($id)
+    {
+        $user = \App\Models\User::find($id);
+        return view('/admin/UserDelete', ['user' => $user]);
+    }
+    public function destroy($id)
+    {
+        $user = \App\Models\User::find($id);
+        $user->delete();
+        return redirect('/admin/Memindex');
     }
 }
 
