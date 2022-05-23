@@ -77,7 +77,7 @@
                             <a class="nav-link" href="/home/index">管理者ホーム</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login_administrator">管理者ログイン</a>
+                            <a class="nav-link" href="/administrator/login">管理者ログイン</a>
                         </li>
                     </ul>
                 </div>
