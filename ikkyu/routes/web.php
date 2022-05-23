@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminHomecontroller;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,17 +25,28 @@ Route::get('/user_home/index', function () {
     return view('user_home/index');
 });
 
+/*
 Route::get('mypage/index', function () {
     return view('mypage/index');
 });
+*/
+Route::get('mypage/index', [App\Http\Controllers\UserController::class,'index'])->name('mypage.index');
 
+/*
 Route::get('mypage/edit', function () {
     return view('mypage/edit');
 });
+*/
+Route::get('mypage/edit', [App\Http\Controllers\UserController::class,'edit']);
 
+/*
 Route::get('mypage/edit_confirmation', function () {
     return view('mypage/edit_confirmation');
 });
+*/
+Route::post('mypage/edit_confirmation', [App\Http\Controllers\UserController::class,'update'])->name('mypage.edit_confirmation');
+
+Route::patch('mypage/edit_confirmation',[App\Http\Controllers\UserController::class,'store'])->name('mypage.edit_store');
 
 Route::get('/mypage/UserDelete', function () {
     return view('/mypage/UserDelete');
