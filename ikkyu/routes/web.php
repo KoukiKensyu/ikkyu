@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminHomecontroller;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\HotelController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,11 @@ Route::get('/', function () {
     return view('toppage');
 });
 
-Route::get('/user_home/index', function () {
-    return view('user_home/index');
-});
+
+Route::get('/user_home/index',[App\Http\Controllers\Hotelcontroller::class, 'search'])->name('search');
+// Route::get('/user_home/index', function () {
+    // return view('user_home/index');
+// });
 
 Route::get('mypage/index', function () {
     return view('mypage/index');
@@ -70,9 +74,9 @@ Route::get('/register_input', function () {return view('auth/register_input');})
 Route::get('/login_user', function () {return view('auth/login_user');});
 Route::get('/login_administrator', function () {return view('auth/login_administrator');});
 Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
-Route::get('/user_home/index', function () {
-    return view('/user_home/index');
-});
+// Route::get('/user_home/index', function () {
+    // return view('/user_home/index');
+// });
 
 Route::get('/register_confirmation', function () {
     return view('auth/register_confirmation');
