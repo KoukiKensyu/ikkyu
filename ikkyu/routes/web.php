@@ -68,7 +68,7 @@ Route::prefix('administrator')->group(function() {
 Route::resource('reservations', ReservationController::class);
 
 
-Route::get('/user_home/index', function () {return view('/user_home/index');});
+//Route::get('/user_home/index', function () {return view('/user_home/index');});
 Route::get('/register_confirmation', function () {return view('auth/register_confirmation');});
 Route::get('/register_input', function () {return view('auth/register_input');});
 Route::get('/login_user', function () {return view('auth/login_user');});

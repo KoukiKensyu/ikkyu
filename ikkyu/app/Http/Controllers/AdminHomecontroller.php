@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Hotel;
 class AdminHomecontroller extends Controller
 {
     public function index(){
@@ -15,7 +15,8 @@ class AdminHomecontroller extends Controller
     public function indexHotel(){
         return view ('admin/Hotelindex');
     }
-    public function show(){
+    public function show(String $name){
+        dd($name);
         return view ('reserve/show');
     }
     public function store(){

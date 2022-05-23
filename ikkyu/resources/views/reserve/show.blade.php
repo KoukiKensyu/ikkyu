@@ -6,7 +6,7 @@
     <tbody>
         <tr>
         <td>宿名</td>
-        <td>宿1</td>
+        <td>{{$hotel->name}}</td>
         </tr>
         <tr>
         <td>住所</td>

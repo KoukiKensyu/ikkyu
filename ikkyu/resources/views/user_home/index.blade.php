@@ -37,7 +37,7 @@
 <table border="1">
 <tr><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 @foreach ($hotels as $hotel)
-<tr><td><a href='/reserve/show'>{{$hotel->name}}</a></td>
+<tr><td><a href="{!! route('show', ['name'=>$hotel->name]) !!}">{{$hotel->name}}</a></td>
     @if($hotel->hotel_type == 0)
         <td>シティホテル</td>
        
