@@ -14,11 +14,13 @@
                 <label for="type3">タイプ3</label><br>
             </form>
         </div>
-        <form action=""></form>
+        <form action="">
             <p class="p-2 bd-highlight"><input type="text" name="keyword" placeholder="宿名"></p>
             <p class="p-2 bd-highlight"><label>分類<input type="text" name="hotel_type"></label></p>
            <button class="p-2 bd-highlight" type="submit">検索</button>
-            <button class="p-2 bd-highlight" type="submit" onclick="location.href='/hotel_views/store'">新規登録</button>
+        </form>
+        <form action="{{route('hotels.create')}}">
+            <button class="p-2 bd-highlight" type="submit" onclick="location.href='/hotel_views/create'">新規登録</button>
         </form>
     </div>
 
@@ -32,18 +34,14 @@
           </tr>
         </thead>
         <tbody>
+          @foreach($hotels as $hotel)
           <tr>
-            <th scope="row"><a href="/hotel_views/show">a</a></th>
-            <td>a</td>
-            <td>a</td>
-            <td>a</td>
+            <th scope="row"><a href="/hotel_views/{{ $hotel->id }}">{{ $hotel->name }}</a></th>
+            <td>{{ $hotel->address }}</td>
+            <td>{{ $hotel->hotel_type }}</td>
+            <td>残り部屋数</td> <!--計算-->
           </tr>
-          <tr>
-            <th scope="row" href="/home"><a href="/">b</a></th>
-            <td>b</td>
-            <td>b</td>
-            <td>b</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
 </body>
