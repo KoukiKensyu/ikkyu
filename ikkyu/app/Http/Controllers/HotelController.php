@@ -28,7 +28,8 @@ class HotelController extends Controller
 
     public function create()
     {
-        return view('hotel_views/create');
+        $hotel = new \App\Models\Hotel;
+        return view('hotel_views/create', ['hotel' => $hotel]);
     }
 
     public function postconfirm(Request $request)
@@ -58,15 +59,10 @@ class HotelController extends Controller
 
     public function store(Request $request)
     {
+        
         $hotel = new \App\Models\Hotel;
-        $hotel->name = $request->name;
-        $hotel->hotel_type = $request->hotel_type;
-        $hotel->address = $request->address;
-        $hotel->checkin_time = $request->checkin_time;
-        $hotel->checkout_time = $request->checkout_time;
-        $hotel->max_rooms = $request->max_rooms;
         $hotel->save();
-        return redirect(route('hotels.index'));
+        return view('/hotel_views/storeCompletion');
     }
 
     public function edit($id)
