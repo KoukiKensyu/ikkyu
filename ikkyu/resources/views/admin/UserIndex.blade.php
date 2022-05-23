@@ -12,7 +12,7 @@
 </table>
 </table>
 <button onclick="location.href='/admin/UserUpdate/{{$user ->id}}'">変更</button>
-<button onclick="location.href='/admin/UserDelete'">退会</button>
+<button onclick="location.href='/admin/UserDelete/{{$user ->id}}'">退会</button>
 <button onclick="location.href='/admin/Memindex'">＜戻る</button>
 
 @endsection
