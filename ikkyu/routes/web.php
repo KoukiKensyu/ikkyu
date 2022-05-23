@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminHomecontroller;
 use App\Http\Controllers\HotelController;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2f2238cd1d9928128e9fc25bec59888757e99d48
 
 
 /*
@@ -42,7 +46,7 @@ Route::get('/mypage/UserDelete', function () {
     return view('/mypage/UserDelete');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home/index',[App\Http\Controllers\AdminHomecontroller::class, 'index']);
@@ -52,7 +56,7 @@ Route::get('/reserve/show',[\App\Http\Controllers\AdminHomecontroller::class, 's
 Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, 'store'])->name('store');
 Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
 Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
-Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
+//Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
 Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
 
 Route::prefix('administrator')->group(function() {
@@ -68,10 +72,17 @@ Route::get('/register_confirmation', function () {return view('auth/register_con
 Route::get('/register_input', function () {return view('auth/register_input');});
 Route::get('/login_user', function () {return view('auth/login_user');});
 Route::get('/login_administrator', function () {return view('auth/login_administrator');});
+<<<<<<< HEAD
+//Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
+Route::get('/user_home/index', function () {
+    return view('/user_home/index');
+});
+=======
 Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
 // Route::get('/user_home/index', function () {
     // return view('/user_home/index');
 // });
+>>>>>>> 2f2238cd1d9928128e9fc25bec59888757e99d48
 
 Route::get('/register_confirmation', function () {
     return view('auth/register_confirmation');
@@ -88,15 +99,15 @@ Route::get('/login_user', function () {
 Route::get('/login_administrator', function () {
     return view('auth/login_administrator');
 });
-Route::get('/hotel_views/hotelManagement', function () {
+/*Route::get('/hotel_views/hotelManagement', function () {
     return view('/hotel_views/hotelManagement');
-});
-Route::get('/hotel_views/store', function () {
+});*/
+/*Route::get('/hotel_views/store', function () {
     return view('/hotel_views/store');
-});
-Route::get('/hotel_views/storeConfirmation', function () {
+});*/
+/*Route::get('/hotel_views/storeConfirmation', function () {
     return view('/hotel_views/storeConfirmation');
-});
+});*/
 Route::get('/hotel_views/storeCompletion', function () {
     return view('/hotel_views/storeCompletion');
 });
@@ -115,6 +126,24 @@ Route::get('/admin/UserIndex/{id}',[App\Http\Controllers\UserController::class, 
 Route::get('/admin/UserDelete/{id}',[App\Http\Controllers\UserController::class, 'Dconfirm'])->name('Dconfirm');
 Route::delete('/admin/UserIndex/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroy');
 
+<<<<<<< HEAD
+Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
+Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
+Route::get('/admin/Memindex', function () {return view('admin/Memindex');});
+Route::get('/admin/UserUpdate', function () {return view('admin/UserUpdate');});
+Route::get('/admin/UserUpdate_confirmation', function () {return view('admin/UserUpdate_confirmation');});
+
+//523新規
+Route::get('/hotel_views/hotelManagement',[HotelController::class, 'index'])->name('hotels.index'); //hotelの詳細画面
+Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create');
+Route::post('/hotel_views/storeCompletion',[HotelController::class,'store'])->name('hotels.store');
+
+Route::get('/hotel_views/storeConfirmation',[HotelController::class,'createconfirm'])->name('hotels.createconfirm');
+Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
+
+Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
+=======
 Route::get('/admin/Memindex',[App\Http\Controllers\UserController::class, 'search'])->name('Usearch');
 // Route::get('/admin/Memindex', function () {return view('admin/Memindex');});
 
@@ -122,3 +151,4 @@ Route::get('/admin/UserUpdate/{id}',[App\Http\Controllers\UserController::class,
 // Route::get('/admin/UserUpdate', function () {return view('admin/UserUpdate');});
 Route::post('/admin/UserUpdate_confirmation/{id}', [App\Http\Controllers\UserController::class, 'confirm'])->name('confirm');
 Route::patch('/admin/UserIndex/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+>>>>>>> 2f2238cd1d9928128e9fc25bec59888757e99d48
