@@ -6,28 +6,24 @@
     <tbody>
         <tr>
         <td>宿名</td>
-        <td>宿1</td>
+        <td>{{ $hotel->name }}</td>
         </tr>
         <tr>
         <td>住所</td>
-        <td>住所1</td>
+        <td>{{ $hotel->address }}</td>
         </tr>
         <tr>
         <td>宿分類</td>
-        <td>リゾートホテル</td>
+        <td>{{ $hotel->hotel_type }}</td>
         </tr>
         <tr>
         <tr>
         <td>チェックイン/チェックアウト</td>
-        <td>00：00/00：01</td>
-        </tr>
-        <tr>
-        <td>金額/部屋</td>
-        <td>$$$$$円/部屋</td>
+        <td>{{ $hotel->checkin_time }}/{{ $hotel->checkout_time }}</td>
         </tr>
         <tr>
         <td>部屋数</td>
-        <td>57部屋</td>
+        <td>{{ $hotel->max_rooms }}</td>
         </tr>
     </tbody>
 </table>

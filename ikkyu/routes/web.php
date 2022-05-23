@@ -85,9 +85,9 @@ Route::get('/login_administrator', function () {
 /*Route::get('/hotel_views/store', function () {
     return view('/hotel_views/store');
 });*/
-Route::get('/hotel_views/storeConfirmation', function () {
+/*Route::get('/hotel_views/storeConfirmation', function () {
     return view('/hotel_views/storeConfirmation');
-});
+});*/
 Route::get('/hotel_views/storeCompletion', function () {
     return view('/hotel_views/storeCompletion');
 });
@@ -110,5 +110,11 @@ Route::get('/admin/UserUpdate_confirmation', function () {return view('admin/Use
 
 //523新規
 Route::get('/hotel_views/hotelManagement',[HotelController::class, 'index'])->name('hotels.index'); //hotelの詳細画面
-Route::get('/hotel_views/{id}',[HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
 Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create');
+Route::post('/hotel_views/hotelManagement',[HotelController::class,'store'])->name('hotels.store');
+
+Route::get('/hotel_views/storeConfirmation',[HotelController::class,'createconfirm'])->name('hotels.createconfirm');
+Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
+
+Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');

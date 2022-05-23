@@ -6,15 +6,15 @@
     <tbody>
         <tr>
         <td>宿名</td>
-        <td><input type="text"></td>
+        <td><input type="text" name="name" value="{{$hotel -> name}}"></td>
         </tr>
         <tr>
         <td>住所</td>
-        <td><input type="text"></td>
+        <td><input type="text" name="address" value="{{$hotel -> address}}"></td>
         </tr>
         <tr>
         <td>宿分類</td>
-        <td><select name="hotelType" >
+        <td><select name="hotelType" name="hotel_type" value="{{$hotel -> hotel_type}}">
             <option value="0">0:シティホテル</option>
             <option value="1">1:リゾートホテル</option>
             <option value="2">2:ビジネスホテル</option>
@@ -26,18 +26,15 @@
         <tr>
         <tr>
         <td>チェックイン/チェックアウト</td>
-        <td><input type="time">/<input type="time"></td>
+        <td><input type="time" name="checkin_time" value="{{$hotel -> checkin_time}}">/<input type="time" name="checkout_time" value="{{$hotel -> checkout_time}}"></td>
         </tr>
-        <tr>
-        <td>金額/部屋</td>
-        <td><input type="text">円/部屋</td>
-        </tr>
+
         <tr>
         <td>部屋数</td>
-        <td><input type="number">部屋</td>
+        <td><input type="number" value="{{$hotel ->max_rooms}}">部屋</td>
         </tr>
     </tbody>
 </table>
 <button onclick="location.href='/hotel_views/editConfirmation'">登録</button>
-<button onclick="location.href='/hotel_views/show'">戻る</button>
+<button onclick="location.href='/hotel_views/show/{{ $hotel->id }}'">戻る</button>
 @endsection

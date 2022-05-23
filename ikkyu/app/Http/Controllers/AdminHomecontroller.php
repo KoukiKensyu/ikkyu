@@ -27,9 +27,9 @@ class AdminHomecontroller extends Controller
     public function confirm(){
         return view ('reserve/confirm');
     }
-    public function showHotel(){
+   /* public function showHotel(){
         return view ('/hotel_views/show');
-    }
+    }*/
     public function editHotel(){
         return view ('/hotel_views/edit');
     }

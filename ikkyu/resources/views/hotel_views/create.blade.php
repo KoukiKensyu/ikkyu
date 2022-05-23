@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>新規登録</h2>
-<form action="{{ route('hotels.store')) }}" method="post">
+<form action="{{route('hotels.postconfirm')}}" method="post">
     @csrf
     <table border='1'>
         <tbody>
@@ -30,16 +30,12 @@
                 <td><input type="time" name="checkin_time">/<input type="time" name="checkout_time"></td>
             </tr>
             <tr>
-                <td>金額/部屋</td>
-                <td><input type="text">円/部屋</td> <!--priceなし-->
-            </tr>
-            <tr>
                 <td>部屋数</td>
                 <td><input type="number" name="max_rooms">部屋</td>
             </tr>
         </tbody>
     </table>
-</form>
-<button onclick="location.href='/hotel_views/storeConfirmation'">登録</button>
+<button onclick="location.href='/hotel_views/postConfirmation'">登録確認へ</button>
 <button onclick="location.href='/hotel_views/hotelManagement'">戻る</button>
+</form>
 @endsection
