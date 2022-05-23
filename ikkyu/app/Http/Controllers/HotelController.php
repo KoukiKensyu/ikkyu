@@ -21,9 +21,9 @@ public function search(Request $request)
         $query -> where('name', 'LIKE', '%'. $request->name. '%');
     }
     if($request->hotel_type){
-        foreach($request->hotel_type as $type){
-      $query -> where('hotel_type',"=", $type);
-            }    }
+        
+      $query -> whereIn('hotel_type' ,$request->hotel_type);
+                }
     if($request->max_rooms = 1){
         $query-> where('max_rooms','>', 0);
     }

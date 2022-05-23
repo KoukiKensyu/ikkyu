@@ -62,5 +62,5 @@
 </table>
 
 </form>
-{{ $hotels->appends(Request::all())->links() }}
+<p>{{ $hotels->appends(Request::all())->links() }}</p>
 @endsection
