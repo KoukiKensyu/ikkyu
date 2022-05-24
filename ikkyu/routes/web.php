@@ -71,18 +71,18 @@ Route::get('/login_administrator', function () {return view('auth/login_administ
 
 
 // 宿管理関連-----------------------------------
-Route::get('/hotel_views/hotelManagement',[HotelController::class, 'index'])->name('hotels.index'); //hotelの詳細画面
-Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create');
-Route::get('/hotel_views/storeConfirmation',[HotelController::class,'createconfirm'])->name('hotels.createconfirm');
-Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
-Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
-Route::post('/hotel_views/editConfirmation/{id}',[HotelController::class,'editconfirm'])->name('hotels.editconfirm');
-Route::patch('/hotel_views/editCompletion/{id}',[HotelController::class,'update'])->name('hotels.update');
-Route::get('/hotel_views/delete/{id}',[HotelController::class,'destroyconfirm'])->name('hotels.destroyconfirm');
-Route::delete('/hotel_views/destroy/{id}',[HotelController::class,'destroy'])->name('hotels.destroy');
-Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
-Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create');
+Route::get('/hotel_views/hotelManagement',[HotelController::class, 'index'])->name('hotels.index'); //19 宿管理 hotel_views/hotelManagement
+Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create'); //23 宿新規登録 hotel_views/create
+Route::get('/hotel_views/storeConfirmation',[HotelController::class,'createconfirm'])->name('hotels.createconfirm'); //24 宿新規登録確認画面(いらない？) hotel_views/storeConfirmation
+Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm'); //24 宿新規登録確認 hotel_views/storeConfirmation
+Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');//21-1 宿詳細変更 hotel_views/edit
+Route::post('/hotel_views/editConfirmation/{id}',[HotelController::class,'editconfirm'])->name('hotels.editconfirm');//22 宿詳細変更確認 hotel_views/editConfirmation
+Route::patch('/hotel_views/editCompletion/{id}',[HotelController::class,'update'])->name('hotels.update');//DBにデータを登録 hotel_views/editCompletion
+Route::get('/hotel_views/delete/{id}',[HotelController::class,'destroyconfirm'])->name('hotels.destroyconfirm');//21-2 宿削除確認 hotel_views/hotelDelete
+Route::delete('/hotel_views/destroy/{id}',[HotelController::class,'destroy'])->name('hotels.destroy');//削除機能 hotel_views/hotelManagement
+Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show'); //20 宿詳細 hotel_views/show
 Route::post('/hotel_views/storeCompletion',[HotelController::class,'store'])->name('hotels.store');Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
+//22-2 変更・登録完了画面 hotel_views/storeCompletion
 Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
 Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
 Route::post('/hotel_views/storeCompletion',[HotelController::class,'store'])->name('hotels.store');
