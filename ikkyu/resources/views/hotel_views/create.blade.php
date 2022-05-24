@@ -8,11 +8,11 @@
         <tbody>
             <tr>
                 <td>宿名</td>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" name="name" value="{{$hotel->name}}"></td>
             </tr>
             <tr>
                 <td>住所</td>
-                <td><input type="text" name="address"></td>
+                <td><input type="text" name="address" value="{{$hotel->address}}"></td>
             </tr>
             <tr>
                 <td>宿分類</td>
@@ -27,15 +27,15 @@
             </tr>
             <tr>
                 <td>チェックイン/チェックアウト</td>
-                <td><input type="time" name="checkin_time">/<input type="time" name="checkout_time"></td>
+                <td><input type="time" name="checkin_time" value="$hotel->checkin_time">/<input type="time" name="checkout_time" value="$hotel->checkout_time"></td>
             </tr>
             <tr>
                 <td>部屋数</td>
-                <td><input type="number" name="max_rooms">部屋</td>
+                <td><input type="number" name="max_rooms" value="$hotel->max_rooms">部屋</td>
             </tr>
         </tbody>
     </table>
-<button onclick="location.href='/hotel_views/postConfirmation'">登録確認へ</button>
+<button type="submit">登録確認へ</button>
 <button onclick="location.href='/hotel_views/hotelManagement'">戻る</button>
 </form>
 @endsection

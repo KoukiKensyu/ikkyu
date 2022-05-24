@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
+
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
+<<<<<<< HEAD
     public function index(Request $request)
     {
         //$hotels = \App\Models\Hotel::all(); 検索機能なし
@@ -28,7 +31,8 @@ class HotelController extends Controller
 
     public function create()
     {
-        return view('hotel_views/create');
+        $hotel = new \App\Models\Hotel;
+        return view('hotel_views/create', ['hotel' => $hotel]);
     }
 
     public function postconfirm(Request $request)
@@ -58,6 +62,7 @@ class HotelController extends Controller
 
     public function store(Request $request)
     {
+        
         $hotel = new \App\Models\Hotel;
         $hotel->name = $request->name;
         $hotel->hotel_type = $request->hotel_type;
@@ -66,7 +71,7 @@ class HotelController extends Controller
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
         $hotel->save();
-        return redirect(route('hotels.index'));
+        return view('/hotel_views/storeCompletion');
     }
 
     public function edit($id)
@@ -115,4 +120,28 @@ class HotelController extends Controller
         
     }
 
+=======
+    public function indexHome (){
+        $hotels = \App\Models\Hotel::all();
+        
+        return view('/user_home/index', ['hotels' => $hotels]);
+    }
+
+public function search(Request $request)
+{
+    $query = Hotel::query();
+    if($request->name){
+        $query -> where('name', 'LIKE', '%'. $request->name. '%');
+    }
+    if($request->hotel_type){
+        
+      $query -> whereIn('hotel_type' ,$request->hotel_type);
+                }
+    if($request->max_rooms = 1){
+        $query-> where('max_rooms','>', 0);
+    }
+    $hotels = $query->orderBy('max_rooms')->paginate(3);
+    return view('/user_home/index', ['hotels' => $hotels]);
+}
+>>>>>>> 2f2238cd1d9928128e9fc25bec59888757e99d48
 }

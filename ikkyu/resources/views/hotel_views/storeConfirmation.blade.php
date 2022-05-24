@@ -2,6 +2,8 @@
 
 @section('content')
 <h2>新規登録</h2>
+<form action="{{route('hotels.store')}}" method="post">
+    @csrf
 <table border='1'>
     <tbody>
         <tr>
@@ -27,7 +29,13 @@
         </tr>
     </tbody>
 </table>
+<input type="hidden" name="name" value="{{ $hotel->name }}">
+<input type="hidden" name="address" value="{{$hotel->address}}">
+<input type="hidden" name="hotel_type" value="{{ $hotel->hotel_type }}">
+<input type="hidden" name="checkin_time" value="{{$hotel->checkin_time}}">
+<input type="hidden" name="checkout_time" value="{{$hotel->checkout_time}}">
+<input type="hidden" name="max_rooms" value="{{$hotel->max_rooms}}">
 <p>この内容で登録しますか？</p>
-<button onclick="location.href='/hotel_views/storeCompletion'">確定</button>
+<button type="submit">確定</button></form>
 <button onclick="location.href='/hotel_views/store'">戻る</button>
 @endsection
