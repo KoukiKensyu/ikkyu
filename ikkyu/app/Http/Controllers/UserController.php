@@ -4,11 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        //dd($user);
+        return view('mypage/index',['users'=>$user]);
+    }
+    public function edit_user()
+    {
+        $user = Auth::user();
+        return view('mypage/edit',['user'=>$user]);
+    }
+    public function update_user(Request $request)
+    {
+
+        $user = \App\Models\User::find($request->id);
+        $user->name  = $request->name;
+        $user->address = $request->address;
+        $user->tel = $request->tel;
+        $user->email = $request->email;
+        $user->birthday = $request->birthday;
+
+        return view('mypage/edit_confirmation',['user'=>$user]);
+    }
+
+    public function store(Request $request)
+    {
+
+        $user = \App\Models\User::find($request->id);
+        $user->name  = $request->name;
+        $user->address = $request->address;
+        $user->tel = $request->tel;
+        $user->email = $request->email;
+        $user->birthday = $request->birthday;
+        $user -> save();
+        return redirect('/mypage/index');
+
+    }
+
     public function search(Request $request)
-{
+    {
     $query = User::query();
     if($request->name){
         $query -> where('name', 'LIKE', '%'. $request->name. '%');
@@ -18,7 +57,8 @@ class UserController extends Controller
     }
     $users = $query->orderBy('id')->paginate(3);
     return view('/admin/Memindex', ['users' => $users]);
-}
+    }
+
     public function show($id)
     {
         $user = \App\Models\User::find($id);

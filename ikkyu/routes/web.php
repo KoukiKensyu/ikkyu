@@ -7,6 +7,7 @@ use App\Http\Controllers\HotelController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,23 +29,34 @@ Route::get('user_home/index',[App\Http\Controllers\HotelController::class, 'sear
     // return view('user_home/index');
 // });
 
+/*
 Route::get('mypage/index', function () {
     return view('mypage/index');
 });
+*/
+Route::get('mypage/index', [App\Http\Controllers\UserController::class,'index'])->name('mypage.index');
 
+/*
 Route::get('mypage/edit', function () {
     return view('mypage/edit');
 });
+*/
+Route::get('mypage/edit', [App\Http\Controllers\UserController::class,'edit_user']);
 
+/*
 Route::get('mypage/edit_confirmation', function () {
     return view('mypage/edit_confirmation');
 });
+*/
+Route::post('mypage/edit_confirmation', [App\Http\Controllers\UserController::class,'update_user'])->name('mypage.edit_confirmation');
+
+Route::patch('mypage/edit_confirmation',[App\Http\Controllers\UserController::class,'store'])->name('mypage.edit_store');
 
 Route::get('/mypage/UserDelete', function () {
     return view('/mypage/UserDelete');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home/index',[App\Http\Controllers\AdminHomecontroller::class, 'index']);
@@ -124,7 +136,6 @@ Route::get('/admin/UserIndex/{id}',[App\Http\Controllers\UserController::class, 
 // Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
 Route::get('/admin/UserDelete/{id}',[App\Http\Controllers\UserController::class, 'Dconfirm'])->name('Dconfirm');
 Route::delete('/admin/UserIndex/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroy');
-
 
 Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
 Route::get('/admin/UserDelete', function () {return view('admin/UserDelete');});
