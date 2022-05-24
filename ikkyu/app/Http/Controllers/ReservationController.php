@@ -34,7 +34,9 @@ class ReservationController extends Controller
         $reservation->rooms = $request->rooms;
         $reservation->checkin_date = $request->checkin_date;
         $reservation->checkout_date = $request->checkout_date;
-        return view ('reserve/check', ['reservation' => $reservation, 'hotel_id' => $request->hotel_id]);
+        $hotel = DB::table('hotels')->where('id', 4)->get()->toArray();
+        return view ('reserve/check', ['reservation' => $reservation, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id]);
+
     }
     public function confirm(Request $request){
         $reservation = new Reservation;

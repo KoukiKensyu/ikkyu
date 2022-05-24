@@ -3,7 +3,8 @@
 @section('content')
 <h2>予約内容入力</h2>
 
-<form action="{{route('reserve.check')}}" method="get">
+<form action="{{route('reserve.check')}}" method="post">
+    @csrf
     <table border='1'>
         <tbody>
             <tr>
@@ -35,8 +36,8 @@
             
         </tbody>
     </table>
-    <input type="hidden" name="hodel_id" value="{{$hotel[0]->id}}">
+    <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
     <button type="submit">確認画面へ</button>
 </form>
-    <button onclick="location.href='show'">戻る</button>
+    <button onclick="location.href='/reserve/show/{{$hotel[0]->id}}'">戻る</button>
 @endsection

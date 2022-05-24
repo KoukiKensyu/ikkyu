@@ -6,7 +6,7 @@
     <tbody>
         <tr>
         <td>宿名</td>
-        <td>{{$hotel_id}}</td>
+        <td>{{$hotel_name}}</td>
         </tr>
         <tr>
         <td>氏名</td>
@@ -34,5 +34,5 @@
     <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
     <button type="submit">確定</button>
 </form>
-<button onclick="location.href='reserve/edit'">戻る</button>
+<button onclick="location.href='/reserve/edit/{{$hotel_id}}'">戻る</button>
 @endsection

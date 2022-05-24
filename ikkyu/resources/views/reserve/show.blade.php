@@ -28,5 +28,6 @@
         </tbody>
     </table>
     <button type="submit">予約</button>
+</form>
 <button onclick="location.href='/user_home/index'">戻る</button>
 @endsection
