@@ -7,7 +7,7 @@
     <input type="text" name="id" value="{{request('id')}}" placeholder="検索ID">
     <button type="submit">検索</button></form>
     <br>
-    <table class="AdminMem" border="1">
+    <table class="table">
     <tr>
         <thead>
         <th>会員ID</th>

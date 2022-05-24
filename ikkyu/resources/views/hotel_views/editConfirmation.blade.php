@@ -38,7 +38,7 @@
 <input type="hidden" name="max_rooms" value="{{$hotel->max_rooms}}">
 
 <p>この内容で登録しますか？</p>
-<button onclick="location.href='/hotel_views/editCompletion/{{ $hotel->id }}''">確定</button>
+<button onclick="location.href='/hotel_views/editCompletion/{{ $hotel->id }}'">確定</button>
 </form>
 <button onclick="location.href='/hotel_views/edit/{{ $hotel->id }}'">戻る</button>
 <!--<button onclick="location.href='/hotel_views/editCompletion'">確定</button>
