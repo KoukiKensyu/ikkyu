@@ -45,7 +45,7 @@ class UserController extends Controller
         return redirect('/mypage/index');
     }
 
-    
+
     public function search(Request $request)
     {
         $query = User::query();
@@ -93,7 +93,7 @@ class UserController extends Controller
     public function delete_confirm($id)
     {
         $user = \App\Models\User::find($id);
-        return view('/admin/UserDelete', ['user' => $user]);
+        return view('/admin/user_delete', ['user' => $user]);
     }
     public function destroy($id)
     {
