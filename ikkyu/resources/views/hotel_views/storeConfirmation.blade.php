@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>新規登録</h2>
-<form action="{{route('hotels.store')}}" method="post">
+<form action="{{route('hotels.storeCompletion')}}" method="post">
     @csrf
 <table border='1'>
     <tbody>

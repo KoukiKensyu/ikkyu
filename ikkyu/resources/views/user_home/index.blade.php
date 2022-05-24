@@ -37,15 +37,30 @@
 </form>
 </div>
 
-
+<!-- <style>.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+table.table-fit {
+    width: auto !important;
+    table-layout: auto !important;
+}
+table.table-fit thead th, table.table-fit tfoot th {
+    width: auto !important;
+}
+table.table-fit tbody td, table.table-fit tfoot td {
+    width: auto !important;
+}
+</style> -->
 
 
 </div>
 <form action="">
-    <div class="table-responsive">
-<table class="table table-hover table-sm table align-middle">
+    
+<table class="table table-hover ">
 <thead>
-<tr><th></th><th></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
+<tr><th style="width: 10%;"></th><th style="width: 10%;"></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 </thead>
 <tbody class="table-hover">
 @foreach ($hotels as $hotel)
@@ -55,7 +70,7 @@
     <td><img src="/images/{{$hotel->id}}.jpg" width="163" height="130" alt=""></td>
     @else<td><img src="/images/6.jpg" width="163" height="130" alt=""></td>
     @endif
-    <td>{{$hotel->comment}}</td></tr>
+    <td>{{$hotel->comment}}</td>
     <td><a href="/reserve/show/{{$hotel->id}}">{{$hotel->name}}</a></td>
     @if($hotel->hotel_type == 0)
         <td>シティホテル</td>

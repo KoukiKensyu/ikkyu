@@ -11,29 +11,13 @@ class AdminHomecontroller extends Controller
         return view ('home/index');
     }
     public function indexMem(){
-        return view ('admin/Memindex');
+        return view ('admin/user_index');
     }
     public function indexHotel(){
         return view ('admin/Hotelindex');
     }
-    // public function show(){
-    //     return view ('reserve/show');
-    // }
-    // public function store(){
-    //     return view ('reserve/store');
-    // }
-    // public function check(){
-    //     return view ('reserve/check');
-    // }
-    // public function confirm(){
-    //     return view ('reserve/confirm');
-    // }
-   /* public function showHotel(){
-        return view ('/hotel_views/show');
-    }*/
     public function editHotel(){
         return view ('/hotel_views/edit');
     }
-
    
 }

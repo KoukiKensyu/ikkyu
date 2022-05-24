@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{route('update', $user->id)}}" method="POST">
+<form action="{{route('admin.user_update', $user->id)}}" method="POST">
     @method('patch')
     @csrf
 <table class="table">
@@ -23,5 +23,5 @@
 <p>この内容で確定しますか？</p>
 <button type="submit">変更</button>
 </form>
-<button onclick="location.href='/admin/UserUpdate/{{ $user->id }}'">戻る</button>
+<button onclick="location.href='/admin/user_edit/{{ $user->id }}'">戻る</button>
 @endsection
