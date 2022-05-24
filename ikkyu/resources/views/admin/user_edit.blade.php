@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{route('confirm', $user->id)}}" method="POST">
+<form action="{{route('admin.user_edit_confirm', $user->id)}}" method="POST">
 @csrf
 <input type="hidden" name="id" value="{{$user->id}}">
 <table class="table">
@@ -14,5 +14,5 @@
 </table>    
 <button type="submit">変更</button>
 </form>
-<button onclick="location.href='/admin/UserIndex/{{ $user->id }}'">戻る</button>
+<button onclick="location.href='/admin/user_detail/{{ $user->id }}'">戻る</button>
 @endsection

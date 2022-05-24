@@ -11,7 +11,7 @@ class AdminHomecontroller extends Controller
         return view ('home/index');
     }
     public function indexMem(){
-        return view ('admin/Memindex');
+        return view ('admin/user_index');
     }
     public function indexHotel(){
         return view ('admin/Hotelindex');

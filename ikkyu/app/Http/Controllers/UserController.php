@@ -45,6 +45,7 @@ class UserController extends Controller
         return redirect('/mypage/index');
     }
 
+
     public function search(Request $request)
     {
         $query = User::query();
@@ -55,18 +56,18 @@ class UserController extends Controller
             $query->where('id', 'LIKE', '%' . $request->id . '%');
         }
         $users = $query->orderBy('id')->paginate(3);
-        return view('/admin/Memindex', ['users' => $users]);
+        return view('/admin/user_index', ['users' => $users]);
     }
 
     public function show($id)
     {
         $user = \App\Models\User::find($id);
-        return view('/admin/UserIndex', ['user' => $user]);
+        return view('/admin/user_detail', ['user' => $user]);
     }
     public function edit($id)
     {
         $user = \App\Models\User::find($id);
-        return view('/admin/UserUpdate', ['user' => $user]);
+        return view('/admin/user_edit', ['user' => $user]);
     }
     public function confirm(Request $request, $id)
     {
@@ -76,7 +77,7 @@ class UserController extends Controller
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->birthday = $request->birthday;
-        return view('/admin/UserUpdate_confirmation', ['user' => $user]);
+        return view('/admin/user_edit_confirm', ['user' => $user]);
     }
     public function update(Request $request, $id)
     {
@@ -87,17 +88,17 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->birthday = $request->birthday;
         $user->save();
-        return redirect('/admin/Memindex');
+        return redirect('/admin/user_index');
     }
-    public function Dconfirm($id)
+    public function delete_confirm($id)
     {
         $user = \App\Models\User::find($id);
-        return view('/admin/UserDelete', ['user' => $user]);
+        return view('/admin/user_delete', ['user' => $user]);
     }
     public function destroy($id)
     {
         $user = \App\Models\User::find($id);
         $user->delete();
-        return redirect('/admin/Memindex');
+        return redirect('/admin/user_index');
     }
 }
