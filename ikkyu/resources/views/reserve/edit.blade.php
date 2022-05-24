@@ -5,7 +5,7 @@
 
 <form action="{{route('reserve.check')}}" method="post">
     @csrf
-    <table border='1'>
+    <table class="table">
         <tbody>
             <tr>
             <td>宿名</td>
@@ -37,7 +37,7 @@
         </tbody>
     </table>
     <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
-    <button type="submit">確認画面へ</button>
+    <button class="btn btn-outline-danger btn-rounded active" type="submit">確認画面へ</button>
 </form>
-    <button onclick="location.href='/reserve/show/{{$hotel[0]->id}}'">戻る</button>
+    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/show/{{$hotel[0]->id}}'">戻る</button>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <h2>宿詳細</h2>
 <form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
-    <table border='1'>
+    <table class="table">
         <tbody>
             <tr>
             <td>宿名</td>
@@ -27,7 +27,7 @@
             </tr>
         </tbody>
     </table>
-    <button type="submit">予約</button>
+    <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
 </form>
-<button onclick="location.href='/user_home/index'">戻る</button>
+<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
 @endsection
