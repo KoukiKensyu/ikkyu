@@ -12,11 +12,11 @@
             </tr>
             <tr>
             <td>氏名</td>
-            <td><input type="text" name="name" value={{Auth::user()->name}}></td>
+            <td><input type="text" name="name" value=""></td>
             </tr> 
             <tr>
             <td>予約部屋数</td>
-            <td><select name="roomNumber" name="rooms">
+            <td><select name="rooms">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -35,6 +35,7 @@
             
         </tbody>
     </table>
+    <input type="hidden" name="hodel_id" value="{{$hotel[0]->id}}">
     <button type="submit">確認画面へ</button>
 </form>
     <button onclick="location.href='show'">戻る</button>
