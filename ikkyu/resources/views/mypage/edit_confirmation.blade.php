@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<table border="1">
+<div
+  class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');"
+>
+  <h1 class="mb-3 h2">会員情報変更確認</h1>
+</div>
+
+<div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
+<div class="card" style="width: 40rem;"> <!--tableをcard化-->
+
+<table border="1" class="table">
 <tr><th colspan="2">会員情報</th></tr>
 <!--<tr><th>会員ID</th><td>{{$user->id}}</td></tr>-->
 <tr><th>氏名</th><td>{{$user->name}}</td></tr>
@@ -21,8 +31,12 @@
 <input type="hidden" name="tel" value="{{$user->tel}}">
 <input type="hidden" name="email" value="{{$user->email}}">
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
-    <button type="submit">変更</button>
+<div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
 </form>
 
-<button onclick="location.href='/mypage/edit'">戻る</button>
+<button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div>
+</div>
+</div>
 @endsection

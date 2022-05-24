@@ -77,7 +77,7 @@ Route::get('/home/index', [AdminHomecontroller::class, 'index'])->name('admin.ho
 Route::prefix('admin')->group(function () {
     Route::get('/user_index', [UserController::class, 'search'])->name('admin.user_index'); // 15.会員管理 admin/user_index
     Route::get('/user_detail/{id}', [UserController::class, 'show'])->name('admin.user_detail'); // 16.会員詳細表示 admin/user_detail
-    Route::get('/user_edit/{id}', [UserController::class, 'edit'])->name('admin.user_edit'); // 17.会員情報変更 admin/UserUpdate
+    Route::get('/user_edit/{id}', [UserController::class, 'edit'])->name('admin.user_edit'); // 17.会員情報変更 admin/user_edit
     Route::post('/user_edit_confirm/{id}', [UserController::class, 'confirm'])->name('admin.user_edit_confirm'); // 17-2.会員変更確認 admin/user_edit_confirm
     Route::patch('/user_detail/{id}', [UserController::class, 'update'])->name('admin.user_update'); // 17-2.会員変更確認(確定ボタン) admin/user_edit_confirm
     Route::get('/user_delete/{id}', [UserController::class, 'delete_confirm'])->name('admin.user_delete'); // 18.会員削除確認 admin/user_delete

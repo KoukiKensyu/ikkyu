@@ -2,21 +2,21 @@
 
 @section('content')
 <h2>変更登録</h2>
-<form action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
+<form class="needs-validation" action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
 @csrf
     <table class="table">
     <tbody>
         <tr>
-        <td>宿名</td>
-        <td><input type="text" name="name" value="{{$hotel -> name}}"></td>
+            <td><label for="validationCustom01" class="form-label">宿名</label></td>
+            <td><input class="form-control" id="validationCustom01" type="text" name="name" value="{{$hotel -> name}}" required></td>
         </tr>
         <tr>
-        <td>住所</td>
-        <td><input type="text" name="address" value="{{$hotel -> address}}"></td>
+        <td><label for="validationCustom02" class="form-label">住所</label></td>
+        <td><input class="form-control" id="validationCustom02" type="text" name="address" value="{{$hotel -> address}}" required></td>
         </tr>
         <tr>
-        <td>宿分類</td>
-        <td><select name="hotel_type">
+        <td><label for="validationCustom03" class="form-label">宿分類</label></td>
+        <td><select class="form-select" id="validationCustom03" name="hotel_type" required>
             <option value="0">0:シティホテル</option>
             <option value="1">1:リゾートホテル</option>
             <option value="2">2:ビジネスホテル</option>
@@ -27,13 +27,15 @@
         </tr>
         <tr>
         <tr>
-        <td>チェックイン/チェックアウト</td>
-        <td><input type="time" name="checkin_time" value="{{$hotel -> checkin_time}}">/<input type="time" name="checkout_time" value="{{$hotel -> checkout_time}}"></td>
+        <td><label for="validationCustom04" class="form-label">チェックイン/チェックアウト</label></td>
+        <td><input class="form-control" id="validationCustom04" type="time" name="checkin_time" value="{{$hotel -> checkin_time}}" required>
+            /
+            <input class="form-control" id="validationCustom04" type="time" name="checkout_time" value="{{$hotel -> checkout_time}}" required></td>
         </tr>
 
         <tr>
-        <td>部屋数</td>
-        <td><input type="number" name=max_rooms value="{{$hotel ->max_rooms}}">部屋</td>
+        <td><label for="validationCustom05" class="form-label">部屋数</label></td>
+        <td><input class="form-control" id="validationCustom05" type="number" name=max_rooms value="{{$hotel ->max_rooms}}" required>部屋</td>
         </tr>
         <tr>
         <td>コメント</td>
@@ -41,7 +43,7 @@
         </tr>
     </tbody>
 </table>
-<button onclick="location.href='/hotel_views/editConfirmation/{{ $hotel->id }}'">登録</button>
+<button class="btn btn-primary">登録</button>
 </form>
 <button onclick="location.href='/hotel_views/show/{{ $hotel->id }}'">戻る</button>
 
