@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
-<<<<<<< HEAD
     public function index(Request $request)
     {
         //$hotels = \App\Models\Hotel::all(); 検索機能なし
@@ -118,29 +117,18 @@ class HotelController extends Controller
         $hotel->delete();
         return redirect(route('hotels.index'));
     }
-
-=======
-    public function indexHome (){
-        $hotels = \App\Models\Hotel::all();
-        
-        return view('/user_home/index', ['hotels' => $hotels]);
-    }
-
-public function search(Request $request)
-{
-    $query = Hotel::query();
-    if($request->name){
-        $query -> where('name', 'LIKE', '%'. $request->name. '%');
-    }
-    if($request->hotel_type){
-        
-      $query -> whereIn('hotel_type' ,$request->hotel_type);
-                }
-    if($request->max_rooms = 1){
-        $query-> where('max_rooms','>', 0);
-    }
-    $hotels = $query->orderBy('max_rooms')->paginate(3);
-    return view('/user_home/index', ['hotels' => $hotels]);
+    public function search(Request $request){
+        $query = \App\Models\Hotel::query();
+        if($request->name){
+    $query -> where('name', 'LIKE', '%'. $request->name. '%');
 }
->>>>>>> 2f2238cd1d9928128e9fc25bec59888757e99d48
+if($request->hotel_type){
+    
+  $query -> whereIn('hotel_type' ,$request->hotel_type);
+            }
+if($request->max_rooms = 1){
+    $query-> where('max_rooms','>', 0);
 }
+$hotels = $query->orderBy('max_rooms')->paginate(5);
+return view('/user_home/index', ['hotels' => $hotels]);
+}}
