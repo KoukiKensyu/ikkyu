@@ -66,7 +66,7 @@
           @endforeach
         </tbody>
       </table>
-      
+      <p>{{ $hotels->appends(Request::all())->links() }}</p>
 </body>
-<p>{{ $hotels->appends(Request::all())->links() }}</p>
+
 @endsection

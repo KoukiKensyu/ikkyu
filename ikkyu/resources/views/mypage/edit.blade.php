@@ -2,8 +2,9 @@
 
 @section('content')
 
-<form action="{{route('mypage.edit_confirmation')}}" method="POST">
+<form action="{{route('mypage.edit_confirmation', $user->id)}}" method="POST">
 @csrf
+<input type="hidden" name="id" value="{{$user->id}}">
 <table class="table">
 <tr><th>氏名：</th><td><input type="text" name="name" value="{{old('name',$user->name)}}"></td></tr>
 <tr><th>住所：</th><td><input type="text" name="address" value="{{old('address',$user->address)}}"></td></tr>

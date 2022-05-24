@@ -21,22 +21,31 @@ class UserController extends Controller
     }
     public function update_user(Request $request)
     {
-        $user = new User;
-        $user->name=$request->name;
-        $user->address=$request->address;
-        $user->tel=$request->tel;
-        $user->email=$request->email;
-        $user->birthday=$request->birthday;
-        //dd($user);
+
+        $user = \App\Models\User::find($request->id);
+        $user->name  = $request->name;
+        $user->address = $request->address;
+        $user->tel = $request->tel;
+        $user->email = $request->email;
+        $user->birthday = $request->birthday;
+
         return view('mypage/edit_confirmation',['user'=>$user]);
     }
 
-    public function store(Request $request,User $user)
+    public function store(Request $request)
     {
-        $user->update($request->all());
-        //dd($user);
-        return redirect(route('mypage.index',$user));
+
+        $user = \App\Models\User::find($request->id);
+        $user->name  = $request->name;
+        $user->address = $request->address;
+        $user->tel = $request->tel;
+        $user->email = $request->email;
+        $user->birthday = $request->birthday;
+        $user -> save();
+        return redirect('/mypage/index');
+
     }
+
     public function search(Request $request)
     {
     $query = User::query();
@@ -49,6 +58,7 @@ class UserController extends Controller
     $users = $query->orderBy('id')->paginate(3);
     return view('/admin/Memindex', ['users' => $users]);
     }
+
     public function show($id)
     {
         $user = \App\Models\User::find($id);

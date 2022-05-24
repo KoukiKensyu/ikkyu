@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/user_home/index',[App\Http\Controllers\Hotelcontroller::class, 'search'])->name('search');
+Route::get('user_home/index',[App\Http\Controllers\HotelController::class, 'search'])->name('search');
 // Route::get('/user_home/index', function () {
     // return view('user_home/index');
 // });
@@ -82,13 +82,12 @@ Route::get('/register_input', function () {return view('auth/register_input');})
 Route::get('/login_user', function () {return view('auth/login_user');});
 Route::get('/login_administrator', function () {return view('auth/login_administrator');});
 //Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
-Route::get('/user_home/index', function () {
-    return view('/user_home/index');
-});
-Route::get('/hotel_views/hotelManagement', function () {return view('/hotel_views/hotelManagement');});
 // Route::get('/user_home/index', function () {
     // return view('/user_home/index');
 // });
+Route::get('/hotel_views/hotelManagement', [App\Http\Controllers\HotelController::class, 'index'])->name('hotels.index');
+Route::get('/hotel_views/create',[App\Http\Controllers\HotelController::class, 'create'])->name('hotels.create');
+
 
 Route::get('/register_confirmation', function () {
     return view('auth/register_confirmation');
@@ -155,3 +154,8 @@ Route::get('/admin/UserUpdate/{id}',[App\Http\Controllers\UserController::class,
 // Route::get('/admin/UserUpdate', function () {return view('admin/UserUpdate');});
 Route::post('/admin/UserUpdate_confirmation/{id}', [App\Http\Controllers\UserController::class, 'confirm'])->name('confirm');
 Route::patch('/admin/UserIndex/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+
+Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
+Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
+Route::post('/hotel_views/storeCompletion',[HotelController::class,'store'])->name('hotels.store');
