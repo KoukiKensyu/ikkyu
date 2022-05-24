@@ -17,7 +17,7 @@
     <tbody>
         @foreach($users as $user)
         <tr>
-            <td><a href="/admin/UserIndex/{{$user ->id}}">{{$user ->id}}</a></td>
+            <td><a href="/admin/user_detail/{{$user ->id}}">{{$user ->id}}</a></td>
             <td>{{$user ->name}}</td>
         </tr>
     @endforeach

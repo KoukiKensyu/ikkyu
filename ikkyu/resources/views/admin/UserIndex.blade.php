@@ -11,7 +11,7 @@
 <tr><th>生年月日</th><td>{{$user->birthday}}</td></tr>
 </table>
 </table>
-<button onclick="location.href='/admin/UserUpdate/{{$user ->id}}'">変更</button>
+<button onclick="location.href='/admin/user_edit/{{$user ->id}}'">変更</button>
 <button onclick="location.href='/admin/UserDelete/{{$user ->id}}'">退会</button>
 <button onclick="location.href='/admin/user_index'">＜戻る</button>
 

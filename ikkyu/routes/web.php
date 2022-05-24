@@ -75,12 +75,12 @@ Route::get('/home/index', [AdminHomecontroller::class, 'index'])->name('admin.ho
 
 // 管理者、会員管理---------------------------15~18
 Route::get('/admin/user_index', [UserController::class, 'search'])->name('admin.user_index'); // 15.会員管理 admin/user_index
-Route::get('/admin/UserIndex/{id}', [UserController::class, 'show'])->name('show'); // 16.会員詳細表示 admin/UserIndex
-Route::get('/admin/UserUpdate/{id}', [UserController::class, 'edit'])->name('edit'); // 17.会員情報変更 admin/UserUpdate
-Route::post('/admin/UserUpdate_confirmation/{id}', [UserController::class, 'confirm'])->name('confirm'); // 17-2.会員変更確認 admin/UserUpdate_confirmation
-Route::patch('/admin/UserIndex/{id}', [UserController::class, 'update'])->name('update'); // 17-2.会員変更確認(確定ボタン) admin/UserUpdate_confirmation
-Route::get('/admin/UserDelete/{id}', [UserController::class, 'Dconfirm'])->name('Dconfirm'); // 18.会員削除確認 admin/UserDelete
-Route::delete('/admin/UserIndex/{id}', [UserController::class, 'destroy'])->name('destroy'); // 18.会員削除確認 admin/UserDelete(削除ボタン)
+Route::get('/admin/user_detail/{id}', [UserController::class, 'show'])->name('admin.user_detail'); // 16.会員詳細表示 admin/user_detail
+Route::get('/admin/user_edit/{id}', [UserController::class, 'edit'])->name('admin.user_edit'); // 17.会員情報変更 admin/UserUpdate
+Route::post('/admin/user_edit_confirm/{id}', [UserController::class, 'confirm'])->name('admin.user_edit_confirm'); // 17-2.会員変更確認 admin/user_edit_confirm
+Route::patch('/admin/user_detail/{id}', [UserController::class, 'update'])->name('admin.user_update'); // 17-2.会員変更確認(確定ボタン) admin/user_edit_confirm
+Route::get('/admin/UserDelete/{id}', [UserController::class, 'delete_confirm'])->name('delete_confirm'); // 18.会員削除確認 admin/UserDelete
+Route::delete('/admin/user_detail/{id}', [UserController::class, 'destroy'])->name('destroy'); // 18.会員削除確認 admin/UserDelete(削除ボタン)
 
 
 // 宿管理関連-----------------------------------
