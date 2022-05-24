@@ -13,13 +13,6 @@ class ReservationController extends Controller
         return view('reserve/create', ['reservation' => $reservation]);
     }
 
-
-    public function store(Request $request){
-        $reservation = $request->reservation()->create($request->all());
-        $reservation->save();
-        return redirect(route('confirm'));
-    }
-
     public function show($id){
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
         return view ('reserve/show', ['hotel'=>$hotel]);
