@@ -12,12 +12,12 @@ class UserController extends Controller
     {
         $user = Auth::user();
         //dd($user);
-        return view('mypage/index',['users'=>$user]);
+        return view('mypage/index', ['users' => $user]);
     }
     public function edit_user()
     {
         $user = Auth::user();
-        return view('mypage/edit',['user'=>$user]);
+        return view('mypage/edit', ['user' => $user]);
     }
     public function update_user(Request $request)
     {
@@ -29,7 +29,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->birthday = $request->birthday;
 
-        return view('mypage/edit_confirmation',['user'=>$user]);
+        return view('mypage/edit_confirmation', ['user' => $user]);
     }
 
     public function store(Request $request)
@@ -41,22 +41,21 @@ class UserController extends Controller
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->birthday = $request->birthday;
-        $user -> save();
+        $user->save();
         return redirect('/mypage/index');
-
     }
 
     public function search(Request $request)
     {
-    $query = User::query();
-    if($request->name){
-        $query -> where('name', 'LIKE', '%'. $request->name. '%');
-    }
-    if($request->id){
-        $query -> where('id', 'LIKE', '%'. $request->id. '%');
-    }
-    $users = $query->orderBy('id')->paginate(3);
-    return view('/admin/Memindex', ['users' => $users]);
+        $query = User::query();
+        if ($request->name) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
+        }
+        if ($request->id) {
+            $query->where('id', 'LIKE', '%' . $request->id . '%');
+        }
+        $users = $query->orderBy('id')->paginate(3);
+        return view('/admin/Memindex', ['users' => $users]);
     }
 
     public function show($id)
@@ -79,14 +78,15 @@ class UserController extends Controller
         $user->birthday = $request->birthday;
         return view('/admin/UserUpdate_confirmation', ['user' => $user]);
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $user = \App\Models\User::find($id);
         $user->name  = $request->name;
         $user->address = $request->address;
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->birthday = $request->birthday;
-        $user -> save();
+        $user->save();
         return redirect('/admin/Memindex');
     }
     public function Dconfirm($id)
@@ -101,4 +101,3 @@ class UserController extends Controller
         return redirect('/admin/Memindex');
     }
 }
-
