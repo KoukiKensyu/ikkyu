@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<table border="1">
+<table class="table">
 <tr><th colspan="2">会員情報</th></tr>
 <tr><th>会員ID</th><td>{{$user->id}}</td></tr>
 <tr><th>氏名</th><td>{{$user->name}}</td></tr>

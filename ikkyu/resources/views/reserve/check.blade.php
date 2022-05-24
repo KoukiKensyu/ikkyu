@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>確認</h2>
-<table border='1'>
+<table class="table">
     <tbody>
         <tr>
         <td>宿名</td>
@@ -32,7 +32,7 @@
     <input type="hidden" name="rooms" value="{{$reservation->rooms}}">
     <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
     <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
-    <button type="submit">確定</button>
+    <button class="btn btn-outline-danger btn-rounded active" type="submit">確定</button>
 </form>
-<button onclick="location.href='/reserve/edit/{{$hotel_id}}'">戻る</button>
+<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/edit/{{$hotel_id}}'">戻る</button>
 @endsection
