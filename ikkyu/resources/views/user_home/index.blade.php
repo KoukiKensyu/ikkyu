@@ -4,7 +4,7 @@
 <a href="../mypage/index">マイページ</a>
 <h1>会員ホーム</h1>
 <!-- <div class="width"> -->
-    <form action="{{route ('search')}}" method="get">
+    <form action="{{route('search')}}" method="get">
         <!-- <div class="height">header.blade.phpに縦・横に並べるcssがある -->
 		<p>タイプ検索</p>
         <input type="checkbox" name="hotel_type[]" id="type0" value="0">
@@ -37,7 +37,7 @@
 <table border="1">
 <tr><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 @foreach ($hotels as $hotel)
-<tr><td><a href='/reserve/show'>{{$hotel->name}}</a></td>
+<tr><td><a href="/reserve/show/{{$hotel->id}}">{{$hotel->name}}</a></td>
     @if($hotel->hotel_type == 0)
         <td>シティホテル</td>
        

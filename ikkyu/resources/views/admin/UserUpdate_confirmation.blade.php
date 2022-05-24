@@ -23,5 +23,5 @@
 <p>この内容で確定しますか？</p>
 <button type="submit">変更</button>
 </form>
-<button onclick="location.href='/admin/UserUpdate'">戻る</button>
+<button onclick="location.href='/admin/UserUpdate/{{ $user->id }}'">戻る</button>
 @endsection
