@@ -75,8 +75,16 @@ class HotelController extends Controller
         return view('hotel_views/edit',['hotel'=> $hotel]);
     }
 
-    public function editconfirm($id)
+    public function editconfirm(Request $request, $id)
     {
+        $hotel = \App\Models\Hotel::find($id);
+        $hotel->name = $request->name;
+        $hotel->hotel_type = $request->hotel_type;
+        $hotel->address = $request->address;
+        $hotel->checkin_time = $request->checkin_time;
+        $hotel->checkout_time = $request->checkout_time;
+        $hotel->max_rooms = $request->max_rooms;
+        return view('hotel_views/editConfirmation', ['hotel' => $hotel]);
 
     }
 
@@ -90,28 +98,21 @@ class HotelController extends Controller
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
         $hotel->save();
-        return redirect(route('hotels.show',$hotel->id));
+        return view('hotel_views/editCompletion', ['hotel' => $hotel]);
     }
 
-    /*public function search(Request $request)
+    public function destroyconfirm($id)
     {
-        $query = \App\Models\Hotel::query();
-            if($request->name){
-                $query -> where('name', 'LIKE', '%'. $request->name. '%');
-                }
-            if($request->hotel_type){
-                foreach($request->hotel_type as $type){
-                        $query -> where('hotel_type',"=", $type);}    
-                }
-            $hotels = $query->orderBy('name')->paginate(3);
-            return view('hotel_views/hotelManagement', ['hotels' => $hotels]);
-    }*/
+        $hotel = \App\Models\Hotel::find($id);
+        return view('hotel_views/hotelDelete', ['hotel' => $hotel]);
+    }
 
     public function destroy($id)
     {
         $hotel = \App\Models\Hotel::find($id);
         $hotel->delete();
-        return redirect(route('hotels.index'));
+        return redirect('hotel_views/hotelManagement');
+        
     }
 
 }

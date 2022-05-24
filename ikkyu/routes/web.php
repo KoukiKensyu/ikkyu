@@ -52,7 +52,7 @@ Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, '
 Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
 Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
 //Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
-Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
+//Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
 
 Route::get('/user_home/index', function () {return view('/user_home/index');});
 Route::get('/register_confirmation', function () {return view('auth/register_confirmation');});
@@ -81,13 +81,13 @@ Route::get('/login_administrator', function () {
 });
 /*Route::get('/hotel_views/hotelManagement', function () {
     return view('/hotel_views/hotelManagement');
-});*/
-/*Route::get('/hotel_views/store', function () {
+});
+Route::get('/hotel_views/store', function () {
     return view('/hotel_views/store');
-});*/
+});
 /*Route::get('/hotel_views/storeConfirmation', function () {
     return view('/hotel_views/storeConfirmation');
-});*/
+});
 Route::get('/hotel_views/storeCompletion', function () {
     return view('/hotel_views/storeCompletion');
 });
@@ -99,7 +99,7 @@ Route::get('/hotel_views/editConfirmation', function () {
 });
 Route::get('/hotel_views/editCompletion', function () {
     return view('/hotel_views/editCompletion');});
-
+*/
 
 
 Route::get('/admin/UserIndex', function () {return view('admin/UserIndex');});
@@ -118,3 +118,7 @@ Route::get('/hotel_views/storeConfirmation',[HotelController::class,'createconfi
 Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
 
 Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
+Route::post('/hotel_views/editConfirmation/{id}',[HotelController::class,'editconfirm'])->name('hotels.editconfirm');
+Route::patch('/hotel_views/editCompletion/{id}',[HotelController::class,'update'])->name('hotels.update');
+Route::get('/hotel_views/delete/{id}',[HotelController::class,'destroyconfirm'])->name('hotels.destroyconfirm');
+Route::delete('/hotel_views/destroy/{id}',[HotelController::class,'destroy'])->name('hotels.destroy');

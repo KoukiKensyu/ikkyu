@@ -33,7 +33,7 @@
           <tr>
             <th scope="col">宿名</th>
             <th scope="col">住所</th>
-            <th scope="col">宿タイプ</th>
+            <th scope="col">宿分類</th>
             <th scope="col">残り部屋数</th>
           </tr>
         </thead>
@@ -61,7 +61,8 @@
             <td>ペンション</td>
 
             @endif
-            <td>残り部屋数</td> <!--計算-->
+            <!-- TO DO 残り部屋数の計算-->
+            <td>残り部屋数</td>
           </tr>
           @endforeach
         </tbody>
