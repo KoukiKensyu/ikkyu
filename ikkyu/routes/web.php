@@ -74,7 +74,7 @@ Route::get('/home/index', [AdminHomecontroller::class, 'index'])->name('admin.ho
 
 
 // 管理者、会員管理---------------------------15~18
-Route::get('/admin/Memindex', [UserController::class, 'search'])->name('Usearch'); // 15.会員管理 admin/MemIndex
+Route::get('/admin/user_index', [UserController::class, 'search'])->name('admin.user_index'); // 15.会員管理 admin/user_index
 Route::get('/admin/UserIndex/{id}', [UserController::class, 'show'])->name('show'); // 16.会員詳細表示 admin/UserIndex
 Route::get('/admin/UserUpdate/{id}', [UserController::class, 'edit'])->name('edit'); // 17.会員情報変更 admin/UserUpdate
 Route::post('/admin/UserUpdate_confirmation/{id}', [UserController::class, 'confirm'])->name('confirm'); // 17-2.会員変更確認 admin/UserUpdate_confirmation

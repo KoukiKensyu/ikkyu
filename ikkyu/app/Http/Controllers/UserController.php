@@ -55,7 +55,7 @@ class UserController extends Controller
             $query->where('id', 'LIKE', '%' . $request->id . '%');
         }
         $users = $query->orderBy('id')->paginate(3);
-        return view('/admin/Memindex', ['users' => $users]);
+        return view('/admin/user_index', ['users' => $users]);
     }
 
     public function show($id)
@@ -87,7 +87,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->birthday = $request->birthday;
         $user->save();
-        return redirect('/admin/Memindex');
+        return redirect('/admin/user_index');
     }
     public function Dconfirm($id)
     {
@@ -98,6 +98,6 @@ class UserController extends Controller
     {
         $user = \App\Models\User::find($id);
         $user->delete();
-        return redirect('/admin/Memindex');
+        return redirect('/admin/user_index');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>会員管理</h2>
-    <form action="{{route('Usearch')}}">
+    <form action="{{route('admin.user_index')}}">
     <input type="text" name="name" value="{{request('name')}}" placeholder="検索キーワード">
     <input type="text" name="id" value="{{request('id')}}" placeholder="検索ID">
     <button type="submit">検索</button></form>
