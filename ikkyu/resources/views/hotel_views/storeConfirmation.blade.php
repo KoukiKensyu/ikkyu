@@ -37,5 +37,5 @@
 <input type="hidden" name="max_rooms" value="{{$hotel->max_rooms}}">
 <p>この内容で登録しますか？</p>
 <button type="submit">確定</button></form>
-<button onclick="location.href='/hotel_views/store'">戻る</button>
+<button onclick="location.href='/hotel_views/create'">戻る</button>
 @endsection

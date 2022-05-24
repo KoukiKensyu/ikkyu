@@ -33,5 +33,5 @@
 </table>
 <p>この内容で登録しますか？</p>
 <button onclick="location.href='/hotel_views/editCompletion'">確定</button>
-<button onclick="location.href='/hotel_views/edit'">戻る</button>
+<button onclick="location.href='/hotel_views/create'">戻る</button>
 @endsection
