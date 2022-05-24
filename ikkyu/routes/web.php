@@ -71,24 +71,24 @@ Route::get('/login_administrator', function () {return view('auth/login_administ
 
 
 // 宿管理関連-----------------------------------
-Route::get('/hotel_views/hotelManagement', [App\Http\Controllers\HotelController::class, 'index'])->name('hotels.index');
-Route::get('/hotel_views/create',[App\Http\Controllers\HotelController::class, 'create'])->name('hotels.create');
+Route::get('/hotel_views/hotelManagement',[HotelController::class, 'index'])->name('hotels.index'); //hotelの詳細画面
+Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create');
 Route::get('/hotel_views/storeConfirmation',[HotelController::class,'createconfirm'])->name('hotels.createconfirm');
 Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
 Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
 Route::post('/hotel_views/editConfirmation/{id}',[HotelController::class,'editconfirm'])->name('hotels.editconfirm');
 Route::patch('/hotel_views/editCompletion/{id}',[HotelController::class,'update'])->name('hotels.update');
 Route::get('/hotel_views/delete/{id}',[HotelController::class,'destroyconfirm'])->name('hotels.destroyconfirm');
-Route::delete('/hotel_views/destroy/{id}',[HotelController::class,'destroy'])->name('hotels.destroy');Route::get('/hotel_views/hotelManagement',[HotelController::class, 'index'])->name('hotels.index'); //hotelの詳細画面
+Route::delete('/hotel_views/destroy/{id}',[HotelController::class,'destroy'])->name('hotels.destroy');
 Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
 Route::get('/hotel_views/create',[HotelController::class, 'create'])->name('hotels.create');
 Route::post('/hotel_views/storeCompletion',[HotelController::class,'store'])->name('hotels.store');Route::post('/hotel_views/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm');
 Route::get('/hotel_views/show/{id}',[HotelController::class, 'show'])->name('hotels.show');
 Route::get('/hotel_views/edit/{id}',[HotelController::class,'edit'])->name('hotels.edit');
 Route::post('/hotel_views/storeCompletion',[HotelController::class,'store'])->name('hotels.store');
-Route::get('user_home/index',[App\Http\Controllers\HotelController::class, 'search'])->name('search');
-Route::get('mypage/index', [App\Http\Controllers\UserController::class,'index'])->name('mypage.index');
-Route::get('mypage/edit', [App\Http\Controllers\UserController::class,'edit_user']);
+Route::get('user_home/index',[HotelController::class, 'search'])->name('search');
+Route::get('mypage/index', [UserController::class,'index'])->name('mypage.index');
+Route::get('mypage/edit', [UserController::class,'edit_user']);
 
 //ユーザー関連-----------------------------------
 Route::get('/admin/UserIndex/{id}',[App\Http\Controllers\UserController::class, 'show'])->name('show');
