@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{route('hotels.update', $hotel->id)}}" method="POST">
+<form action="{{route('hotels.editCompletion', $hotel->id)}}" method="POST">
     @method('patch')
     @csrf
 <h2>変更内容確認</h2>

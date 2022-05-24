@@ -4,5 +4,5 @@
 <h2>変更が完了しました</h2>
 
 <button onclick="location.href='/hotel_views/show/{{ $hotel->id }}'">戻る</button>
-<button onclick="location.href='/hotel_views/hotelManagement'">一覧へ</button>
+<button onclick="location.href='/hotel_views/index'">一覧へ</button>
 @endsection

@@ -19,7 +19,7 @@ class HotelController extends Controller
             $query->whereIn('hotel_type', $request->hotel_type);
         }
         $hotels = $query->orderBy('name')->paginate(5);
-        return view('hotel_views/hotelManagement', ['hotels' => $hotels]);
+        return view('hotel_views/index', ['hotels' => $hotels]);
     }
 
     public function show($id)
@@ -58,7 +58,7 @@ class HotelController extends Controller
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
 
-    public function store(Request $request)
+    public function storeCompletion(Request $request)
     {
 
         $hotel = new \App\Models\Hotel;
@@ -90,7 +90,7 @@ class HotelController extends Controller
         return view('hotel_views/editConfirmation', ['hotel' => $hotel]);
     }
 
-    public function update(Request $request, $id)
+    public function editCompletion(Request $request, $id)
     {
         $hotel = \App\Models\Hotel::find($id);
         $hotel->name = $request->name;
@@ -103,7 +103,7 @@ class HotelController extends Controller
         return view('hotel_views/editCompletion', ['hotel' => $hotel]);
     }
 
-    public function destroyconfirm($id)
+    public function hetels_delete($id)
     {
         $hotel = \App\Models\Hotel::find($id);
         return view('hotel_views/hotelDelete', ['hotel' => $hotel]);
@@ -113,7 +113,7 @@ class HotelController extends Controller
     {
         $hotel = \App\Models\Hotel::find($id);
         $hotel->delete();
-        return redirect('hotel_views/hotelManagement');
+        return redirect('hotel_views/index');
     }
     public function search(Request $request)
     {
