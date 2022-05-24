@@ -10,7 +10,7 @@
 <tr><th>部屋数</th><td>{{ $hotel->max_rooms }}</td></tr>
 </table>
 <button onclick="location.href='/hotel_views/edit/{{ $hotel->id }}'">変更</button>
-<button onclick="location.href='/hotel_views/hotelDelete'">削除</button>
+<button onclick="location.href='/hotel_views/delete/{{ $hotel->id }}'">削除</button>
 <button onclick="location.href='/hotel_views/hotelManagement'">＜戻る</button>
 
 @endsection

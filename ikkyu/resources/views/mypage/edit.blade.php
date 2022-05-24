@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<button onclick="location.href='/mypage/index'">戻る</button>
 <form action="{{route('mypage.edit_confirmation', $user->id)}}" method="POST">
 @csrf
 <input type="hidden" name="id" value="{{$user->id}}">
@@ -18,5 +18,5 @@
 -->
 <button type="submit">変更</button>
 </form>
-<button onclick="location.href='/mypage/index'">戻る</button>
+<p></p>
 @endsection

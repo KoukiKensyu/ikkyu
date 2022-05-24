@@ -2,7 +2,9 @@
 
 @section('content')
 <h2>変更登録</h2>
-<table border='1'>
+<form action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
+@csrf
+    <table border='1'>
     <tbody>
         <tr>
         <td>宿名</td>
@@ -14,7 +16,7 @@
         </tr>
         <tr>
         <td>宿分類</td>
-        <td><select name="hotelType" name="hotel_type" value="{{$hotel -> hotel_type}}">
+        <td><select name="hotel_type">
             <option value="0">0:シティホテル</option>
             <option value="1">1:リゾートホテル</option>
             <option value="2">2:ビジネスホテル</option>
@@ -31,10 +33,12 @@
 
         <tr>
         <td>部屋数</td>
-        <td><input type="number" value="{{$hotel ->max_rooms}}">部屋</td>
+        <td><input type="number" name=max_rooms value="{{$hotel ->max_rooms}}">部屋</td>
         </tr>
     </tbody>
 </table>
-<button onclick="location.href='/hotel_views/editConfirmation'">登録</button>
+<button onclick="location.href='/hotel_views/editConfirmation/{{ $hotel->id }}'">登録</button>
+</form>
 <button onclick="location.href='/hotel_views/show/{{ $hotel->id }}'">戻る</button>
+
 @endsection
