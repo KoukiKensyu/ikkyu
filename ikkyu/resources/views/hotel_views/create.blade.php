@@ -35,7 +35,7 @@
             </tr>
         </tbody>
     </table>
-<button type="submit">登録確認へ</button>
+<button type="submit">登録確認へ</button></form>
 <button onclick="location.href='/hotel_views/hotelManagement'">戻る</button>
-</form>
+
 @endsection

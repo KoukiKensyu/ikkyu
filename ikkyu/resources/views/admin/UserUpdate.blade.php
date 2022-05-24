@@ -14,5 +14,5 @@
 </table>    
 <button type="submit">変更</button>
 </form>
-<button onclick="location.href='/admin/UserIndex'">戻る</button>
+<button onclick="location.href='/admin/UserIndex/{{ $user->id }}'">戻る</button>
 @endsection
