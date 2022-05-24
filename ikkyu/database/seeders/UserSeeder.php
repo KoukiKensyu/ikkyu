@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'tel'=> '080-0000-000' . '$i',
                 'email'=> $i . '@gmail.com',
                 'birthday'=> '2000-12-01',
-                'password'=> 1000000 . $i,
+                'password'=> bcrypt(10000000),
             ]);
            $user->save();
         }

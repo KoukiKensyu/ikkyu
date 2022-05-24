@@ -6,19 +6,19 @@
     <tbody>
         <tr>
         <td>宿名</td>
-        <td>宿1</td>
+        <td>{{$hotel_name}}</td>
         </tr>
         <tr>
         <td>氏名</td>
-        <td>新宿太郎</td>
+        <td>{{$reservation->name}}</td>
         </tr>
         <tr>
         <td>部屋数</td>
-        <td>2</td>
+        <td>{{$reservation->rooms}}</td>
         </tr>
         <tr>
         <td>日程</td>
-        <td>00/00/00～00/00/01</td>
+        <td>{{$reservation->checkin_date}}～{{$reservation->checkout_date}}</td>
         </tr>
         <tr>
         <td>金額</td>
@@ -26,6 +26,13 @@
         </tr>
     </tbody>
 </table>
-<button onclick="location.href='confirm'">確定</button>
-<button onclick="location.href='store'">戻る</button>
+<form action="{{route('reserve.confirm')}}" method="post">
+    @csrf
+    <input type="hidden" name="user_id" value="{{1}}">
+    <input type="hidden" name="rooms" value="{{$reservation->rooms}}">
+    <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
+    <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
+    <button type="submit">確定</button>
+</form>
+<button onclick="location.href='/reserve/edit/{{$hotel_id}}'">戻る</button>
 @endsection

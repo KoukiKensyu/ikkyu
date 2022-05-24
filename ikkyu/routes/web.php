@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminHomecontroller;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\HotelController;
 
 
@@ -49,19 +50,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home/index',[App\Http\Controllers\AdminHomecontroller::class, 'index']);
 Route::get('/admin/Memindex',[\App\Http\Controllers\AdminHomecontroller::class, 'indexMem'])->name('admin.Memindex');
 Route::get('/admin/Hotelindex',[\App\Http\Controllers\AdminHomecontroller::class, 'indexHotel'])->name('admin.Hotelsindex');
-Route::get('/reserve/show',[\App\Http\Controllers\AdminHomecontroller::class, 'show'])->name('show');
-Route::get('/reserve/store',[\App\Http\Controllers\AdminHomecontroller::class, 'store'])->name('store');
-Route::get('/reserve/check',[\App\Http\Controllers\AdminHomecontroller::class, 'check'])->name('check');
-Route::get('/reserve/confirm',[\App\Http\Controllers\AdminHomecontroller::class, 'confirm'])->name('confirm');
 //Route::get('/hotel_views/show',[\App\Http\Controllers\AdminHomecontroller::class, 'showHotel'])->name('showHotel');
 Route::get('/hotel_views/edit',[\App\Http\Controllers\AdminHomecontroller::class, 'editHotel'])->name('editHotel');
 
+// Administrator関連
 Route::prefix('administrator')->group(function() {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('administrator.login.submit');
     Route::get('logout/', 'Auth\AdminLoginController@logout')->name('administrator.logout');
     Route::get('/', 'AdministratorController@index')->name('administrator.dashboard');
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('administrator.login');
 }) ;
+
+//宿予約関連
+Route::resource('reservations', ReservationController::class);
+Route::get('/reserve/show/{id}',[\App\Http\Controllers\ReservationController::class, 'show'])->name('show');
+Route::post('/reserve/store',[\App\Http\Controllers\ReservationController::class, 'store'])->name('reserve.store');
+Route::post('/reserve/check',[\App\Http\Controllers\ReservationController::class, 'check'])->name('reserve.check');
+Route::get('/reserve/edit/{id}',[\App\Http\Controllers\ReservationController::class, 'edit'])->name('reserve.edit');
+Route::post('/reserve/confirm',[\App\Http\Controllers\ReservationController::class, 'confirm'])->name('reserve.confirm');
 
 
 // Route::get('/user_home/index', function () {return view('/user_home/index');});
