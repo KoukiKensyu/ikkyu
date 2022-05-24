@@ -4,7 +4,7 @@
 <h2>変更登録</h2>
 <form action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
 @csrf
-    <table border='1'>
+    <table class="table">
     <tbody>
         <tr>
         <td>宿名</td>
@@ -34,6 +34,10 @@
         <tr>
         <td>部屋数</td>
         <td><input type="number" name=max_rooms value="{{$hotel ->max_rooms}}">部屋</td>
+        </tr>
+        <tr>
+        <td>コメント</td>
+        <td><input type="text" name="comment" value="{{$hotel -> comment}}"></td>
         </tr>
     </tbody>
 </table>

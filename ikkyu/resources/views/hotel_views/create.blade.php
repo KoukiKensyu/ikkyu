@@ -33,6 +33,10 @@
                 <td>部屋数</td>
                 <td><input type="number" name="max_rooms" value="$hotel->max_rooms">部屋</td>
             </tr>
+            <tr>
+                <td>コメント</td>
+                <td><input type="text" name="comment" value="$hotel -> comment"></td>
+            </tr>
         </tbody>
     </table>
 <button type="submit">登録確認へ</button></form>
