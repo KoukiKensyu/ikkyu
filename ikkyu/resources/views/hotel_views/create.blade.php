@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td>コメント</td>
-                <td><input type="text" name="comment" value="$hotel -> comment"></td>
+                <td><input type="text" name="comment" value="{{$hotel->comment}}"></td>
             </tr>
         </tbody>
     </table>
