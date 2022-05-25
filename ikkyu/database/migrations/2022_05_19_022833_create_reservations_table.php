@@ -16,7 +16,7 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->bigInteger('plan_id')->unsigned()->index();
+            $table->bigInteger('hotel_id')->unsigned()->index();
             $table->dateTime('reserved_date');
             $table->date('checkin_date');
             $table->date('checkout_date');
@@ -24,8 +24,7 @@ class CreateReservationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
-            $table->unique(['user_id', 'plan_id']);
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
         });
     }
 
