@@ -13,7 +13,8 @@
 <div class="card" style="width: 40rem;"> <!--tableをcard化--> 
 
 <table border="1" class="table">
-<tr><th colspan="2"  class="table-dark">会員情報</th></tr>
+<!--<tr><th colspan="2"">会員情報</th></tr>-->
+<tr><th colspan="2">会員情報</th></tr>
 <tr><th>会員ID</th><td>{{$user->id}}</td></tr>
 <tr><th>氏名</th><td>{{$user->name}}</td></tr>
 <tr><th>住所</th><td>{{$user->address}}</td></tr>
@@ -29,9 +30,9 @@
 
 <p><strong>この内容で確定しますか？</strong></p> <!--太字-->
 <div class="d-flex justify-content-end">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更確定</button>
+<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 </form>
-<button onclick="location.href='/admin/user_edit/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+<button  type="button" onclick="location.href='/admin/user_edit/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 </div>
 </div></div>
 @endsection
