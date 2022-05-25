@@ -42,9 +42,11 @@
 <input type="hidden" name="comment" value="{{$hotel->comment}}">
 
 <p>この内容で登録しますか？</p>
-<button type="submit">確定</button>
+<div class="d-flex justify-content-end">
+<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 </form>
-<button onclick="location.href='/hotel_views/edit/{{ $hotel->id }}'">戻る</button>
+<button type="button" onclick="location.href='/hotel_views/edit/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div>
 <!--<button onclick="location.href='/hotel_views/editCompletion'">確定</button>
-<button onclick="location.href='/hotel_views/create'">戻る</button>
+<button onclick="location.href='/hotel_views/create'">戻る</button>-->
 @endsection
