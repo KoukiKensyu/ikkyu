@@ -36,6 +36,6 @@
     <div class="d-flex justify-content-end">    
     <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
 </form>
-<button onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+<button type="button" onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 </div></div></div></div>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <h2>宿詳細</h2>
 <form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
-    <table class="table">
+    <table border='1' class="table table-bordered" >
         <tbody>
             <tr>
             <th scope="col">宿名</th>
