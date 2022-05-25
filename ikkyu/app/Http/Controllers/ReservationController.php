@@ -15,11 +15,13 @@ class ReservationController extends Controller
 
     public function show($id){
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
-        return view ('reserve/show', ['hotel'=>$hotel]);
+         $data = $_GET["aaa"];
+        return view ('reserve/show', ['hotel'=>$hotel, 'data'=>$data]);
     }
-    public function edit($id){
+    public function edit(Request $request ,$id){
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
-        return view ('reserve/edit', ['hotel'=>$hotel]);
+        $data = $request->data;
+        return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data]);
     }
     public function check(Request $request){
         $reservation = new \App\Models\Reservation();
@@ -28,7 +30,8 @@ class ReservationController extends Controller
         $reservation->checkin_date = $request->checkin_date;
         $reservation->checkout_date = $request->checkout_date;
         $hotel = DB::table('hotels')->where('id', $request->hotel_id)->get()->toArray();
-        return view ('reserve/check', ['reservation' => $reservation,'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id]);
+        $data = $request->data;
+        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
 
     }
     public function confirm(Request $request){
@@ -42,7 +45,7 @@ class ReservationController extends Controller
         $reservation->save();
         $user = DB::table('users')->where('id', $request->user_id)->get()->toArray();
         $hotel = DB::table('hotels')->where('id', $request->hotel_id)->get()->toArray();
-        return view('reserve/confirm', ['reservation' => $reservation,'hotel'=>$hotel, 'user'=>$user,'user_name' => $user[0]->name, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id]);
+        return view('reserve/confirm', ['reservation' => $reservation,'hotel'=>$hotel, 'user'=>$user,'user_name' => $user[0]->name, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
     }
 
 }

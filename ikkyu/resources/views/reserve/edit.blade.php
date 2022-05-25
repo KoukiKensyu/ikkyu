@@ -18,11 +18,9 @@
             <tr>
                 <td><label for="validationCustom03" class="form-label">予約部屋数</label></td>
                 <td><select class="form-select" id="validationCustom03" name="rooms" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    @for($i=1; $i <= $data; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                   @endfor
                 </select>部屋</td>
             </tr>
             <tr>
@@ -32,14 +30,15 @@
                     <input class="form-control" id="validationCustom04" type="date" name="checkout_date" required></td>
             </tr> 
             <tr>
-                <td>合計金額</td>
-                <td>$$$$$円</td>
+                <td>金額{{$data}}</td>
+                <td>{{$hotel[0]->price}}円/部屋</td>
             </tr>
             
         </tbody>
     </table>
     <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
+    <input type="hidden" name="data" value="{{$data}}">
     <button class="btn btn-outline-danger btn-rounded active" type="submit">確認画面へ</button>
 </form>
-    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/show/{{$hotel[0]->id}}'">戻る</button>
+    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/show/{{$hotel[0]->id}}.php?aaa={{$data}}'">戻る</button>
 @endsection
