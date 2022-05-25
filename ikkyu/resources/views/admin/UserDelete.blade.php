@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="text-center">
+    <h2>会員退会確認</h2>
+</div>
+
+<div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
+    <div class="card" style="width: 40rem;"> <!--tableをcard化--> 
+    
 <form action="{{route('destroy', $user->id)}}" method="post">
 @csrf
 @method('delete')
@@ -18,5 +25,6 @@
 <button type="submit">確定</button>
 </form>
 <button onclick="location.href='/admin/user_detail/{{ $user->id }}'">＜戻る</button>
+</div></div>
 
 @endsection
