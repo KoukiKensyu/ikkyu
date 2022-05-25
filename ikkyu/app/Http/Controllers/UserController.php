@@ -102,7 +102,7 @@ class UserController extends Controller
         return redirect('/admin/user_index');
     }
 
-    public function delete_user()
+    public function delete_user_confirm()
     {
         $user = Auth::user();
         //dd($user);
@@ -111,8 +111,8 @@ class UserController extends Controller
     public function destroy_user(Request $request)
     {
         $user = \App\Models\User::find($request->id);
-        dd($user);
         $user -> delete();
+        Auth::logout();
         return redirect('/');
     }
 

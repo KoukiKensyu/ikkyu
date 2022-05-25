@@ -55,11 +55,8 @@ Route::get('mypage/index', [UserController::class,'index'])->name('mypage.index'
 Route::get('mypage/edit', [UserController::class,'edit_user']); // 8.1. 登録情報変更 mypage/edit
 Route::post('mypage/edit_confirmation', [UserController::class, 'update_user'])->name('mypage.edit_confirmation'); // mypage/edit_confirmation
 Route::patch('mypage/edit_confirmation', [UserController::class, 'store'])->name('mypage.edit_store');
-//Route::get('/mypage/UserDelete', function () {
-    //return view('/mypage/UserDelete');
-//});
-Route::get('mypage/UserDelete', [UserController::class,'delete_user']);//退会確認画面を表示
-Route::delete('mypage/UserDelete', [UserController::class,'destroy_user'])->name('mypage.delete');//退会処理
+Route::get('mypage/UserDelete', [UserController::class,'delete_user_confirm']);//退会確認画面を表示
+Route::delete('/', [UserController::class,'destroy_user'])->name('mypage.delete');//退会処理
 
 
 // 宿予約関連-------------------------------------10~13

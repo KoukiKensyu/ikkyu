@@ -22,13 +22,12 @@
 <!-- endif-->
 [会員ID：{{$users->id}}][氏名：{{$users->name}}]は退会しますか？
 <div class="d-flex justify-content-end"> <!--ボタンを右サイドにレイアウト-->
-<button onclick="location.href='/'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
-<button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
-</div></div></div>
-<form action="{{route('mypage.delete', $users->id)}}">
+<form action="{{route('mypage.delete')}}" method="post">
     @csrf
     @method('delete')
     <input type="hidden" name="id" value="{{$users->id}}">
-    <button type="submit">確定</button>
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 </form>
+<button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
+</div></div></div>
 @endsection
