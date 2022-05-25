@@ -32,9 +32,10 @@
         <th><label for="validationCustom05" class="form-label">生年月日：</label></th>
         <td><input class="form-control" id="validationCustom05" type="date" name="birthday" value="{{$user->birthday}}" required></td>
     </tr>
-    </table>    
-    <button class="btn" type="submit">変更</button>
+    </table>
+    <div class="d-flex justify-content-end">    
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
 </form>
-<button onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
-</div></div></div>
+<button type="button" onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div></div></div></div>
 @endsection
