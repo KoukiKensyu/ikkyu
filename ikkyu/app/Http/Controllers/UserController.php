@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -107,7 +108,17 @@ class UserController extends Controller
     {
         $user = Auth::user();
         //dd($user);
-        return view('mypage/UserDelete', ['users' => $user]);
+        $reservation = DB::table('reservations')->where('user_id',$user->id)->get();
+        //dd($reservation);
+        $i=0;
+        foreach($reservation as $reserve){
+        $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
+        //dd($hotel);
+        $reservation[$i]->name=$hotel[0]->name;
+        $i++;
+        }
+        //dd($reservation);
+        return view('mypage/UserDelete', ['users' => $user,'reservations' => $reservation]);
     }
     public function destroy_user(Request $request)
     {

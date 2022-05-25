@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="../mypage/index">マイページ</a>
+<!--<a href="../mypage/index">マイページ</a>-->
 <h1>会員ホーム</h1>
 <!-- <div class="width"> -->
 <div class="d-flex flex-row bd-highlight mb-3">
