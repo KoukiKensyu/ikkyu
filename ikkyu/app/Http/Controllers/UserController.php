@@ -94,6 +94,7 @@ class UserController extends Controller
     {
         $user = \App\Models\User::find($id);
         return view('/admin/user_delete', ['user' => $user]);
+        //user_delete UserDeleteファイルの名前をuser_deleteに変更
     }
     public function destroy($id)
     {

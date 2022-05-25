@@ -9,7 +9,7 @@
     <div class="card" style="width: 40rem;"> <!--tableをcard化-->    
     
 <table border="1" class="table">
-<tr><th colspan="2" class="table-dark">会員情報</th></tr>
+<tr><th colspan="2">会員情報</th></tr>
 <tr><th>会員ID</th><td>{{$user->id}}</td></tr>
 <tr><th>氏名</th><td>{{$user->name}}</td></tr>
 <tr><th>住所</th><td>{{$user->address}}</td></tr>

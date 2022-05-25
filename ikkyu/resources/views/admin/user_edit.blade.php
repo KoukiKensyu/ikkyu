@@ -12,6 +12,7 @@
     @csrf
     <input type="hidden" name="id" value="{{$user->id}}">
     <table class="table">
+    <tr><th colspan="2">会員情報</th></tr>
     <tr>
         <th><label for="validationCustom01" class="form-label">氏名：</label></th>
         <td><input class="form-control" id="validationCustom01" type="text" name="name" value="{{$user->name}}" required></td>
@@ -34,7 +35,7 @@
     </tr>
     </table>
     <div class="d-flex justify-content-end">    
-    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更確認画面へ</button>
 </form>
 <button type="button" onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 </div></div></div></div>
