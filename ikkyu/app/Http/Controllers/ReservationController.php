@@ -34,7 +34,7 @@ class ReservationController extends Controller
     public function confirm(Request $request){
         $reservation = new Reservation;
         $reservation->user_id = $request->user_id;
-        $reservation->plan_id = 1;// TODO change this default value
+        $reservation->hotel_id = $request->hotel_id;// TODO change this default value
         $reservation->reserved_date = '2014-08-01 23:01:05';
         $reservation->rooms = $request->rooms;
         $reservation->checkin_date = $request->checkin_date;
