@@ -101,4 +101,19 @@ class UserController extends Controller
         $user->delete();
         return redirect('/admin/user_index');
     }
+
+    public function delete_user()
+    {
+        $user = Auth::user();
+        //dd($user);
+        return view('mypage/UserDelete', ['users' => $user]);
+    }
+    public function destroy_user(Request $request)
+    {
+        $user = \App\Models\User::find($request->id);
+        dd($user);
+        $user -> delete();
+        return redirect('/');
+    }
+
 }
