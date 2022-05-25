@@ -7,7 +7,6 @@
   <h1 class="mb-3 h2">会員情報変更</h1>
 </div>
 
-<button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 <form class="needs-validation" action="{{route('mypage.edit_confirmation', $user->id)}}" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{$user->id}}">
@@ -40,14 +39,18 @@
                 <input class="form-control" id="validationCustom05" type="date" name="birthday" value="{{old('birthday',$user->birthday)}}" required></td>
         </tr>
         </table>
-    </div>
-    </div>
+
     <!--
     <tr><th>変更前のパスワード：</th><td><input type="password" name="password" value=""></td></tr>
     <tr><th>変更後のパスワード：</th><td><input type="password" name="password_new" value=""></td></tr>
     <tr><th>確認用のパスワード：</th><td><input type="password" name="password_confirmation" value=""></td></tr>
     -->
+    <div class="d-flex justify-content-end">
     <button class="btn btn-outline-danger" data-mdb-ripple-color="dark" type="submit">変更</button>
 </form>
+<button type="button" onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div>
+</div>
+</div>
 @endsection
 

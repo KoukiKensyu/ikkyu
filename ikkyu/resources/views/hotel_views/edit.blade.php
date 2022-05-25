@@ -38,13 +38,14 @@
         <td><input class="form-control" id="validationCustom05" type="number" name=max_rooms value="{{$hotel ->max_rooms}}" required>部屋</td>
         </tr>
         <tr>
-        <td>コメント</td>
-        <td><input type="text" name="comment" value="{{$hotel -> comment}}"></td>
+        <td><label class="form-label">コメント</label></td>
+        <td><input type="text" name="comment" value="{{$hotel -> comment}}" class="form-control" ></td>
         </tr>
     </tbody>
 </table>
-<button class="btn btn-primary">登録</button>
+<div class="d-flex justify-content-end">
+<button class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更内容確認へ</button>
 </form>
-<button onclick="location.href='/hotel_views/show/{{ $hotel->id }}'">戻る</button>
-
+<button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div>
 @endsection
