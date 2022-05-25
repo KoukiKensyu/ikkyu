@@ -20,9 +20,14 @@
 </table>
 未宿泊の予定をキャンセルします<br>
 <!-- endif-->
-[012345678][氏名]を退会させますか？
+[会員ID：{{$users->id}}][氏名：{{$users->name}}]は退会しますか？
 <div class="d-flex justify-content-end"> <!--ボタンを右サイドにレイアウト-->
-<button onclick="location.href='/'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
+<form action="{{route('mypage.delete')}}" method="post">
+    @csrf
+    @method('delete')
+    <input type="hidden" name="id" value="{{$users->id}}">
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
+</form>
 <button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
 </div></div></div>
 @endsection
