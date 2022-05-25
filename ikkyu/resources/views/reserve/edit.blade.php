@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <td><label for="validationCustom02" class="form-label">氏名</label></td>
-                <td><input class="form-control" id="validationCustom02" type="text" name="name" value="" required></td>
+                <td><input class="form-control" id="validationCustom02" type="text" name="name" value="{{ Auth::user()->name }}" required></td>
             </tr> 
             <tr>
                 <td><label for="validationCustom03" class="form-label">予約部屋数</label></td>

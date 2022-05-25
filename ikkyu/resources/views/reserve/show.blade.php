@@ -3,11 +3,7 @@
 @section('content')
 <h2>宿詳細</h2>
 <form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
-<<<<<<< HEAD
     <table border='1' class="table table-bordered" >
-=======
-    <table class="table">
->>>>>>> bec4e986b29126791cd244c53af263602204f229
         <tbody>
             <tr>
             <th scope="col">宿名</th>
@@ -33,10 +29,5 @@
     </table>
     <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
 </form>
-<<<<<<< HEAD
-<button onclick="location.href='/user_home/index'" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark" >戻る</button>
-<button onclick="location.href='/user_home/index'" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark" >戻る</button>
-=======
 <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
->>>>>>> bec4e986b29126791cd244c53af263602204f229
 @endsection
