@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Reservation;
 
 use Illuminate\Http\Request;
 
@@ -19,7 +20,13 @@ class HotelController extends Controller
             $query->whereIn('hotel_type', $request->hotel_type);
         }
         $hotels = $query->orderBy('name')->paginate(5);
-        return view('hotel_views/index', ['hotels' => $hotels]);
+        $query2 = \App\Models\Reservation::query();
+        if ($request->checkin_date){
+            $query2->where('checkin_date','=', $request->checkin_date);
+        }
+        $reservations = $query2;
+        $remainRooms = '2';
+        return view('hotel_views/index', ['hotels' => $hotels ,'reservations' => $reservations, 'remainRooms' => $remainRooms]);
     }
 
     public function show($id)
@@ -134,6 +141,13 @@ class HotelController extends Controller
             $query->where('max_rooms', '>', 0);
         }
         $hotels = $query->orderBy('max_rooms')->paginate(5);
-        return view('/user_home/index', ['hotels' => $hotels]);
+        $reservations = \App\Models\Reservation::all();
+        if ($request->checkin_date){
+            $reservations =Reservation::where('checkin_date','=', $request->checkin_date)->get();}
+         else{
+                $reservations = Reservation::where('id','=', 20000000)->get();
+         }
+        $remainRooms = '';
+        return view('/user_home/index', ['hotels' => $hotels, 'reservations' => $reservations, 'remainRooms' => $remainRooms]);
     }
 }

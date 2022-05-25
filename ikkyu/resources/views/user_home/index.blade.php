@@ -30,8 +30,8 @@
 <!-- </div> -->
 <div class="d-flex flex-row bd-highlight m-5">
 		<p>宿名<input type="text" name="name" value="{{request('name')}}" placeholder="検索キーワード"></p>
-        <!-- <p><lebel>予約日<input type="date" name="day"></label></p> -->
-        <p><label ><input type="checkbox" name="max_rooms" value="1">満室を除く</label></p>
+        <p><lebel>予約日<input type="date" name="checkin_date" value="{{request('checkin_date')}}" required></label></p>
+        <!-- <p><label ><input type="checkbox" name="max_rooms" value="1">満室を除く</label></p> -->
         <button class="p-2 bd-highlight btn btn-outline-primary btn-rounded active h-50" type="submit">検索</button>
 </div>
 </form>
@@ -62,8 +62,25 @@ table.table-fit tbody td, table.table-fit tfoot td {
 <thead>
 <tr><th style="width: 10%;"></th><th style="width: 10%;"></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 </thead>
-<tbody class="table-hover">
 @foreach ($hotels as $hotel)
+<?php  
+$remainRooms = $hotel->max_rooms;
+if(isset($reservations)){
+    foreach($reservations as $reservation){
+        if($hotel->id === $reservation->hotel_id){
+        $remainRooms =$hotel->max_rooms - $reservation->rooms;        
+        }
+        //else{
+           // $remainRooms = $hotel->max_rooms .'部屋/'. $hotel->max_rooms .'部屋';
+        }}
+    //}
+      //}
+      //else{
+    //     $remainRooms = $hotel->max_rooms .'部屋/'. $hotel->max_rooms .'部屋';
+    //  } ?>    
+@if($remainRooms >= 1)
+<tbody class="table-hover">
+
 <tr>
    
     @if($hotel->id < 6 )
@@ -91,7 +108,10 @@ table.table-fit tbody td, table.table-fit tfoot td {
         <td>ペンション</td>
         
         @endif
-<td>{{$hotel->max_rooms}}</td></tr>
+
+
+<td>{{$remainRooms .'部屋/'. $hotel->max_rooms .'部屋'}}</td></tr>
+@endif
 @endforeach
 </tbody>
 </table>

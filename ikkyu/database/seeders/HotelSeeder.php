@@ -22,6 +22,7 @@ class HotelSeeder extends Seeder
                 'checkout_time' => '12:00',
                 'max_rooms' => rand(5,10),
                 'comment' => 'テストコメント'. $i,
+                'price' => rand(10,50) *1000,
             ]);
            $hotel->save();
         }

@@ -25,6 +25,10 @@ class CreateReservationsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2ecbe8e396817fad07c4d527b538c9252243e0c
         });
     }
 
