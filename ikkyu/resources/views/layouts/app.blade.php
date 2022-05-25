@@ -74,7 +74,7 @@
                             @if (Auth::guard('administrator')->check())
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{Auth::guard('administrator')->user()->name}}
+                                        {{Auth::guard('administrator')->user()}}
                                     </a>
     
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -117,6 +117,14 @@
                                 </li>
                             @endif
                         @endguest
+
+                        <!-- delete later -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user_home/index">会員ホーム</a>
+                        </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="/home/index">管理者ホーム</a>
+                        </li>
                     </ul>
                 </div>
             </div>
