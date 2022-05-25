@@ -108,7 +108,7 @@ class HotelController extends Controller
         return view('hotel_views/editCompletion', ['hotel' => $hotel]);
     }
 
-    public function hetels_delete($id)
+    public function hotels_delete($id)
     {
         $hotel = \App\Models\Hotel::find($id);
         return view('hotel_views/hotelDelete', ['hotel' => $hotel]);
