@@ -15,10 +15,10 @@ class PlanSeeder extends Seeder
     {
         for($i = 1; $i <= 5; $i++){
             $plan = new \App\Models\Plan([
-                'name' => 'プラン' . $i,
-                'hotel_id'=> rand(1,5),
+                'name' => '素泊まりプラン：ホテル' . $i,
+                'hotel_id'=> $i,
                 'price'=> rand(10,50) *1000,
-                'rooms'=> rand(1,10),
+                'rooms'=> 1,
             ]);
            $plan->save();
         }
