@@ -43,6 +43,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->comment = $request->comment;
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
 
@@ -55,6 +56,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->comment = $request->comment;
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
 
@@ -68,6 +70,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->comment = $request->comment;
         $hotel->save();
         return view('/hotel_views/storeCompletion');
     }
@@ -87,6 +90,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->comment = $request->comment;
         return view('hotel_views/editConfirmation', ['hotel' => $hotel]);
     }
 
@@ -99,6 +103,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->comment = $request->comment;
         $hotel->save();
         return view('hotel_views/editCompletion', ['hotel' => $hotel]);
     }
