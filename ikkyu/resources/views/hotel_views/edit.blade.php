@@ -4,7 +4,7 @@
 <h2>変更登録</h2>
 <form class="needs-validation" action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
 @csrf
-    <table border='1'>
+    <table class="table">
     <tbody>
         <tr>
             <td><label for="validationCustom01" class="form-label">宿名</label></td>
@@ -36,6 +36,10 @@
         <tr>
         <td><label for="validationCustom05" class="form-label">部屋数</label></td>
         <td><input class="form-control" id="validationCustom05" type="number" name=max_rooms value="{{$hotel ->max_rooms}}" required>部屋</td>
+        </tr>
+        <tr>
+        <td>コメント</td>
+        <td><input type="text" name="comment" value="{{$hotel -> comment}}"></td>
         </tr>
     </tbody>
 </table>

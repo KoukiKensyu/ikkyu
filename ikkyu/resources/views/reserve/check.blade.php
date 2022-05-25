@@ -28,7 +28,8 @@
 </table>
 <form action="{{route('reserve.confirm')}}" method="post">
     @csrf
-    <input type="hidden" name="user_id" value="{{1}}">
+    <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
+    <input type="hidden" name="user_id" value="{{Auth::id()}}">
     <input type="hidden" name="rooms" value="{{$reservation->rooms}}">
     <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
     <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">

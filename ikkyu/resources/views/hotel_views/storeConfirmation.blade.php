@@ -27,6 +27,10 @@
         <td>部屋数</td>
         <td>{{ $hotel->max_rooms }}</td>
         </tr>
+        <tr>
+        <td>コメント</td>
+        <td>{{ $hotel->comment }}</td>
+        </tr>
     </tbody>
 </table>
 <input type="hidden" name="name" value="{{ $hotel->name }}">
@@ -35,6 +39,7 @@
 <input type="hidden" name="checkin_time" value="{{$hotel->checkin_time}}">
 <input type="hidden" name="checkout_time" value="{{$hotel->checkout_time}}">
 <input type="hidden" name="max_rooms" value="{{$hotel->max_rooms}}">
+<input type="hidden" name="comment" value="{{$hotel->comment}}">
 <p>この内容で登録しますか？</p>
 <button type="submit">確定</button></form>
 <button onclick="location.href='/hotel_views/create'">戻る</button>

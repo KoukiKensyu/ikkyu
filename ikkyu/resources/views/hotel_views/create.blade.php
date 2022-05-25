@@ -35,6 +35,10 @@
                 <td><label for="validationCustom05" class="form-label">部屋数</label></td>
                 <td><input class="form-control" id="validationCustom05" type="number" name="max_rooms" value="$hotel->max_rooms" required>部屋</td>
             </tr>
+            <tr>
+                <td>コメント</td>
+                <td><input type="text" name="comment" value="{{$hotel->comment}}"></td>
+            </tr>
         </tbody>
     </table>
 <button class="btn" type="submit">登録確認へ</button></form>
