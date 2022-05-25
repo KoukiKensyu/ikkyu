@@ -88,7 +88,7 @@ if(isset($reservations)){
     @else<td><img src="/images/6.jpg" width="163" height="130" alt=""></td>
     @endif
     <td>{{$hotel->comment}}</td>
-    <td><a href="/reserve/show/{{$hotel->id}}">{{$hotel->name}}</a></td>
+    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">{{$hotel->name}}</a></td>
     @if($hotel->hotel_type == 0)
         <td>シティホテル</td>
        
