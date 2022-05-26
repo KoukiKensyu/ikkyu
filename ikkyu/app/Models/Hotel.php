@@ -15,5 +15,6 @@ class Hotel extends Model
         'checkin_time',
         'checkout_time',
         'max_rooms',
+        'comment',
     ];
 }

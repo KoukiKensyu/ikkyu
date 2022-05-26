@@ -47,7 +47,7 @@
 <input type="hidden" name="comment" value="{{$hotel->comment}}">
 <p>この内容で登録しますか？</p>
 <div class="text-right">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button></form>
+<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 <button type="button" onclick="location.href='/hotel_views/create'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
-</div>
+</div></form>
 @endsection
