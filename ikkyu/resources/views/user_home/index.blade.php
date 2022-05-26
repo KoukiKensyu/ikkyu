@@ -3,6 +3,7 @@
 @section('content')
 <!--<a href="../mypage/index">マイページ</a>-->
 <h1>会員ホーム</h1>
+@include('commons/flash')
 <!-- <div class="width"> -->
 <div class="d-flex flex-row bd-highlight mb-3">
     <div class="p-2 bd-highlight m-5  dropdown">
