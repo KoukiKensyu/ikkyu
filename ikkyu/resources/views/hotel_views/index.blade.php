@@ -37,7 +37,7 @@
             <th scope="col">宿名</th>
             <th scope="col">住所</th>
             <th scope="col">宿分類</th>
-            <th scope="col">残り部屋数</th>
+            <th scope="col">部屋数</th>
           </tr>
         </thead>
         <tbody>
@@ -65,7 +65,7 @@
 
             @endif
             <!-- TO DO 残り部屋数の計算-->
-            <td>残り部屋数</td>
+            <td>{{$hotel->max_rooms}}</td>
           </tr>
           @endforeach
         </tbody>

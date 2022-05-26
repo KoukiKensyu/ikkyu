@@ -7,6 +7,9 @@ use App\Models\Reservation;
 
 use Illuminate\Http\Request;
 
+//validation ignore用
+use Illuminate\Validation\Rule;
+
 class HotelController extends Controller
 {
     public function index(Request $request)
@@ -50,7 +53,17 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
+        $this->validate($request,[
+            'name' => 'required|max:50|unique:hotels',
+            'hotel_type' => 'required',
+            'address' => 'required|max:100',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+            'max_rooms' => 'required',
+            'comment' => 'required|max:500',
+        ]);
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
 
@@ -63,6 +76,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
@@ -80,6 +94,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         $hotel->save();
         return view('/hotel_views/storeCompletion');
@@ -100,12 +115,26 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
+        $this->validate($request,[
+            'name' => ['required','max:50',Rule::unique('hotels')->ignore($hotel->id)],
+            'hotel_type' => 'required',
+            'address' => 'required|max:100',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+            'max_rooms' => 'required',
+            'comment' => 'required|max:500',
+        ]);
         return view('hotel_views/editConfirmation', ['hotel' => $hotel]);
     }
 
     public function editCompletion(Request $request, $id)
     {
+        if ($request->has('return')) {
+            return view('hotel_views/edit',['hotel' => $request]);
+        }
+
         $hotel = \App\Models\Hotel::find($id);
         $hotel->name = $request->name;
         $hotel->hotel_type = $request->hotel_type;
@@ -113,6 +142,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         $hotel->save();
         return view('hotel_views/editCompletion', ['hotel' => $hotel]);

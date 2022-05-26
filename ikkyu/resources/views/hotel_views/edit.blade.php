@@ -2,6 +2,17 @@
 
 @section('content')
 <h2>変更登録</h2>
+<!--警告メッセージ-->
+@if ($errors->any())
+	    <div class="alert alert-danger">
+	        <ul>
+	            @foreach ($errors->all() as $error)
+	                <li>{{ $error }}</li>
+	            @endforeach
+	        </ul>
+	    </div>
+@endif
+<!--警告終わり-->
 <form class="needs-validation" action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
 @csrf
     <table class="table">
@@ -38,6 +49,10 @@
         <td><input class="form-control" id="validationCustom05" type="number" name=max_rooms value="{{$hotel ->max_rooms}}" required>部屋</td>
         </tr>
         <tr>
+        <td><label class="form-label">金額/1部屋</label></td>
+        <td><input type="number" name="price" value="{{$hotel -> price}}" class="form-control" ></td>
+        </tr>
+        <tr>
         <td><label class="form-label">コメント</label></td>
         <td><input type="text" name="comment" value="{{$hotel -> comment}}" class="form-control" ></td>
         </tr>
@@ -45,7 +60,7 @@
 </table>
 <div class="d-flex justify-content-end">
 <button class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更内容確認へ</button>
-</form>
 <button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</form>
 </div>
 @endsection
