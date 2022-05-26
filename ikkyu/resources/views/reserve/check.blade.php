@@ -22,7 +22,7 @@
         </tr>
         <tr>
         <td>金額</td>
-        <td>$$$$$円</td>
+        <td>{{$hotel_price * $reservation->rooms}}円</td>
         </tr>
     </tbody>
 </table>
@@ -35,5 +35,5 @@
     <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
     <button class="btn btn-outline-danger btn-rounded active" type="submit">確定</button>
 </form>
-<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/edit/{{$hotel_id}}'">戻る</button>
+<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/edit/{{$hotel_id}}.php?data={{$data}}'">戻る</button>
 @endsection
