@@ -2,17 +2,9 @@
 
 @section('content')
 <h2>変更登録</h2>
-<!--警告メッセージ-->
-@if ($errors->any())
-	    <div class="alert alert-danger">
-	        <ul>
-	            @foreach ($errors->all() as $error)
-	                <li>{{ $error }}</li>
-	            @endforeach
-	        </ul>
-	    </div>
-@endif
-<!--警告終わり-->
+
+@include('commons/flash')
+
 <form class="needs-validation" action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
 @csrf
     <table class="table">

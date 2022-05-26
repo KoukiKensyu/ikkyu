@@ -4,6 +4,7 @@
 <div class="text-center">
     <h2>会員情報変更</h2>
 </div>
+@include('commons/flash')
 
 <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
 <div class="card" style="width: 40rem;"> <!--tableをcard化--> 
@@ -27,7 +28,7 @@
     </tr>
     <tr>
         <th><label for="validationCustom04" class="form-label">メールアドレス：</label></th>
-        <td><input class="form-control" id="validationCustom04" type="text" name="email" value="{{$user->email}}" required></td>
+        <td><input class="form-control" id="validationCustom04" type="email" name="email" value="{{$user->email}}" required></td>
     </tr>
     <tr>
         <th><label for="validationCustom05" class="form-label">生年月日：</label></th>
