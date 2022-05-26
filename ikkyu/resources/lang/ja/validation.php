@@ -120,7 +120,7 @@ return [
     'starts_with'          => ':attributeには、:valuesのどれかで始まる値を指定してください。',
     'string'               => ':attributeは文字列を指定してください。',
     'timezone'             => ':attributeには、有効なゾーンを指定してください。',
-    'unique'               => '入力された:attributeは既に存在しています。',//':attributeの値は既に存在しています。'
+    'unique'               => '入力された:attributeは既に使用されています。',//':attributeの値は既に存在しています。'
     'uploaded'             => ':attributeのアップロードに失敗しました。',
     'url'                  => ':attributeに正しい形式を指定してください。',
     'uuid'                 => ':attributeに有効なUUIDを指定してください。',
@@ -162,6 +162,10 @@ return [
         'checkout_time' => 'チェックアウト時刻',
         'max_rooms' => '部屋数',
         'comment' => 'コメント',
+        'email' => 'メールアドレス',
+        'tel' => '電話番号',
+        'birthday' => '生年月日',
+        'password' => 'パスワード'
     ],
 
 ];

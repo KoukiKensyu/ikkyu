@@ -7,12 +7,15 @@
   <h1 class="mb-3 h2">会員情報変更</h1>
 </div>
 
+@include('commons/flash')
+
 <form class="needs-validation" action="{{route('mypage.edit_confirmation', $user->id)}}" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{$user->id}}">
     <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
     <div class="card" style="width: 40rem;"> <!--tableをcard化-->
         <table class="table">
+        <tr><th colspan="2">会員情報</th></tr>
         <tr>
             <th><label for="validationCustom01" class="form-label">氏名：</label></th>
             <td><div class="form-outline">
@@ -31,7 +34,7 @@
         <tr>
             <th><label for="validationCustom04" class="form-label">メールアドレス：</label></th>
             <td><div class="form-outline">
-                <input class="form-control" id="validationCustom04" type="text" name="email" value="{{old('email',$user->email)}}" required></td>
+                <input class="form-control" id="validationCustom04" type="email" name="email" value="{{old('email',$user->email)}}" required></td>
         </tr>
         <tr>
             <th><label for="validationCustom05" class="form-label">生年月日：</label></th>
