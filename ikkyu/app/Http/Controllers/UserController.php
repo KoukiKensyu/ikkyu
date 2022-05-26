@@ -44,6 +44,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->has('return')) {
+            return view('mypage/edit',['user' => $request]);
+        }
 
         $user = \App\Models\User::find($request->id);
         $user->name  = $request->name;
@@ -99,6 +102,10 @@ class UserController extends Controller
     }
     public function update(Request $request, $id)
     {
+        if ($request->has('return')) {
+            return view('admin/user_edit',['user' => $request]);
+        }
+
         $user = \App\Models\User::find($id);
         $user->name  = $request->name;
         $user->address = $request->address;

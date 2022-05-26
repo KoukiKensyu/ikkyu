@@ -83,6 +83,9 @@ class HotelController extends Controller
 
     public function storeCompletion(Request $request)
     {
+        if ($request->has('return')) {
+            return view('hotel_views/create',['hotel' => $request]);
+        }
 
         $hotel = new \App\Models\Hotel;
         $hotel->name = $request->name;
@@ -128,6 +131,10 @@ class HotelController extends Controller
 
     public function editCompletion(Request $request, $id)
     {
+        if ($request->has('return')) {
+            return view('hotel_views/edit',['hotel' => $request]);
+        }
+
         $hotel = \App\Models\Hotel::find($id);
         $hotel->name = $request->name;
         $hotel->hotel_type = $request->hotel_type;

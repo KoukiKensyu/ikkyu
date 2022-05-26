@@ -32,10 +32,11 @@
 <input type="hidden" name="email" value="{{$user->email}}">
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
 <div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
-</form>
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">変更</button>
 
-<button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+
+<button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+</form>
 </div>
 </div>
 </div>
