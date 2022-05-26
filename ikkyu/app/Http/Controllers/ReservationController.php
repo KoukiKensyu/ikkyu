@@ -6,6 +6,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Illuminate\Validation\Rule;
 
 class ReservationController extends Controller
 {
@@ -22,6 +23,10 @@ class ReservationController extends Controller
     public function edit(Request $request ,$id){
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
         $data = $request->data;
+        $this->validate($request,[
+            'name' => ['required','max:50'],
+            
+        ]);
         return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data]);
     }
     public function check(Request $request){
