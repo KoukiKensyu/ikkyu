@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+//validation ignore用
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -29,12 +31,22 @@ class UserController extends Controller
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->birthday = $request->birthday;
+        $this->validate($request,[
+            'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
+            'address' => 'required|max:100',
+            'tel' => 'required',
+            'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],//'required|max:20|email|',
+            'birthday' => 'required',
+        ]);
 
         return view('mypage/edit_confirmation', ['user' => $user]);
     }
 
     public function store(Request $request)
     {
+        if ($request->has('return')) {
+            return view('mypage/edit',['user' => $request]);
+        }
 
         $user = \App\Models\User::find($request->id);
         $user->name  = $request->name;
@@ -78,10 +90,22 @@ class UserController extends Controller
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->birthday = $request->birthday;
+        $this->validate($request,[
+            'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
+            'address' => 'required|max:100',
+            'tel' => 'required',
+            'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],
+            //'email' => 'required|max:20|email',
+            'birthday' => 'required',
+        ]);
         return view('/admin/user_edit_confirm', ['user' => $user]);
     }
     public function update(Request $request, $id)
     {
+        if ($request->has('return')) {
+            return view('admin/user_edit',['user' => $request]);
+        }
+
         $user = \App\Models\User::find($id);
         $user->name  = $request->name;
         $user->address = $request->address;

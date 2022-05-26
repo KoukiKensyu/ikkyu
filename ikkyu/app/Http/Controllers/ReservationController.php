@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
+use Illuminate\Validation\Rule;
 
 class ReservationController extends Controller
 {
@@ -31,6 +33,33 @@ class ReservationController extends Controller
         $reservation->checkout_date = $request->checkout_date;
         $hotel = DB::table('hotels')->where('id', $request->hotel_id)->get()->toArray();
         $data = $request->data;
+
+
+        $is_overlapped = false;
+        // pick all reservation from user id
+        $reservations = DB::table('reservations')->where('user_id', Auth::user()->id)->get();
+        //dd($reservations);
+        foreach($reservations as $r){
+            if (($r->checkin_date >= $reservation->checkin_date && $r->checkin_date <= $reservation->checkout_date) ||
+            ($reservation->checkin_date >= $r->checkin_date && $reservation->checkin_date <= $r->checkout_date)){
+                $is_overlapped = true;
+                break;
+            }
+        }
+
+        $request['is_overlapped'] = $is_overlapped;
+
+        $this->validate($request,[
+            'name' => 'required|max:50',
+            'is_overlapped' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("ほかの予約と日付が重複しています");
+                }
+            },
+
+        ]);
+
+
         return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
 
     }

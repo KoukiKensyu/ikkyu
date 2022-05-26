@@ -2,17 +2,9 @@
 
 @section('content')
 <h2>変更登録</h2>
-<!--警告メッセージ-->
-@if ($errors->any())
-	    <div class="alert alert-danger">
-	        <ul>
-	            @foreach ($errors->all() as $error)
-	                <li>{{ $error }}</li>
-	            @endforeach
-	        </ul>
-	    </div>
-@endif
-<!--警告終わり-->
+
+@include('commons/flash')
+
 <form class="needs-validation" action="{{route('hotels.editconfirm',$hotel->id)}}" method="POST">
 @csrf
     <table class="table">
@@ -60,7 +52,7 @@
 </table>
 <div class="d-flex justify-content-end">
 <button class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更内容確認へ</button>
-</form>
 <button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</form>
 </div>
 @endsection
