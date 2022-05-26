@@ -186,10 +186,8 @@ class HotelController extends Controller
             // 期間内に予約できる最大の部屋数
             $min_rooms = $hotel->max_rooms;
             $is_hotel_full = false;
-            //dd($period);
             foreach($period as $dt){
                 $max_rooms = $hotel->max_rooms;
-                //dd($hotel->id);
                 // 各ホテルの予約日が一致する予約を取得
                 $reservations = Reservation::where('checkin_date', '<=', $dt)->where('checkout_date', '>=', $dt)->where('hotel_id', '=', $hotel->id)->get();
                 foreach($reservations as $reservation){
