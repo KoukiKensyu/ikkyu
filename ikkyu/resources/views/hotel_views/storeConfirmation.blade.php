@@ -33,7 +33,7 @@
         </tr>
         <tr>
         <td>コメント</td>
-        <td>{{ $hotel->comment }}</td>
+        <td><?php echo nl2br($hotel->comment); ?> </td>
         </tr>
     </tbody>
 </table>
