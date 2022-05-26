@@ -53,12 +53,10 @@ table.table-fit tbody td, table.table-fit tfoot td {
     width: auto !important;
 }
 </style> -->
-
-
 </div>
 <form action="">
-    
-<table class="table table-hover ">
+<div class="table-responsive">
+<table class="table table-hover align-middle">
 <thead>
 <tr><th style="width: 10%;"></th><th style="width: 10%;"></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 </thead>
@@ -78,43 +76,49 @@ if(isset($reservations)){
       //else{
     //     $remainRooms = $hotel->max_rooms .'部屋/'. $hotel->max_rooms .'部屋';
     //  } ?>    
+<style>
+    a {display:block;}
+</style>
 @if($remainRooms >= 1)
-<tbody class="table-hover">
+<tbody class=" align-middle ">
 
-<tr>
-   
+<tr class="align-middle ">
+    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">
     @if($hotel->id < 6 )
-    <td><img src="/images/{{$hotel->id}}.jpg" width="163" height="130" alt=""></td>
-    @else<td><img src="/images/6.jpg" width="163" height="130" alt=""></td>
+    <img src="/images/{{$hotel->id}}.jpg" width="163" height="130" alt="">
+    @else<img src="/images/6.jpg" width="163" height="130" alt="">
     @endif
-    <td>{{$hotel->comment}}</td>
-    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">{{$hotel->name}}</a></td>
+    </a></td>
+    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">{{$hotel->comment}}</a></td>
+    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}" class="text-primary">{{$hotel->name}}</a></td>
+    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">
     @if($hotel->hotel_type == 0)
-        <td>シティホテル</td>
+        シティホテル
        
     @elseif($hotel->hotel_type == 1)
-        <td>リゾートホテル</td>
+        リゾートホテル
    
     @elseif($hotel->hotel_type == 2)
-        <td>ビジネスホテル</td>
+        ビジネスホテル
         
     @elseif($hotel->hotel_type == 3)
-        <td>旅館</td>
+        旅館
        
     @elseif($hotel->hotel_type == 4)
-        <td>民宿</td>
+        民宿
         
     @elseif($hotel->hotel_type == 5)
-        <td>ペンション</td>
+        ペンション
         
-        @endif
+        @endif</a></td>
 
 
-<td>{{$remainRooms .'部屋/'. $hotel->max_rooms .'部屋'}}</td></tr>
+<td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">{{$remainRooms .'部屋/'. $hotel->max_rooms .'部屋'}}</a></td></tr>
 @endif
 @endforeach
 </tbody>
 </table>
+</div>
 </div>
 
 </form>

@@ -9,6 +9,7 @@
 <tr><th>分類</th><td>{{ $hotel->hotel_type }}</td></tr>
 <tr><th>チェックイン/アウト</th><td>{{ $hotel->checkin_time }}～{{ $hotel->checkout_time }}</td></tr>
 <tr><th>部屋数</th><td>{{ $hotel->max_rooms }}部屋</td></tr>
+<tr><td>金額/1部屋</td><td>{{$hotel->price}}円</td></tr>
 <tr><th>コメント</th><td>{{ $hotel->comment }}</td></tr>
 </table>
 

@@ -36,6 +36,10 @@
                 <td><input class="form-control" id="validationCustom05" type="number" name="max_rooms" value="$hotel->max_rooms" min="1" required>部屋</td>
             </tr>
             <tr>
+            <td><label class="form-label">金額/1部屋</label></td>
+            <td><input type="number" name="price" value="{{$hotel -> price}}" class="form-control" ></td>
+            </tr>
+            <tr>
                 <td><label class="form-label">コメント</label></td>
                 <td><input class="form-control" type="text" name="comment"></td>
             </tr>
