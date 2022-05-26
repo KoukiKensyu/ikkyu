@@ -52,8 +52,11 @@
             <td><input type="number" name="price" value="{{$hotel -> price}}" class="form-control" ></td>
             </tr>
             <tr>
-                <td><label for="validationCustom06" class="form-label">コメント</label></td>
-                <td><input class="form-control" id="validationCustom06" type="text" name="comment" value="{{old('comment',$hotel->comment)}}" required></td>
+            <td><label for="validationCustom06" class="form-label">コメント</label></td>
+            <td>
+                <!-- <input class="form-control" id="validationCustom06" type="text" name="comment" value="{{old('comment',$hotel->comment)}}" required> -->
+                <textarea class="form-control" name="comment" id="validationCustom06" cols="50" rows="5">{{old('comment',$hotel->comment)}}</textarea>
+            </td>
             </tr>
         </tbody>
     </table>

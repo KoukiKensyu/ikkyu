@@ -58,7 +58,7 @@ table.table-fit tbody td, table.table-fit tfoot td {
 <div class="table-responsive">
 <table class="table table-hover align-middle">
 <thead>
-<tr><th style="width: 10%;"></th><th style="width: 10%;"></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
+<tr><th style="width: 10%;"></th><th style="width: 20%;"></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 </thead>
 @foreach ($hotels as $hotel)
 <?php  
@@ -89,7 +89,7 @@ if(isset($reservations)){
     @else<img src="/images/6.jpg" width="163" height="130" alt="">
     @endif
     </a></td>
-    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">{{$hotel->comment}}</a></td>
+    <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}"><?php echo nl2br($hotel->comment); ?></a></td>
     <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}" class="text-primary">{{$hotel->name}}</a></td>
     <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}">
     @if($hotel->hotel_type == 0)

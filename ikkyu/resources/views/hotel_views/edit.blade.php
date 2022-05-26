@@ -54,7 +54,7 @@
         </tr>
         <tr>
         <td><label class="form-label">コメント</label></td>
-        <td><input type="text" name="comment" value="{{$hotel -> comment}}" class="form-control" ></td>
+        <td><textarea class="form-control" name="comment" id="validationCustom06" cols="50" rows="5">{{old('comment',$hotel->comment)}}</textarea></td>
         </tr>
     </tbody>
 </table>
