@@ -15,7 +15,15 @@ class UserController extends Controller
     {
         $user = Auth::user();
         //dd($user);
-        return view('mypage/index', ['users' => $user]);
+        $reservation = DB::table('reservations')->where('user_id',$user->id)->get();
+        $i=0;
+        foreach($reservation as $reserve){
+        $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
+        //dd($hotel);
+        $reservation[$i]->name=$hotel[0]->name;
+        $i++;
+        }
+        return view('mypage/index', ['users' => $user,'reservations' => $reservation]);
     }
     public function edit_user()
     {
