@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Auth;
 use App\User;
   
@@ -29,7 +30,7 @@ class ChangePasswordController extends Controller
     {
         return view('changePassword');
     } 
-   
+
     /**
      * Show the application dashboard.
      *
