@@ -7,6 +7,9 @@ use App\Models\Reservation;
 
 use Illuminate\Http\Request;
 
+//validation ignore用
+use Illuminate\Validation\Rule;
+
 class HotelController extends Controller
 {
     public function index(Request $request)
@@ -51,6 +54,15 @@ class HotelController extends Controller
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
         $hotel->comment = $request->comment;
+        $this->validate($request,[
+            'name' => 'required|max:50|unique:hotels',
+            'hotel_type' => 'required',
+            'address' => 'required|max:100',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+            'max_rooms' => 'required',
+            'comment' => 'required|max:500',
+        ]);
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
 
@@ -98,6 +110,15 @@ class HotelController extends Controller
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
         $hotel->comment = $request->comment;
+        $this->validate($request,[
+            'name' => ['required','max:50',Rule::unique('hotels')->ignore($hotel->id)],
+            'hotel_type' => 'required',
+            'address' => 'required|max:100',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+            'max_rooms' => 'required',
+            'comment' => 'required|max:500',
+        ]);
         return view('hotel_views/editConfirmation', ['hotel' => $hotel]);
     }
 
