@@ -23,10 +23,6 @@ class ReservationController extends Controller
     public function edit(Request $request ,$id){
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
         $data = $request->data;
-        $this->validate($request,[
-            'name' => ['required','max:50'],
-            
-        ]);
         return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data]);
     }
     public function check(Request $request){
@@ -57,7 +53,7 @@ class ReservationController extends Controller
             'name' => 'required|max:50',
             'is_overlapped' => function($attribute, $value, $fail){
                 if($value){
-                    $fail("同じ日付で予約することはできません");
+                    $fail("ほかの予約と日付が重複しています");
                 }
             },
 
