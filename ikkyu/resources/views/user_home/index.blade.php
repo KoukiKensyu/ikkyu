@@ -29,30 +29,13 @@
         
 <!-- </div> -->
 <div class="d-flex flex-row bd-highlight m-5">
-		<p>宿名<input type="text" name="name" value="{{request('name')}}" placeholder="検索キーワード"></p>
-        <p><lebel>予約日<input type="date" name="checkin_date" value="{{request('checkin_date')}}" required></label></p>
-        <!-- <p><label ><input type="checkbox" name="max_rooms" value="1">満室を除く</label></p> -->
+		<div><p>宿名<input type="text" name="name" value="{{request('name')}}" placeholder="検索キーワード"></p></div>
+        <div><p>チェックイン<input type="date" name="checkin_date" value="{{request('checkin_date')}}" required></p></div>
+        <div><p>チェックアウト<input type="date" name="checkout_date" value="{{request('checkout_date')}}" required></p></div>
         <button class="p-2 bd-highlight btn btn-outline-primary btn-rounded active h-50" type="submit">検索</button>
 </div>
 </form>
 </div>
-
-<!-- <style>.table td.fit, 
-.table th.fit {
-    white-space: nowrap;
-    width: 1%;
-}
-table.table-fit {
-    width: auto !important;
-    table-layout: auto !important;
-}
-table.table-fit thead th, table.table-fit tfoot th {
-    width: auto !important;
-}
-table.table-fit tbody td, table.table-fit tfoot td {
-    width: auto !important;
-}
-</style> -->
 </div>
 <form action="">
 <div class="table-responsive">
@@ -60,22 +43,8 @@ table.table-fit tbody td, table.table-fit tfoot td {
 <thead>
 <tr><th style="width: 10%;"></th><th style="width: 20%;"></th><th>宿名</th><th>宿タイプ</th><th>部屋数</th></tr>
 </thead>
-@foreach ($hotels as $hotel)
-<?php  
-$remainRooms = $hotel->max_rooms;
-if(isset($reservations)){
-    foreach($reservations as $reservation){
-        if($hotel->id === $reservation->hotel_id){
-        $remainRooms =$hotel->max_rooms - $reservation->rooms;        
-        }
-        //else{
-           // $remainRooms = $hotel->max_rooms .'部屋/'. $hotel->max_rooms .'部屋';
-        }}
-    //}
-      //}
-      //else{
-    //     $remainRooms = $hotel->max_rooms .'部屋/'. $hotel->max_rooms .'部屋';
-    //  } ?>    
+@foreach ($hotels as $key=>$hotel)
+<?php  $remainRooms = $remaining_rooms[$key];?>    
 <style>
     a {display:block;}
 </style>

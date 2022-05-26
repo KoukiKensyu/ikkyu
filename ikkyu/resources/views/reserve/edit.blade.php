@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>予約内容入力</h2>
-
+@include('commons/flash')
 <form class="needs-validation" action="{{route('reserve.check')}}" method="post">
     @csrf
     <table class="table">

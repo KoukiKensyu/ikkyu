@@ -6,6 +6,12 @@ use App\Models\Hotel;
 use App\Models\Reservation;
 
 use Illuminate\Http\Request;
+use \DateTime;
+use \DateInterval;
+use \DatePeriod;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 //validation ignore用
 use Illuminate\Validation\Rule;
@@ -173,14 +179,59 @@ class HotelController extends Controller
         if ($request->max_rooms = 1) {
             $query->where('max_rooms', '>', 0);
         }
+
+        $begin = new DateTime($request->checkin_date);
+        $end = new DateTime($request->checkout_date);
+        $interval = new DateInterval('P1D');
+        $period = new DatePeriod($begin, $interval, $end);
         $hotels = $query->orderBy('max_rooms')->paginate(5);
-        $reservations = \App\Models\Reservation::all();
-        if ($request->checkin_date){
-            $reservations =Reservation::where('checkin_date','=', $request->checkin_date)->get();}
-         else{
-                $reservations = Reservation::where('id','=', 20000000)->get();
-         }
-        $remainRooms = '';
-        return view('/user_home/index', ['hotels' => $hotels, 'reservations' => $reservations, 'remainRooms' => $remainRooms]);
+        $result_hotels = array();
+        $result_rooms = array();
+        $is_hotel_full = false;
+
+        foreach($hotels as $hotel){
+            // 期間内に予約できる最大の部屋数
+            $min_rooms = $hotel->max_rooms;
+            $is_hotel_full = false;
+            foreach($period as $dt){
+                $max_rooms = $hotel->max_rooms;
+                // 各ホテルの予約日が一致する予約を取得
+                $reservations = Reservation::where('checkin_date', '<=', $dt)->where('checkout_date', '>=', $dt)->where('hotel_id', '=', $hotel->id)->get();
+                foreach($reservations as $reservation){
+                    $max_rooms -= $reservation->rooms;
+                    // 部屋数が足りないならこのホテルは表示しない
+                    if($max_rooms <= 0){
+                        $is_hotel_full = true;
+                        $max_rooms = 0;
+                        break;
+                    }
+                }
+                if($is_hotel_full){
+                    break;
+                }
+                if($max_rooms < $min_rooms){
+                    $min_rooms = $max_rooms;
+                }
+            }
+            if(!$is_hotel_full){
+                $result_hotels[] = $hotel;
+                $result_rooms[] = $min_rooms;
+            }
+        }
+        $hotels = $this->paginate($result_hotels);
+        return view('/user_home/index', ['hotels' => $hotels, 'remaining_rooms' => $result_rooms]);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+
 }
