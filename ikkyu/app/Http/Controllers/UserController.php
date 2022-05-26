@@ -137,4 +137,7 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function password_change_completion(){
+        return view('mypage/password_change_completion');
+    }
 }

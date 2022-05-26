@@ -38,6 +38,9 @@ Route::get('/register_confirmation', function () {return view('auth/register_con
 Route::get('/register_input', function () {return view('auth/register_input');});
 Route::get('/login_user', function () {return view('auth/login_user');});
 Route::get('/login_administrator', function () {return view('auth/login_administrator');});
+// パスワード変更
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+
 
 
 // Administrator Login関連------------------------
@@ -57,6 +60,7 @@ Route::post('mypage/edit_confirmation', [UserController::class, 'update_user'])-
 Route::patch('mypage/edit_confirmation', [UserController::class, 'store'])->name('mypage.edit_store');
 Route::get('mypage/UserDelete', [UserController::class,'delete_user_confirm']);//退会確認画面を表示
 Route::delete('/', [UserController::class,'destroy_user'])->name('mypage.delete');//退会処理
+Route::get('mypage/password_change_completion', [UserController::class, 'password_change_completion'])->name('mypage.password_change_completion');// パスワード変更完了画面
 
 
 // 宿予約関連-------------------------------------10~13
