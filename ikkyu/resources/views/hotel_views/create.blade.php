@@ -27,13 +27,13 @@
             </tr>
             <tr>
                 <td><label for="validationCustom04" class="form-label">チェックイン/チェックアウト</label></td>
-                <td><input class="form-control" id="validationCustom04" type="time" name="checkin_time" value="$hotel->checkin_time" required>
+                <td><input class="form-control" id="validationCustom04" type="time" name="checkin_time" value="{{$hotel->checkin_time}}" required>
                     /
-                    <input class="form-control" id="validationCustom04" type="time" name="checkout_time" value="$hotel->checkout_time" required></td>
+                    <input class="form-control" id="validationCustom04" type="time" name="checkout_time" value="{{$hotel->checkout_time}}" required></td>
             </tr>
             <tr>
                 <td><label for="validationCustom05" class="form-label">部屋数</label></td>
-                <td><input class="form-control" id="validationCustom05" type="number" name="max_rooms" value="$hotel->max_rooms" min="1" required>部屋</td>
+                <td><input class="form-control" id="validationCustom05" type="number" name="max_rooms" value="{{$hotel->max_rooms}}" min="1" required>部屋</td>
             </tr>
             <tr>
                 <td><label class="form-label">コメント</label></td>

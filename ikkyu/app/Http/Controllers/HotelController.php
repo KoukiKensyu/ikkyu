@@ -69,6 +69,9 @@ class HotelController extends Controller
 
     public function storeCompletion(Request $request)
     {
+        if ($request->has('return')) {
+            return view('hotel_views/create',['hotel' => $request]);
+        }
 
         $hotel = new \App\Models\Hotel;
         $hotel->name = $request->name;
