@@ -94,7 +94,16 @@ class UserController extends Controller
     public function delete_confirm($id)
     {
         $user = \App\Models\User::find($id);
-        return view('/admin/user_delete', ['user' => $user]);
+
+        $reservation = DB::table('reservations')->where('user_id',$id)->get();
+        $i=0;
+        foreach($reservation as $reserve){
+        $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
+        //dd($hotel);
+        $reservation[$i]->name=$hotel[0]->name;
+        $i++;
+        }
+        return view('/admin/user_delete', ['user' => $user,'reservations' => $reservation]);
         //user_delete UserDeleteファイルの名前をuser_deleteに変更
     }
     public function destroy($id)
