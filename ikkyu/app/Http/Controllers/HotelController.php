@@ -53,6 +53,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         $this->validate($request,[
             'name' => 'required|max:50|unique:hotels',
@@ -75,6 +76,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
@@ -89,6 +91,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         $hotel->save();
         return view('/hotel_views/storeCompletion');
@@ -109,6 +112,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         $this->validate($request,[
             'name' => ['required','max:50',Rule::unique('hotels')->ignore($hotel->id)],
@@ -131,6 +135,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->max_rooms = $request->max_rooms;
+        $hotel->price = $request->price;
         $hotel->comment = $request->comment;
         $hotel->save();
         return view('hotel_views/editCompletion', ['hotel' => $hotel]);

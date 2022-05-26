@@ -26,7 +26,11 @@
         </tr>
         <tr>
         <td>部屋数</td>
-        <td>{{$hotel->max_rooms}}</td>
+        <td>{{$hotel->max_rooms}}部屋</td>
+        </tr>
+        <tr>
+        <td>金額/1部屋</td>
+        <td>{{$hotel->price}}円</td>
         </tr>
         <td>コメント</td>
         <td>{{$hotel->comment}}</td>
@@ -39,6 +43,7 @@
 <input type="hidden" name="checkin_time" value="{{$hotel->checkin_time}}">
 <input type="hidden" name="checkout_time" value="{{$hotel->checkout_time}}">
 <input type="hidden" name="max_rooms" value="{{$hotel->max_rooms}}">
+<input type="hidden" name="price" value="{{$hotel->price}}">
 <input type="hidden" name="comment" value="{{$hotel->comment}}">
 
 <p>この内容で登録しますか？</p>
