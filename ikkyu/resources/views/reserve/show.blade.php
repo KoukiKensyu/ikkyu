@@ -19,14 +19,15 @@
             </tr>
             <tr>
             <th scope="col">金額/部屋</th>
-            <td>$$$$$円/部屋</td>
+            <td>{{$hotel[0]->price}}円/部屋</td>
             </tr>
             <tr>
             <th scope="col">空き部屋</th>
-            <td>0/{{$hotel[0]->max_rooms}}</td>
+            <td>{{$data}}/{{$hotel[0]->max_rooms}}</td>
             </tr>
         </tbody>
     </table>
+    <input type="hidden" name="data" value="{{$data}}">
     <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
 </form>
 <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>

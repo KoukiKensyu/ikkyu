@@ -12,13 +12,16 @@
 <!--未宿泊の予約があるかどうかでif-->
 <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
 <div class="card" style="width: 40rem;"> <!--tableをcard化-->    
-
+@if(!$reservations->isEmpty())
 <table border="1" class="table">
 <tr><th colspan="2">未宿泊の予約記録</th><th></th></tr>
-<tr><th>宿名</th><th>予約日</th><th>宿泊日</th></tr>
-<tr><td>東横イン</td><td>2022年4月20日</td><td>2022年5月20日</td></tr>
+<tr><th>宿名</th><th>予約日</th><th>チェックイン</th><th>チェックアウト</th></tr>
+@foreach($reservations as $reserve)
+<tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td></tr>
+@endforeach
 </table>
 未宿泊の予定をキャンセルします<br>
+@endif
 <!-- endif-->
 [会員ID：{{$users->id}}][氏名：{{$users->name}}]は退会しますか？
 <div class="d-flex justify-content-end"> <!--ボタンを右サイドにレイアウト-->

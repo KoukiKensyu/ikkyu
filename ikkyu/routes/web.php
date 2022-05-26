@@ -103,3 +103,4 @@ Route::prefix('hotel_views')->group(function(){
     Route::post('/postConfirmation',[HotelController::class,'postconfirm'])->name('hotels.postconfirm'); //24 宿新規登録確認 hotel_views/storeConfirmation
     Route::post('/storeCompletion',[HotelController::class,'storeCompletion'])->name('hotels.storeCompletion'); // 24-2. 宿新規登録後
 });
+
