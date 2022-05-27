@@ -32,7 +32,16 @@
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
 <div class="text-right">
     <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
-    <button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+    </form>
+    <form action="{{route('mypage.edit')}}" method="get">
+    @csrf
+    <input type="hidden" name="id" value="{{$user->id}}">
+    <input type="hidden" name="name" value="{{$user->name}}">
+    <input type="hidden" name="address" value="{{$user->address}}">
+    <input type="hidden" name="tel" value="{{$user->tel}}">
+    <input type="hidden" name="email" value="{{$user->email}}">
+    <input type="hidden" name="birthday" value="{{$user->birthday}}">
+    <button type="submit" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
 </form>
 </div>
 </div>

@@ -25,9 +25,18 @@ class UserController extends Controller
         }
         return view('mypage/index', ['users' => $user,'reservations' => $reservation]);
     }
-    public function edit_user()
+    public function edit_user(Request $request)
     {
         $user = Auth::user();
+
+        if ($request->has('return')) {
+            $user->name=$request->name;
+            $user->address=$request->address;
+            $user->tel=$request->tel;
+            $user->email=$request->email;
+            $user->birthday=$request->birthday;
+        }
+
         return view('mypage/edit', ['user' => $user]);
     }
     public function update_user(Request $request)
@@ -52,10 +61,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->has('return')) {
-            return view('mypage/edit',['user' => $request]);
-        }
-
         $user = \App\Models\User::find($request->id);
         $user->name  = $request->name;
         $user->address = $request->address;
