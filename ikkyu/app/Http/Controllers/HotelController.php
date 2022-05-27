@@ -294,7 +294,7 @@ class HotelController extends Controller
             }
         }
 
-        $hotelss = $this->paginate($result_hotels, 5, null, ['path' => Paginator::resolveCurrentPath()]);
+        $paginated_hotel = $this->paginate($result_hotels, 5, null, ['path' => Paginator::resolveCurrentPath()]);
 
         $is_overlapped = false;
             if ($begin > $end){
@@ -312,7 +312,7 @@ class HotelController extends Controller
 
         ]);
 
-        return view('/user_home/index', ['hotels' => $hotelss, 'remaining_rooms' => $result_rooms]);
+        return view('/user_home/index', ['hotels' => $paginated_hotel, 'remaining_rooms' => $result_rooms]);
     }
 
     /**
