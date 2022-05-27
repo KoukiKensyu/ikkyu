@@ -184,7 +184,7 @@ class HotelController extends Controller
         $end = new DateTime($request->checkout_date);
         $interval = new DateInterval('P1D');
         $period = new DatePeriod($begin, $interval, $end);
-        $hotels = $query->orderBy('max_rooms')->paginate(5);
+        $hotels = $query->orderBy('max_rooms')->get();
         $result_hotels = array();
         $result_rooms = array();
         $is_hotel_full = false;
@@ -218,7 +218,7 @@ class HotelController extends Controller
                 $result_rooms[] = $min_rooms;
             }
         }
-        $hotels = $this->paginate($result_hotels);
+        $hotelss = $this->paginate($result_hotels, 3, null, ['path' => Paginator::resolveCurrentPath()]);
 
         $is_overlapped = false;
             if ($begin > $end){
@@ -236,7 +236,7 @@ class HotelController extends Controller
 
         ]);
 
-        return view('/user_home/index', ['hotels' => $hotels, 'remaining_rooms' => $result_rooms]);
+        return view('/user_home/index', ['hotels' => $hotelss, 'remaining_rooms' => $result_rooms]);
     }
 
     /**
