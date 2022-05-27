@@ -3,6 +3,7 @@
 @section('content')
 <!--<a href="../mypage/index">マイページ</a>-->
 <h1>会員ホーム</h1>
+@include('commons/flash')
 <!-- <div class="width"> -->
 <div class="d-flex flex-row bd-highlight mb-3">
     <div class="p-2 bd-highlight m-5  dropdown">
@@ -26,12 +27,12 @@
         <label for="type5">ペンション</label></li>
     </ul>
     </div>
-        
+        <?php $today = \Carbon\Carbon::now()->format("Y-m-d");?>
 <!-- </div> -->
 <div class="d-flex flex-row bd-highlight m-5">
 		<div><p>宿名<input type="text" name="name" value="{{request('name')}}" placeholder="検索キーワード"></p></div>
-        <div><p>チェックイン<input type="date" name="checkin_date" value="{{request('checkin_date')}}" required></p></div>
-        <div><p>チェックアウト<input type="date" name="checkout_date" value="{{request('checkout_date')}}" required></p></div>
+        <div><p>チェックイン<input type="date" min="{{$today}}" name="checkin_date" value="{{request('checkin_date')}}" required></p></div>
+        <div><p>チェックアウト<input type="date" min="{{$today}}" name="checkout_date" value="{{request('checkout_date')}}" required></p></div>
         <button class="p-2 bd-highlight btn btn-outline-primary btn-rounded active h-50" type="submit">検索</button>
 </div>
 </form>
@@ -89,6 +90,7 @@
 </table>
 </div>
 </div>
+
 
 </form>
 <p>{{ $hotels->appends(Request::all())->links() }}</p>

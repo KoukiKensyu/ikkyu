@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Validation\Rule;
+use \DateTime;
 
 class ReservationController extends Controller
 {
@@ -46,6 +47,11 @@ class ReservationController extends Controller
                 break;
             }
         }
+        $begin = new DateTime($request->checkin_date);
+        $end = new DateTime($request->checkout_date);
+        if ($begin > $end){
+            $is_overlapped = true;
+        }
 
         $request['is_overlapped'] = $is_overlapped;
 
@@ -53,14 +59,14 @@ class ReservationController extends Controller
             'name' => 'required|max:50',
             'is_overlapped' => function($attribute, $value, $fail){
                 if($value){
-                    $fail("ほかの予約と日付が重複しています");
+                    $fail("ほかの予約と日付が重複しているかチェックアウト日が間違っています");
                 }
             },
 
         ]);
+        $day = $end->diff($begin);
 
-
-        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
+        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price, 'day'=>$day]);
 
     }
     public function confirm(Request $request){
