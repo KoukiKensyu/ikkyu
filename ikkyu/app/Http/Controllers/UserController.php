@@ -40,10 +40,10 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->birthday = $request->birthday;
         $this->validate($request,[
-            'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
+            'name' => ['required','max:50'],
             'address' => 'required|max:100',
-            'tel' => 'required',
-            'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],//'required|max:20|email|',
+            'tel' => 'required|max:20',
+            'email' =>  ['required','max:50','email',Rule::unique('users')->ignore($user->id)],//'required|max:20|email|',
             'birthday' => 'required',
         ]);
 
@@ -99,11 +99,10 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->birthday = $request->birthday;
         $this->validate($request,[
-            'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
+            'name' => 'required|max:50',
             'address' => 'required|max:100',
-            'tel' => 'required',
-            'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],
-            //'email' => 'required|max:20|email',
+            'tel' => 'required|digits_between:1,20|numeric',
+            'email' =>  ['required','max:50','email',Rule::unique('users')->ignore($user->id)],
             'birthday' => 'required',
         ]);
         return view('/admin/user_edit_confirm', ['user' => $user]);

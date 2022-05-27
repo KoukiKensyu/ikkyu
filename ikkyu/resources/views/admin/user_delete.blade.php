@@ -26,10 +26,10 @@
 <!-- endif-->
 [ユーザーID:{{$user->id}}] [{{$user->name}}]を退会させますか？
 
-<div class="d-flex justify-content-end">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
-</form>
-<button type="button" onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
+<div class="text-right">
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
+    </form>
+    <button type="button" onclick="location.href='/admin/user_detail/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 </div></div></div>
 
 @endsection
