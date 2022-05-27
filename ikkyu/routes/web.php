@@ -55,7 +55,7 @@ Route::prefix('administrator')->group(function () {
 // 会員ホーム、マイページ------------------------ 6~9
 Route::get('user_home/index',[HotelController::class, 'search'])->name('search'); // 6.会員ホーム(宿検索) user_home/index
 Route::get('mypage/index', [UserController::class,'index'])->name('mypage.index'); // 7.マイページ表示 mypage/index
-Route::get('mypage/edit', [UserController::class,'edit_user']); // 8.1. 登録情報変更 mypage/edit
+Route::get('mypage/edit', [UserController::class,'edit_user'])->name('mypage.edit'); // 8.1. 登録情報変更 mypage/edit
 Route::post('mypage/edit_confirmation', [UserController::class, 'update_user'])->name('mypage.edit_confirmation'); // mypage/edit_confirmation
 Route::patch('mypage/edit_confirmation', [UserController::class, 'store'])->name('mypage.edit_store');
 Route::get('mypage/UserDelete', [UserController::class,'delete_user_confirm']);//退会確認画面を表示
