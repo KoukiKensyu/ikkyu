@@ -44,10 +44,27 @@ class HotelController extends Controller
         return view('hotel_views/show', ['hotel' => $hotel]);
     }
 
-    public function create()
-    {
+    public function create(Request $request)
+    {   
+        $name = "";
+        $address = "";
+        $checkin = "";
+        $checkout = "";
+        $room = "";
+        $price = "";
+        $comment = "";
+
+        if ($request->has('return')) {
+            $checkin = $request->checkin_time;
+            $checkout = $request->checkout_time;
+            $name = $request->name;
+            $address = $request->address;
+            $room = $request->max_rooms;
+            $price = $request->price;
+            $comment = $request->comment;
+        }
         $hotel = new \App\Models\Hotel;
-        return view('hotel_views/create', ['hotel' => $hotel]);
+        return view('hotel_views/create', ['hotel' => $hotel,'name' => $name,'address'=>$address,'room'=>$room,'price'=>$price,'comment'=>$comment ,'checkin'=>$checkin, 'checkout'=>$checkout]);
     }
 
     public function postconfirm(Request $request)

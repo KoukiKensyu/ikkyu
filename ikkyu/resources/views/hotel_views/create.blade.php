@@ -20,15 +20,15 @@
         <tbody>
             <tr>
                 <td><label for="validationCustom01" class="form-label">宿名</label></td>
-                <td><input class="form-control" id="validationCustom01" type="text" name="name" value="{{old('name',$hotel->name)}}" required></td>
+                <td><input class="form-control" id="validationCustom01" type="text" name="name" value="{{$name}}" required></td>
             </tr>
             <tr>
                 <td><label for="validationCustom02" class="form-label">住所</label></td>
-                <td><input class="form-control" id="validationCustom02" type="text" name="address" value="{{old('address',$hotel->address)}}" required></td>
+                <td><input class="form-control" id="validationCustom02" type="text" name="address" value="{{$address}}" required></td>
             </tr>
             <tr>
                 <td><label for="validationCustom03" class="form-label">宿分類</label></td>
-                <td><select class="select-control" id="validationCustom03" name="hotel_type" value="{{old('hotel_type',$hotel->hotel_type)}}" required>
+                <td><select class="select-control" id="validationCustom03" name="hotel_type" value="$hotel_type" required>
                 <option value="0">0:シティホテル</option>
                 <option value="1">1:リゾートホテル</option>
                 <option value="2">2:ビジネスホテル</option>
@@ -39,23 +39,23 @@
             </tr>
             <tr>
                 <td><label for="validationCustom04" class="form-label">チェックイン/チェックアウト</label></td>
-                <td><input class="form-control" id="validationCustom04" type="time" name="checkin_time" value="{{old('checkin_time',$hotel->checkin_time)}}" required>
+                <td><input class="form-control" id="validationCustom04" type="time" name="checkin_time" value="{{$checkin}}" required>
                     /
-                    <input class="form-control" id="validationCustom04" type="time" name="checkout_time" value="{{old('checkout_time',$hotel->checkout_time)}}" required></td>
+                    <input class="form-control" id="validationCustom04" type="time" name="checkout_time" value="{{$checkout}}" required></td>
             </tr>
             <tr>
                 <td><label for="validationCustom05" class="form-label">部屋数</label></td>
-                <td><input class="form-control" id="validationCustom05" type="number" name="max_rooms" value="{{old('max_rooms',$hotel->max_rooms)}}" min="1" required>部屋</td>
+                <td><input class="form-control" id="validationCustom05" type="number" name="max_rooms" value="{{$room}}" min="1" required>部屋</td>
             </tr>
             <tr>
             <td><label class="form-label">金額/1部屋</label></td>
-            <td><input type="number" name="price" value="{{old('price',$hotel -> price)}}" class="form-control" required></td>
+            <td><input type="number" name="price" value="{{$price}}" class="form-control" required></td>
             </tr>
             <tr>
             <td><label for="validationCustom06" class="form-label">コメント</label></td>
             <td>
                 <!-- <input class="form-control" id="validationCustom06" type="text" name="comment" value="{{old('comment',$hotel->comment)}}" required> -->
-                <textarea class="form-control" name="comment" id="validationCustom06" cols="50" rows="5">{{old('comment',$hotel->comment)}}</textarea>
+                <textarea class="form-control" name="comment" id="validationCustom06" cols="50" rows="5">{{$comment}}</textarea>
             </td>
             </tr>
         </tbody>
