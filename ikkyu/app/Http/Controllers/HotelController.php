@@ -218,7 +218,7 @@ class HotelController extends Controller
                 $result_rooms[] = $min_rooms;
             }
         }
-        $hotels = $this->paginate($result_hotels);
+        $hotels = $this->paginate($result_hotels,2);
 
         $is_overlapped = false;
             if ($begin > $end){
