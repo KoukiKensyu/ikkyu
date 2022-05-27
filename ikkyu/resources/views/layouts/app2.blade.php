@@ -38,9 +38,12 @@
 <style>
     @font-face{
         font-family: ounen;
-        src: url(font/Ounen-mouhitsu.otf);
+        src: url(/font/Ounen-mouhitsu.otf);
     }
     .ounen{
+        font-family: ounen
+    }
+    h1{
         font-family: ounen
     }
 </style>

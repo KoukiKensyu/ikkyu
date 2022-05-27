@@ -2,7 +2,6 @@
 
 @section('content')
 <h2>宿詳細</h2>
-<div class="btn-group">
     <form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
         <table border='1' class="table table-bordered" >
             <tbody>
@@ -29,6 +28,7 @@
             </tbody>
         </table>
         <input type="hidden" name="data" value="{{$data}}">
+<div class="d-flex justify-content-end text-right">
         <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
     </form>
     <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>

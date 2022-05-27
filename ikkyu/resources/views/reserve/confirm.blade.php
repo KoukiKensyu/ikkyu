@@ -26,5 +26,7 @@
         </tr>
     </tbody>
 </table>
-<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">会員ホームへ</button>
+<div class="d-flex justify-content-end text-right">
+    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">会員ホームへ</button>
+</div>
 @endsection

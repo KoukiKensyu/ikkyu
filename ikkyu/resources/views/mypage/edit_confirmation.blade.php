@@ -30,7 +30,7 @@
 <input type="hidden" name="tel" value="{{$user->tel}}">
 <input type="hidden" name="email" value="{{$user->email}}">
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
-<div class="text-right">
+<div class="d-flex justify-content-end text-right">
     <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
     </form>
     <form action="{{route('mypage.edit')}}" method="get">

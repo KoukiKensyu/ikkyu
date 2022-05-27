@@ -29,7 +29,7 @@
     <input type="hidden" name="birthday" value="{{$user->birthday}}">
 
     <p><strong>この内容で確定しますか？</strong></p> <!--太字-->
-    <div class="text-right">
+    <div class="d-flex justify-content-end text-right">
         <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
 </form>
 
