@@ -94,15 +94,12 @@ class UserController extends Controller
             $user->tel = $request->tel;
             $user->email = $request->email;
             $user->birthday = $request->birthday;
-
         }
         return view('/admin/user_edit', ['user' => $user]);
     }
     public function confirm(Request $request, $id)
     {
         $user = \App\Models\User::find($id);
-        
-
 
         $user->name  = $request->name;
         $user->address = $request->address;
@@ -120,10 +117,6 @@ class UserController extends Controller
     }
     public function update(Request $request, $id)
     {
-        if ($request->has('return')) {
-            return view('admin/user_edit',['user' => $request]);
-        }
-
         $user = \App\Models\User::find($id);
         $user->name  = $request->name;
         $user->address = $request->address;
