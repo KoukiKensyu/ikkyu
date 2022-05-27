@@ -42,6 +42,6 @@
     <div class="text-right">
             <button class="btn btn-outline-danger btn-rounded active" type="submit">確認画面へ</button>
 </form>
-            <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/show/{{$hotel[0]->id}}.php?aaa={{$data}}'">戻る</button>
+            <button class="btn btn-outline-info btn-rounded active" type="button" onclick="location.href='/reserve/show/{{$hotel[0]->id}}.php?aaa={{$data}}'">戻る</button>
     </div>
 @endsection
