@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use App\Models\Reservation;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use \DateTime;
 use \DateInterval;
@@ -44,10 +44,27 @@ class HotelController extends Controller
         return view('hotel_views/show', ['hotel' => $hotel]);
     }
 
-    public function create()
-    {
+    public function create(Request $request)
+    {   
+        $name = "";
+        $address = "";
+        $checkin = "";
+        $checkout = "";
+        $room = "";
+        $price = "";
+        $comment = "";
+
+        if ($request->has('return')) {
+            $checkin = $request->checkin_time;
+            $checkout = $request->checkout_time;
+            $name = $request->name;
+            $address = $request->address;
+            $room = $request->max_rooms;
+            $price = $request->price;
+            $comment = $request->comment;
+        }
         $hotel = new \App\Models\Hotel;
-        return view('hotel_views/create', ['hotel' => $hotel]);
+        return view('hotel_views/create', ['hotel' => $hotel,'name' => $name,'address'=>$address,'room'=>$room,'price'=>$price,'comment'=>$comment ,'checkin'=>$checkin, 'checkout'=>$checkout]);
     }
 
     public function postconfirm(Request $request)
@@ -68,7 +85,40 @@ class HotelController extends Controller
             'checkin_time' => 'required',
             'checkout_time' => 'required',
             'max_rooms' => 'required',
-            'comment' => 'required|max:500',
+            'comment' => 'nullable|max:500',
+        ]);
+        $is_overlapped = false;
+        $is_overlapped2 = false;
+            if ($hotel->price < 1){
+                $is_overlapped = true;
+            }
+            if ($hotel->max_rooms < 1){
+                $is_overlapped2 = true;
+            }
+
+        $request['is_overlapped'] = $is_overlapped;
+        $request['is_overlapped2'] = $is_overlapped2;
+
+        $this->validate($request,[
+            'is_overlapped' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("金額は0より大きくしてください");
+                }
+            },
+            'is_overlapped2' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("部屋数は0より大きくしてください");
+                }
+            },
+
+        ]);
+        $this->validate($request,[
+            'is_overlapped2' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("部屋数は0より大きくしてください");
+                }
+            },
+
         ]);
         return view('hotel_views/storeConfirmation', ['hotel' => $hotel]);
     }
@@ -89,10 +139,6 @@ class HotelController extends Controller
 
     public function storeCompletion(Request $request)
     {
-        if ($request->has('return')) {
-            return view('hotel_views/create',['hotel' => $request]);
-        }
-
         $hotel = new \App\Models\Hotel;
         $hotel->name = $request->name;
         $hotel->hotel_type = $request->hotel_type;
@@ -106,9 +152,22 @@ class HotelController extends Controller
         return view('/hotel_views/storeCompletion');
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $hotel = \App\Models\Hotel::find($id);
+        
+        if($request->has('return')){
+            $hotel = \App\Models\Hotel::find($id);
+            $hotel->name = $request->name;
+            $hotel->hotel_type = $request->hotel_type;
+            $hotel->address = $request->address;
+            $hotel->checkin_time = $request->checkin_time;
+            $hotel->checkout_time = $request->checkout_time;
+            $hotel->max_rooms = $request->max_rooms;
+            $hotel->price = $request->price;
+            $hotel->comment = $request->comment;
+        }
+
         return view('hotel_views/edit', ['hotel' => $hotel]);
     }
 
@@ -130,17 +189,48 @@ class HotelController extends Controller
             'checkin_time' => 'required',
             'checkout_time' => 'required',
             'max_rooms' => 'required',
-            'comment' => 'required|max:500',
+            // 'price' => ['required','min:1'],
+            'comment' => 'nullable|max:500',
+        ]);
+
+        $is_overlapped = false;
+        $is_overlapped2 = false;
+            if ($hotel->price < 1){
+                $is_overlapped = true;
+            }
+            if ($hotel->max_rooms < 1){
+                $is_overlapped2 = true;
+            }
+
+        $request['is_overlapped'] = $is_overlapped;
+        $request['is_overlapped2'] = $is_overlapped2;
+
+        $this->validate($request,[
+            'is_overlapped' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("金額は0より大きくしてください");
+                }
+            },
+            'is_overlapped2' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("部屋数は0より大きくしてください");
+                }
+            },
+
+        ]);
+        $this->validate($request,[
+            'is_overlapped2' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("部屋数は0より大きくしてください");
+                }
+            },
+
         ]);
         return view('hotel_views/editConfirmation', ['hotel' => $hotel]);
     }
 
     public function editCompletion(Request $request, $id)
     {
-        if ($request->has('return')) {
-            return view('hotel_views/edit',['hotel' => $request]);
-        }
-
         $hotel = \App\Models\Hotel::find($id);
         $hotel->name = $request->name;
         $hotel->hotel_type = $request->hotel_type;
@@ -157,7 +247,14 @@ class HotelController extends Controller
     public function hotels_delete($id)
     {
         $hotel = \App\Models\Hotel::find($id);
-        return view('hotel_views/hotelDelete', ['hotel' => $hotel]);
+        $reservation = DB::table('reservations')->where('hotel_id',$hotel->id)->get();
+        $i=0;
+        foreach($reservation as $reserve){
+        $user =  DB::table('users')->where('id',$reserve->user_id)->get();
+        $reservation[$i]->name=$user[0]->name;
+        $i++;
+        }
+        return view('hotel_views/hotelDelete', ['hotel' => $hotel,'reservations' => $reservation]);
     }
 
     public function destroy($id)
@@ -184,7 +281,7 @@ class HotelController extends Controller
         $end = new DateTime($request->checkout_date);
         $interval = new DateInterval('P1D');
         $period = new DatePeriod($begin, $interval, $end);
-        $hotels = $query->orderBy('max_rooms')->paginate(5);
+        $hotels = $query->orderBy('max_rooms')->get();
         $result_hotels = array();
         $result_rooms = array();
         $is_hotel_full = false;
@@ -218,8 +315,26 @@ class HotelController extends Controller
                 $result_rooms[] = $min_rooms;
             }
         }
-        $hotels = $this->paginate($result_hotels);
-        return view('/user_home/index', ['hotels' => $hotels, 'remaining_rooms' => $result_rooms]);
+
+        $paginated_hotel = $this->paginate($result_hotels, 5, null, ['path' => Paginator::resolveCurrentPath()]);
+
+        $is_overlapped = false;
+            if ($begin > $end){
+                $is_overlapped = true;
+            }
+
+        $request['is_overlapped'] = $is_overlapped;
+
+        $this->validate($request,[
+            'is_overlapped' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("日付が間違っています");
+                }
+            },
+
+        ]);
+
+        return view('/user_home/index', ['hotels' => $paginated_hotel, 'remaining_rooms' => $result_rooms]);
     }
 
     /**

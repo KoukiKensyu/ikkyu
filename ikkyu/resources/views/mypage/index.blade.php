@@ -32,6 +32,20 @@
       class="nav-link"
       id="pills-profile-tab"
       data-bs-toggle="pill"
+      data-bs-target="#pills-reserve"
+      type="button"
+      role="tab"
+      aria-controls="pills-reserve"
+      aria-selected="false"
+    >
+      予約中
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      id="pills-profile-tab"
+      data-bs-toggle="pill"
       data-bs-target="#pills-profile"
       type="button"
       role="tab"
@@ -63,14 +77,34 @@
           <tr><th>メールアドレス</th><td>{{$users->email}}</td></tr>
           <tr><th>生年月日</th><td>{{$users->birthday}}</td></tr>
           </table>
-          <div class="d-flex justify-content-end">
-          <button onclick="location.href='/mypage/edit'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
-          <button onclick="location.href='/mypage/UserDelete'" class="btn btn-danger btn-rounded">退会</button>
-          <button onclick="location.href='/user_home/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" >＜戻る</button>
+          <div class="text-right">
+            <button onclick="location.href='/mypage/edit'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
+            <button onclick="location.href='/mypage/UserDelete'" class="btn btn-danger btn-rounded">退会</button>
+            <button onclick="location.href='/user_home/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" >戻る</button>
           </div>
         </div>
         </div>
   </div>
+
+<!-- 予約中タブ -->
+<div
+    class="tab-pane fade"
+    id="pills-reserve"
+    role="tabpanel"
+    aria-labelledby="pills-profile-tab"
+  >
+  <div class="d-flex justify-content-center">
+    <div class="card" style="width: 40rem;">
+      <table border="1" class="table">
+        <tr><th colspan="2">予約中の宿</th><th></th></tr>
+        <tr><th>宿名</th><th>予約日</th><th>チェックイン</th><th>チェックアウト</th></tr>
+        @foreach($reservations as $reserve)
+        <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td></tr>
+        @endforeach
+      </table>
+    </div>
+  </div>
+</div>
 
 <!-- パスワード変更タブ -->
   <div

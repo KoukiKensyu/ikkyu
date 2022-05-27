@@ -6,7 +6,7 @@
   class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
   style="background-image: url('/images/beach_background.jpg');"
 >
-  <h1 class="mb-3 h2">会員退会</h1>
+  <h1 class="mb-3 h2">会員退会確認</h1>
 </div>
 
 <!--未宿泊の予約があるかどうかでif-->
@@ -29,8 +29,10 @@
     @csrf
     @method('delete')
     <input type="hidden" name="id" value="{{$users->id}}">
-    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
+    <div class="text-right">
+        <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 </form>
-<button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
+      <button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div>
 </div></div></div>
 @endsection

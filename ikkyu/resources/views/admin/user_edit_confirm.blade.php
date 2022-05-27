@@ -6,33 +6,42 @@
 </div>
 
 <form action="{{route('admin.user_update', $user->id)}}" method="POST">
-    @method('patch')
-    @csrf
+        @method('patch')
+        @csrf
 
-<div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
-<div class="card" style="width: 40rem;"> <!--tableをcard化--> 
+    <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
+    <div class="card" style="width: 40rem;"> <!--tableをcard化--> 
 
-<table border="1" class="table">
-<!--<tr><th colspan="2"">会員情報</th></tr>-->
-<tr><th colspan="2">会員情報</th></tr>
-<tr><th>会員ID</th><td>{{$user->id}}</td></tr>
-<tr><th>氏名</th><td>{{$user->name}}</td></tr>
-<tr><th>住所</th><td>{{$user->address}}</td></tr>
-<tr><th>電話番号</th><td>{{$user->tel}}</td></tr>
-<tr><th>メールアドレス</th><td>{{$user->email}}</td></tr>
-<tr><th>生年月日</th><td>{{$user->birthday}}</td></tr>
-</table>
-<input type="hidden" name="name" value="{{$user->name}}">
-<input type="hidden" name="address" value="{{$user->address}}">
-<input type="hidden" name="tel" value="{{$user->tel}}">
-<input type="hidden" name="email" value="{{$user->email}}">
-<input type="hidden" name="birthday" value="{{$user->birthday}}">
+    <table border="1" class="table">
+    <!--<tr><th colspan="2"">会員情報</th></tr>-->
+    <tr><th colspan="2">会員情報</th></tr>
+    <tr><th>会員ID</th><td>{{$user->id}}</td></tr>
+    <tr><th>氏名</th><td>{{$user->name}}</td></tr>
+    <tr><th>住所</th><td>{{$user->address}}</td></tr>
+    <tr><th>電話番号</th><td>{{$user->tel}}</td></tr>
+    <tr><th>メールアドレス</th><td>{{$user->email}}</td></tr>
+    <tr><th>生年月日</th><td>{{$user->birthday}}</td></tr>
+    </table>
+    <input type="hidden" name="name" value="{{$user->name}}">
+    <input type="hidden" name="address" value="{{$user->address}}">
+    <input type="hidden" name="tel" value="{{$user->tel}}">
+    <input type="hidden" name="email" value="{{$user->email}}">
+    <input type="hidden" name="birthday" value="{{$user->birthday}}">
 
-<p><strong>この内容で確定しますか？</strong></p> <!--太字-->
-<div class="d-flex justify-content-end">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
-<button  type="submit" onclick="location.href='/admin/user_edit/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+    <p><strong>この内容で確定しますか？</strong></p> <!--太字-->
+    <div class="text-right">
+        <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
 </form>
+
+<form action="{{route('admin.user_edit', $user->id)}}" method="get">
+    <input type="hidden" name="name" value="{{$user->name}}">
+    <input type="hidden" name="address" value="{{$user->address}}">
+    <input type="hidden" name="tel" value="{{$user->tel}}">
+    <input type="hidden" name="email" value="{{$user->email}}">
+    <input type="hidden" name="birthday" value="{{$user->birthday}}">
+   <button class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+</form>
+
 </div>
 </div></div>
 @endsection

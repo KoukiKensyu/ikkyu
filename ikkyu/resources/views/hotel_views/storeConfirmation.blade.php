@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>新規登録</h2>
+<h2>登録内容確認</h2>
 <form action="{{route('hotels.storeCompletion')}}" method="post">
     @csrf
 <table border="1" class="table">
@@ -46,8 +46,18 @@
 <input type="hidden" name="price" value="{{$hotel->price}}">
 <input type="hidden" name="comment" value="{{$hotel->comment}}">
 <p>この内容で登録しますか？</p>
-<div class="text-right">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
-<button type="submit" onclick="location.href='/hotel_views/create'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button></form>
+<div class="d-flex justify-content-end text-right">
+
+<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button></form>
+<form action="{{route('hotels.create')}}" method="get">
+<input type="hidden" name="name" value="{{ $hotel->name }}">
+<input type="hidden" name="address" value="{{$hotel->address}}">
+<input type="hidden" name="hotel_type" value="{{ $hotel->hotel_type }}">
+<input type="hidden" name="checkin_time" value="{{$hotel->checkin_time}}">
+<input type="hidden" name="checkout_time" value="{{$hotel->checkout_time}}">
+<input type="hidden" name="max_rooms" value="{{$hotel->max_rooms}}">
+<input type="hidden" name="price" value="{{$hotel->price}}">
+<input type="hidden" name="comment" value="{{$hotel->comment}}">
+<button type="submit" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button></form>
 </div>
 @endsection

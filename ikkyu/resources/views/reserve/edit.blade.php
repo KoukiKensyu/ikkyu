@@ -25,9 +25,9 @@
             </tr>
             <tr>
                 <td><label for="validationCustom04" class="form-label">日程</label></td>
-                <td><input class="form-control" id="validationCustom04" type="date" name="checkin_date" required>
+                <td><input class="form-control" id="validationCustom04" type="date" name="checkin_date" value="{{$checkin}}" required>
                     ～
-                    <input class="form-control" id="validationCustom04" type="date" name="checkout_date" required></td>
+                    <input class="form-control" id="validationCustom04" type="date" name="checkout_date" value="{{$checkout}}" required></td>
             </tr> 
             <tr>
                 <td>金額{{$data}}</td>
@@ -38,7 +38,9 @@
     </table>
     <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
     <input type="hidden" name="data" value="{{$data}}">
-    <button class="btn btn-outline-danger btn-rounded active" type="submit">確認画面へ</button>
+    <div class="text-right">
+            <button class="btn btn-outline-danger btn-rounded active" type="submit">確認画面へ</button>
 </form>
-    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/show/{{$hotel[0]->id}}.php?aaa={{$data}}'">戻る</button>
+            <button class="btn btn-outline-info btn-rounded active" type="button" onclick="location.href='/reserve/show/{{$hotel[0]->id}}.php?aaa={{$data}}'">戻る</button>
+    </div>
 @endsection

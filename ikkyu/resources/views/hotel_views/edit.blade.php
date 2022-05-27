@@ -42,7 +42,7 @@
         </tr>
         <tr>
         <td><label class="form-label">金額/1部屋</label></td>
-        <td><input type="number" name="price" value="{{$hotel -> price}}" class="form-control" ></td>
+        <td><input type="number" name="price" value="{{$hotel ->max_rooms}}" class="form-control" required></td>
         </tr>
         <tr>
         <td><label class="form-label">コメント</label></td>
@@ -50,9 +50,9 @@
         </tr>
     </tbody>
 </table>
-<div class="d-flex justify-content-end">
-<button class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更内容確認へ</button>
-<button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
-</form>
+<div class="text-right">
+    <button class="btn btn-outline-danger" data-mdb-ripple-color="dark">確認画面へ</button>
+    <button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+    </form>
 </div>
 @endsection

@@ -12,8 +12,8 @@
 <tr><th>コメント</th><td><?php echo nl2br($hotel->comment); ?> </td></tr>
 </table>
 <div class="text-right">
-<button onclick="location.href='/hotel_views/edit/{{ $hotel->id }}'" class="btn btn-outline-danger " data-mdb-ripple-color="dark">変更</button>
-<button onclick="location.href='/hotel_views/delete/{{ $hotel->id }}'" class="btn btn-danger btn-rounded">削除</button>
-<button onclick="location.href='/hotel_views/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
+    <button onclick="location.href='/hotel_views/edit/{{ $hotel->id }}'" class="btn btn-outline-danger " data-mdb-ripple-color="dark">変更</button>
+    <button onclick="location.href='/hotel_views/delete/{{ $hotel->id }}'" class="btn btn-danger btn-rounded">削除</button>
+    <button onclick="location.href='/hotel_views/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
 </div>
 @endsection

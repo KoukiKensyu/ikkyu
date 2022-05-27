@@ -5,7 +5,7 @@
   class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
   style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');"
 >
-  <h1 class="mb-3 h2">会員情報変更確認</h1>
+  <h1 class="mb-3 h2">変更内容確認</h1>
 </div>
 
 <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
@@ -19,7 +19,6 @@
 <tr><th>電話番号</th><td>{{$user->tel}}</td></tr>
 <tr><th>メールアドレス</th><td>{{$user->email}}</td></tr>
 <tr><th>生年月日</th><td>{{$user->birthday}}</td></tr>
-<tr><th>パスワード</th><td>pasword</td></tr>
 </table>
 <p>この内容で確定しますか？</p>
 <form action="{{route('mypage.edit_store', $user->id)}}" method="post">
@@ -31,11 +30,18 @@
 <input type="hidden" name="tel" value="{{$user->tel}}">
 <input type="hidden" name="email" value="{{$user->email}}">
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
-<div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">変更</button>
-
-
-<button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+<div class="text-right">
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
+    </form>
+    <form action="{{route('mypage.edit')}}" method="get">
+    @csrf
+    <input type="hidden" name="id" value="{{$user->id}}">
+    <input type="hidden" name="name" value="{{$user->name}}">
+    <input type="hidden" name="address" value="{{$user->address}}">
+    <input type="hidden" name="tel" value="{{$user->tel}}">
+    <input type="hidden" name="email" value="{{$user->email}}">
+    <input type="hidden" name="birthday" value="{{$user->birthday}}">
+    <button type="submit" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
 </form>
 </div>
 </div>
