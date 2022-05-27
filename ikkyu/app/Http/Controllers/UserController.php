@@ -15,7 +15,15 @@ class UserController extends Controller
     {
         $user = Auth::user();
         //dd($user);
-        return view('mypage/index', ['users' => $user]);
+        $reservation = DB::table('reservations')->where('user_id',$user->id)->get();
+        $i=0;
+        foreach($reservation as $reserve){
+        $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
+        //dd($hotel);
+        $reservation[$i]->name=$hotel[0]->name;
+        $i++;
+        }
+        return view('mypage/index', ['users' => $user,'reservations' => $reservation]);
     }
     public function edit_user()
     {
@@ -91,11 +99,10 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->birthday = $request->birthday;
         $this->validate($request,[
-            'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
+            'name' => 'required|max:50',
             'address' => 'required|max:100',
-            'tel' => 'required|numeric',
-            'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],
-            //'email' => 'required|max:20|email',
+            'tel' => 'required|digits_between:1,20|numeric',
+            'email' =>  ['required','max:50','email',Rule::unique('users')->ignore($user->id)],
             'birthday' => 'required',
         ]);
         return view('/admin/user_edit_confirm', ['user' => $user]);

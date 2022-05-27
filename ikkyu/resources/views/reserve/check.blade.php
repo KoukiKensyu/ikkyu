@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>確認</h2>
+<h2>予約内容確認</h2>
 <table class="table">
     <tbody>
         <tr>
@@ -22,7 +22,7 @@
         </tr>
         <tr>
         <td>金額</td>
-        <td>{{$hotel_price * $reservation->rooms}}円</td>
+        <td>{{$hotel_price * $reservation->rooms * $day->d}}円</td>
         </tr>
     </tbody>
 </table>
@@ -33,7 +33,9 @@
     <input type="hidden" name="rooms" value="{{$reservation->rooms}}">
     <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
     <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
+<div class="text-right">
     <button class="btn btn-outline-danger btn-rounded active" type="submit">確定</button>
 </form>
-<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/edit/{{$hotel_id}}.php?data={{$data}}'">戻る</button>
+    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/edit/{{$hotel_id}}.php?data={{$data}}'">戻る</button>
+</div>
 @endsection

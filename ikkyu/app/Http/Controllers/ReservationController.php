@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Validation\Rule;
+use \DateTime;
 
 class ReservationController extends Controller
 {
@@ -46,6 +47,11 @@ class ReservationController extends Controller
                 break;
             }
         }
+        $begin = new DateTime($request->checkin_date);
+        $end = new DateTime($request->checkout_date);
+        if ($begin > $end){
+            $is_overlapped = true;
+        }
 
         $request['is_overlapped'] = $is_overlapped;
 
@@ -53,21 +59,21 @@ class ReservationController extends Controller
             'name' => 'required|max:50',
             'is_overlapped' => function($attribute, $value, $fail){
                 if($value){
-                    $fail("ほかの予約と日付が重複しています");
+                    $fail("ほかの予約と日付が重複しているかチェックアウト日が間違っています");
                 }
             },
 
         ]);
+        $day = $end->diff($begin);
 
-
-        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
+        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price, 'day'=>$day]);
 
     }
     public function confirm(Request $request){
         $reservation = new Reservation;
         $reservation->user_id = $request->user_id;
         $reservation->hotel_id = $request->hotel_id;// TODO change this default value
-        $reservation->reserved_date = '2014-08-01 23:01:05';
+        $reservation->reserved_date = now();
         $reservation->rooms = $request->rooms;
         $reservation->checkin_date = $request->checkin_date;
         $reservation->checkout_date = $request->checkout_date;

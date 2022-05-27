@@ -219,6 +219,23 @@ class HotelController extends Controller
             }
         }
         $hotels = $this->paginate($result_hotels);
+
+        $is_overlapped = false;
+            if ($begin > $end){
+                $is_overlapped = true;
+            }
+
+        $request['is_overlapped'] = $is_overlapped;
+
+        $this->validate($request,[
+            'is_overlapped' => function($attribute, $value, $fail){
+                if($value){
+                    $fail("日付が間違っています");
+                }
+            },
+
+        ]);
+
         return view('/user_home/index', ['hotels' => $hotels, 'remaining_rooms' => $result_rooms]);
     }
 
