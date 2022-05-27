@@ -85,14 +85,25 @@ class UserController extends Controller
         $user = \App\Models\User::find($id);
         return view('/admin/user_detail', ['user' => $user]);
     }
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $user = \App\Models\User::find($id);
+        if ($request->has('return')) {
+            $user->name  = $request->name;
+            $user->address = $request->address;
+            $user->tel = $request->tel;
+            $user->email = $request->email;
+            $user->birthday = $request->birthday;
+
+        }
         return view('/admin/user_edit', ['user' => $user]);
     }
     public function confirm(Request $request, $id)
     {
         $user = \App\Models\User::find($id);
+        
+
+
         $user->name  = $request->name;
         $user->address = $request->address;
         $user->tel = $request->tel;

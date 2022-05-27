@@ -293,12 +293,8 @@ class HotelController extends Controller
                 $result_rooms[] = $min_rooms;
             }
         }
-<<<<<<< HEAD
-        $hotels = $this->paginate($result_hotels);
-=======
 
         $paginated_hotel = $this->paginate($result_hotels, 5, null, ['path' => Paginator::resolveCurrentPath()]);
->>>>>>> fa223eecae29f173a8f3169174d98d2b23873d5e
 
         $is_overlapped = false;
             if ($begin > $end){
@@ -316,11 +312,7 @@ class HotelController extends Controller
 
         ]);
 
-<<<<<<< HEAD
-        return view('/user_home/index', ['hotels' => $hotels, 'remaining_rooms' => $result_rooms]);
-=======
         return view('/user_home/index', ['hotels' => $paginated_hotel, 'remaining_rooms' => $result_rooms]);
->>>>>>> fa223eecae29f173a8f3169174d98d2b23873d5e
     }
 
     /**
