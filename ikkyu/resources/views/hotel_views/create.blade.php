@@ -60,8 +60,8 @@
             </tr>
         </tbody>
     </table>
-<div class="d-flex justify-content-end">
-    <button type="submit"  class="btn btn-outline-danger" data-mdb-ripple-color="dark">登録確認へ</button>
+<div class="text-right">
+    <button type="submit"  class="btn btn-outline-danger" data-mdb-ripple-color="dark">確認画面へ</button>
     <button type="button" onclick="location.href='/hotel_views/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 </div>
 </form>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>新規登録</h2>
+<h2>登録内容確認</h2>
 <form action="{{route('hotels.storeCompletion')}}" method="post">
     @csrf
 <table border="1" class="table">
