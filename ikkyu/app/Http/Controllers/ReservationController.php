@@ -90,5 +90,25 @@ class ReservationController extends Controller
         $hotel = DB::table('hotels')->where('id', $request->hotel_id)->get()->toArray();
         return view('reserve/confirm', ['reservation' => $reservation,'hotel'=>$hotel, 'user'=>$user,'user_name' => $user[0]->name, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
     }
+    public function cancel_confirmation($id)
+    {
+        //dd($id);
+        $reservation = DB::table('reservations')->where('id',$id)->get();
+        $hotel = DB::table('hotels')->where('id',$reservation[0]->hotel_id)->get();
+        //dd($hotel);
+        $reservation[0]->name=$hotel[0]->name;
+        //dd($reservation);
+        return view('mypage/cancel', ['reservations' => $reservation]);
+    }
 
+    public function reserve_cancel(Request $request)
+    {
+        //dd($request->id);
+        //$reservation = DB::table('reservations')->where('id',$request->id)->first();
+        $reservation = \App\Models\Reservation::find($request->id);
+        //dd($reservation);
+        $reservation->delete();
+        return view('/mypage/cancel_result');
+    }
+    
 }
