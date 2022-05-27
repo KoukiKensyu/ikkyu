@@ -25,9 +25,9 @@
             </tr>
             <tr>
                 <td><label for="validationCustom04" class="form-label">日程</label></td>
-                <td><input class="form-control" id="validationCustom04" type="date" name="checkin_date" required>
+                <td><input class="form-control" id="validationCustom04" type="date" name="checkin_date" value="{{$checkin}}" required>
                     ～
-                    <input class="form-control" id="validationCustom04" type="date" name="checkout_date" required></td>
+                    <input class="form-control" id="validationCustom04" type="date" name="checkout_date" value="{{$checkout}}" required></td>
             </tr> 
             <tr>
                 <td>金額{{$data}}</td>
