@@ -34,7 +34,7 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
             'address' => 'required|max:100',
-            'tel' => 'required',
+            'tel' => 'required|numeric',
             'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],//'required|max:20|email|',
             'birthday' => 'required',
         ]);
@@ -93,7 +93,7 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => ['required','max:50',Rule::unique('users')->ignore($user->id)],
             'address' => 'required|max:100',
-            'tel' => 'required',
+            'tel' => 'required|numeric',
             'email' =>  ['required','max:20','email',Rule::unique('users')->ignore($user->id)],
             //'email' => 'required|max:20|email',
             'birthday' => 'required',
