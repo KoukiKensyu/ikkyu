@@ -57,7 +57,7 @@ class ReservationController extends Controller
         }
         $begin = new DateTime($request->checkin_date);
         $end = new DateTime($request->checkout_date);
-        if ($begin > $end){
+        if ($begin >= $end){
             $is_overlapped = true;
         }
 
