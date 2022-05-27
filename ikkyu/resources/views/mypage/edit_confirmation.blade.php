@@ -5,7 +5,7 @@
   class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
   style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');"
 >
-  <h1 class="mb-3 h2">会員情報変更確認</h1>
+  <h1 class="mb-3 h2">変更内容確認</h1>
 </div>
 
 <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
@@ -31,11 +31,9 @@
 <input type="hidden" name="tel" value="{{$user->tel}}">
 <input type="hidden" name="email" value="{{$user->email}}">
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
-<div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">変更</button>
-
-
-<button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+<div class="text-right">
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
+    <button onclick="location.href='/mypage/edit'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
 </form>
 </div>
 </div>

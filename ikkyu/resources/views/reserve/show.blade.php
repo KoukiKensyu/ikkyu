@@ -28,7 +28,9 @@
         </tbody>
     </table>
     <input type="hidden" name="data" value="{{$data}}">
-    <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
+    <div class="text-right">
+            <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
 </form>
-<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
+        <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
+</div>
 @endsection
