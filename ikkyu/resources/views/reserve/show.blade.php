@@ -22,12 +22,18 @@
                 <td>{{$hotel[0]->price}}円/部屋</td>
                 </tr>
                 <tr>
+                    <th>空き部屋検索日程</th>
+                    <td>{{$bbb}}～{{$ccc}}</td>
+                </tr>
+                <tr>
                 <th scope="col">空き部屋</th>
                 <td>{{$data}}/{{$hotel[0]->max_rooms}}</td>
                 </tr>
             </tbody>
         </table>
         <input type="hidden" name="data" value="{{$data}}">
+        <input type="hidden" name="bbb" value="{{$bbb}}">
+        <input type="hidden" name="ccc" value="{{$ccc}}">
 <div class="d-flex justify-content-end text-right">
         <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
     </form>
