@@ -31,6 +31,6 @@
 <div class="d-flex justify-content-end text-right">
         <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
     </form>
-    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
+    <button type="button" class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
 </div>
 @endsection
