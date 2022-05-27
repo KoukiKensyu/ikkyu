@@ -3,6 +3,7 @@
 @section('content')
 <h2>予約内容入力</h2>
 @include('commons/flash')
+<?php $today = \Carbon\Carbon::now()->format("Y-m-d");?>
 <form class="needs-validation" action="{{route('reserve.check')}}" method="post">
     @csrf
     <table class="table">
@@ -25,9 +26,9 @@
             </tr>
             <tr>
                 <td><label for="validationCustom04" class="form-label">日程</label></td>
-                <td><input class="form-control" id="validationCustom04" type="date" name="checkin_date" value="{{$checkin}}" required>
+                <td><input class="form-control" min="{{$today}}" id="validationCustom04" type="date" name="checkin_date" value="{{$checkin}}" required>
                     ～
-                    <input class="form-control" id="validationCustom04" type="date" name="checkout_date" value="{{$checkout}}" required></td>
+                    <input class="form-control" min="{{$today}}" id="validationCustom04" type="date" name="checkout_date" value="{{$checkout}}" required></td>
             </tr> 
             <tr>
                 <td>金額{{$data}}</td>
