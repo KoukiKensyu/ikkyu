@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<h2>削除確認</h2>
 <table border="1" class="table">
 <tr><th colspan="2">宿詳細情報</th></tr>
 <tr><th>宿名</th><td>{{ $hotel->name }}</td></tr>
@@ -30,9 +30,9 @@
 <form action="{{route('hotels.destroy',$hotel->id)}}" method="post">
     @csrf
     @method('delete')
-<div class="d-flex justify-content-end">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
+    <div class="text-right">
+        <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 </form>
-<button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
-</div>
+        <button type="button" onclick="location.href='/hotel_views/show/{{ $hotel->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+    </div>
 @endsection

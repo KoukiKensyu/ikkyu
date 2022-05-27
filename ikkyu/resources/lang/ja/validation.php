@@ -165,7 +165,9 @@ return [
         'email' => 'メールアドレス',
         'tel' => '電話番号',
         'birthday' => '生年月日',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'new_password' => '新しいパスワード',
+        'new_confirm_password' => 'パスワードの確認入力'
     ],
 
 ];

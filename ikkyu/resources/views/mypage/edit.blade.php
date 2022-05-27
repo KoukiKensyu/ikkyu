@@ -48,11 +48,11 @@
     <tr><th>変更後のパスワード：</th><td><input type="password" name="password_new" value=""></td></tr>
     <tr><th>確認用のパスワード：</th><td><input type="password" name="password_confirmation" value=""></td></tr>
     -->
-    <div class="d-flex justify-content-end">
-    <button class="btn btn-outline-danger" data-mdb-ripple-color="dark" type="submit">変更</button>
+    <div class="text-right">
+        <button class="btn btn-outline-danger" data-mdb-ripple-color="dark" type="submit">確認画面へ</button>
 </form>
-<button type="button" onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
-</div>
+        <button type="button" onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+    </div>
 </div>
 </div>
 @endsection
