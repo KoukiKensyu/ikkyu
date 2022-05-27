@@ -49,7 +49,7 @@
             </tr>
             <tr>
             <td><label class="form-label">金額/1部屋</label></td>
-            <td><input type="number" name="price" value="{{$hotel -> price}}" class="form-control" ></td>
+            <td><input type="number" name="price" value="{{old('price',$hotel -> price)}}" class="form-control" required></td>
             </tr>
             <tr>
             <td><label for="validationCustom06" class="form-label">コメント</label></td>
