@@ -21,7 +21,7 @@
 <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td></tr>
 @endforeach
 </table>
-未宿泊の予定をキャンセルします<br>
+未宿泊の予定はキャンセルします<br>
 @endif
 <!-- endif-->
 [ユーザーID:{{$user->id}}] [{{$user->name}}]を退会させますか？

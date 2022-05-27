@@ -20,10 +20,10 @@
 <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td></tr>
 @endforeach
 </table>
-未宿泊の予定をキャンセルします<br>
+未宿泊の予定はキャンセルします<br>
 @endif
 <!-- endif-->
-[会員ID：{{$users->id}}][氏名：{{$users->name}}]は退会しますか？
+本当に退会しますか？
 <div class="d-flex justify-content-end"> <!--ボタンを右サイドにレイアウト-->
 <form action="{{route('mypage.delete')}}" method="post">
     @csrf
@@ -32,7 +32,7 @@
     <div class="text-right">
         <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark">確定</button>
 </form>
-      <button onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+      <button type="button" onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
 </div>
 </div></div></div>
 @endsection
