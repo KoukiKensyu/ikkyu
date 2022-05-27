@@ -73,10 +73,10 @@
           <tr><th>メールアドレス</th><td>{{$users->email}}</td></tr>
           <tr><th>生年月日</th><td>{{$users->birthday}}</td></tr>
           </table>
-          <div class="d-flex justify-content-end">
-          <button onclick="location.href='/mypage/edit'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
-          <button onclick="location.href='/mypage/UserDelete'" class="btn btn-danger btn-rounded">退会</button>
-          <button onclick="location.href='/user_home/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" >＜戻る</button>
+          <div class="text-right">
+            <button onclick="location.href='/mypage/edit'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
+            <button onclick="location.href='/mypage/UserDelete'" class="btn btn-danger btn-rounded">退会</button>
+            <button onclick="location.href='/user_home/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" >戻る</button>
           </div>
         </div>
         </div>

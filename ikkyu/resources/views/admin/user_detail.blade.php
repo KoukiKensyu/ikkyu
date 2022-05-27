@@ -17,9 +17,10 @@
 <tr><th>メールアドレス</th><td>{{$user->email}}</td></tr>
 <tr><th>生年月日</th><td>{{$user->birthday}}</td></tr>
 </table>
-<div class="d-flex justify-content-end">
-<button onclick="location.href='/admin/user_edit/{{$user ->id}}'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
-<button onclick="location.href='/admin/user_delete/{{$user ->id}}'" class="btn btn-danger btn-rounded">退会</button>
-<button onclick="location.href='/admin/user_index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">＜戻る</button>
-</div></div></div>
+<div class="text-right">
+    <button onclick="location.href='/admin/user_edit/{{$user ->id}}'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
+    <button onclick="location.href='/admin/user_delete/{{$user ->id}}'" class="btn btn-danger btn-rounded">退会</button>
+    <button onclick="location.href='/admin/user_index'" class="btn btn-outline-info" data-mdb-ripple-color="dark">戻る</button>
+</div></div>
+</div>
 @endsection

@@ -26,5 +26,5 @@
         </tr>
     </tbody>
 </table>
-<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">ホーム</button>
+<button class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">会員ホームへ</button>
 @endsection

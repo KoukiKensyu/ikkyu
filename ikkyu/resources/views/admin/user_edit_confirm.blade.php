@@ -29,10 +29,10 @@
 <input type="hidden" name="birthday" value="{{$user->birthday}}">
 
 <p><strong>この内容で確定しますか？</strong></p> <!--太字-->
-<div class="d-flex justify-content-end">
-<button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
-<button  type="submit" onclick="location.href='/admin/user_edit/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
-</form>
+<div class="text-right">
+    <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">確定</button>
+    <button  type="submit" onclick="location.href='/admin/user_edit/{{ $user->id }}'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+    </form>
 </div>
 </div></div>
 @endsection
