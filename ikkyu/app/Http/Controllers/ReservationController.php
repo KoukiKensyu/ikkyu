@@ -57,7 +57,7 @@ class ReservationController extends Controller
         }
         $begin = new DateTime($request->checkin_date);
         $end = new DateTime($request->checkout_date);
-        if ($begin > $end){
+        if ($begin >= $end){
             $is_overlapped = true;
         }
 
@@ -81,7 +81,7 @@ class ReservationController extends Controller
         $reservation = new Reservation;
         $reservation->user_id = $request->user_id;
         $reservation->hotel_id = $request->hotel_id;// TODO change this default value
-        $reservation->reserved_date = '2014-08-01 23:01:05';
+        $reservation->reserved_date = now();
         $reservation->rooms = $request->rooms;
         $reservation->checkin_date = $request->checkin_date;
         $reservation->checkout_date = $request->checkout_date;

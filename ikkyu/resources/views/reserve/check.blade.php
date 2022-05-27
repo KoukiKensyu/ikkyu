@@ -26,7 +26,7 @@
         </tr>
     </tbody>
 </table>
-<div class="text-right btn-group">
+<div class="d-flex justify-content-end text-right">
     <form action="{{route('reserve.confirm')}}" method="post">
         @csrf
         <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
