@@ -139,9 +139,22 @@ class HotelController extends Controller
         return view('/hotel_views/storeCompletion');
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $hotel = \App\Models\Hotel::find($id);
+        
+        if($request->has('return')){
+            $hotel = \App\Models\Hotel::find($id);
+            $hotel->name = $request->name;
+            $hotel->hotel_type = $request->hotel_type;
+            $hotel->address = $request->address;
+            $hotel->checkin_time = $request->checkin_time;
+            $hotel->checkout_time = $request->checkout_time;
+            $hotel->max_rooms = $request->max_rooms;
+            $hotel->price = $request->price;
+            $hotel->comment = $request->comment;
+        }
+
         return view('hotel_views/edit', ['hotel' => $hotel]);
     }
 
