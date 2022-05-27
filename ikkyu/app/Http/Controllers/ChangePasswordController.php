@@ -40,7 +40,7 @@ class ChangePasswordController extends Controller
     {
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => 'required|min:8',
+            'new_password' => ['required', 'min:8', 'max:50'],
             'new_confirm_password' => ['same:new_password'],
         ]);
         
