@@ -86,7 +86,7 @@
         </div>
   </div>
 
-<<!-- 予約中タブ -->
+<!-- 予約中タブ -->
 <div
     class="tab-pane fade"
     id="pills-reserve"
