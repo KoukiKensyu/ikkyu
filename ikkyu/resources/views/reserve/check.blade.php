@@ -26,6 +26,7 @@
         </tr>
     </tbody>
 </table>
+<div class="text-right">
 <form action="{{route('reserve.confirm')}}" method="post">
     @csrf
     <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
@@ -36,6 +37,12 @@
 <div class="text-right">
     <button class="btn btn-outline-danger btn-rounded active" type="submit">確定</button>
 </form>
-    <button class="btn btn-outline-info btn-rounded active" onclick="location.href='/reserve/edit/{{$hotel_id}}.php?data={{$data}}'">戻る</button>
+
+<form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
+    <input type="hidden" name="data" value="{{$data}}">
+    <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
+    <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
+    <button class="btn btn-outline-info btn-rounded active" name="return">戻る</button>
+</form>
 </div>
 @endsection

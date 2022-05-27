@@ -22,9 +22,17 @@ class ReservationController extends Controller
         return view ('reserve/show', ['hotel'=>$hotel, 'data'=>$data]);
     }
     public function edit(Request $request ,$id){
+        $checkin = "";
+        $checkout = "";
+
+        if ($request->has('return')) {
+            $checkin = $request->checkin_date;
+            $checkout = $request->checkout_date;
+        }
+
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
         $data = $request->data;
-        return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data]);
+        return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data, 'checkin'=>$checkin, 'checkout'=>$checkout]);
     }
     public function check(Request $request){
         $reservation = new \App\Models\Reservation();

@@ -19,7 +19,6 @@
 <tr><th>電話番号</th><td>{{$user->tel}}</td></tr>
 <tr><th>メールアドレス</th><td>{{$user->email}}</td></tr>
 <tr><th>生年月日</th><td>{{$user->birthday}}</td></tr>
-<tr><th>パスワード</th><td>pasword</td></tr>
 </table>
 <p>この内容で確定しますか？</p>
 <form action="{{route('mypage.edit_store', $user->id)}}" method="post">
