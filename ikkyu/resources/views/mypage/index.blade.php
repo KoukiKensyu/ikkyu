@@ -1,15 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
-<!-- Jumbotron 
 
-<div
-  class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
-  style="background-image: url('/images/beach_background.jpg');">
-  <h1 class="mb-3 h2">会員情報</h1>
-<p></p>
-</div>
--->
 <style>
   th{
     white-space: nowrap;
@@ -19,9 +11,12 @@
   }*/
 </style>
 <!-- 会員情報タブ -->
-
-<div><div class="text-center">
-  <h1 class="mb-3 h2">会員情報詳細</h1></div>
+  <div
+    class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');"
+  >
+    <h1 class="mb-3 h2">マイページ</h1>
+  </div>
 <ul class="nav nav-pills mb-3 px-5" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
     <button
