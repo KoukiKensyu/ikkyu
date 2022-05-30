@@ -9,7 +9,7 @@
       <tr><th>宿名</th><th>予約日</th><th>チェックイン</th><th>チェックアウト</th><th>金額</th></tr>
       <tr><td>{{$reservations[0]->name}}</td><td>{{$reservations[0]->reserved_date}}</td>
       <td>{{$reservations[0]->checkin_date}}</td><td>{{$reservations[0]->checkout_date}}</td>
-      <td>{{$reservations[0]->price}}</td>
+      <td>{{$reservations[0]->price}}円</td>
     </table>
       本当にキャンセルしますか
       <div class="d-flex justify-content-end text-right">

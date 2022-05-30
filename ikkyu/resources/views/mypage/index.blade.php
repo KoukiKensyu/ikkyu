@@ -101,7 +101,7 @@
         @foreach($reservations as $reserve)
         <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td>
         <td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td>
-        <td>{{$reserve->price}}</td><td><a href="cancel/{{$reserve->id}}" class="text-primary">キャンセル</a></td></tr>
+        <td>{{$reserve->price}}円</td><td><a href="cancel/{{$reserve->id}}" class="text-primary">キャンセル</a></td></tr>
         @endforeach
       </table>
     </div>
