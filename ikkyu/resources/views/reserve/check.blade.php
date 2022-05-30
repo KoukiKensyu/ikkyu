@@ -42,6 +42,7 @@
         <input type="hidden" name="data" value="{{$data}}">
         <input type="hidden" name="bbb" value="{{$bbb}}">
         <input type="hidden" name="ccc" value="{{$ccc}}">
+        <input type="hidden" name="rooms" value="{{$reservation->rooms}}">
         <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
         <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
         <button class="btn btn-outline-info btn-rounded active" name="return">戻る</button>

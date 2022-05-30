@@ -94,12 +94,14 @@
                 <p style="line-height:2rem"></p>
 
     <!--コメント-->
-                <h6> {{$hotel[0]->comment}}。</h6>
+                <h6> {{$hotel[0]->comment}}</h6>
             </div>
         </div>
 
 
                 <input type="hidden" name="data" value="{{$data}}">
+                <input type="hidden" name="bbb" value="{{$bbb}}">
+                <input type="hidden" name="ccc" value="{{$ccc}}">
                 <!--<div class="text-right">
                 <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>-->
     </form>
@@ -108,7 +110,7 @@
 </div>
 </div>
 
-<!--<h2>宿詳細</h2>
+<!-- <h2>宿詳細</h2>
     <form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
         <table border='1' class="table table-bordered" >
             <tbody>
@@ -137,11 +139,9 @@
                 <td>{{$data}}/{{$hotel[0]->max_rooms}}</td>
                 </tr>
             </tbody>
-        </table>
-        <input type="hidden" name="data" value="{{$data}}">
-        <input type="hidden" name="bbb" value="{{$bbb}}">
-        <input type="hidden" name="ccc" value="{{$ccc}}">
-<div class="d-flex justify-content-end text-right">
+        </table> -->
+        
+<!--<div class="d-flex justify-content-end text-right">
         <button class="btn btn-outline-danger btn-rounded active" type="submit">予約</button>
     </form>
     <button type="button" class="btn btn-outline-info btn-rounded active" onclick="location.href='/user_home/index'">戻る</button>
