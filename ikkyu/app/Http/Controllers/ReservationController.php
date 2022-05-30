@@ -19,11 +19,19 @@ class ReservationController extends Controller
     public function show($id){
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
          $data = $_GET["aaa"];
-        return view ('reserve/show', ['hotel'=>$hotel, 'data'=>$data]);
+         $bbb = $_GET["bbb"];
+         $ccc = $_GET["ccc"];
+         if($bbb === ""){
+             $bbb = "未入力";
+         }
+         if($ccc === ""){
+            $ccc = "未入力";
+        }
+        return view ('reserve/show', ['hotel'=>$hotel, 'data'=>$data,'bbb'=>$bbb,'ccc'=>$ccc]);
     }
     public function edit(Request $request ,$id){
-        $checkin = "";
-        $checkout = "";
+        $checkin = $request->bbb;
+        $checkout = $request->ccc;
 
         if ($request->has('return')) {
             $checkin = $request->checkin_date;
@@ -32,7 +40,9 @@ class ReservationController extends Controller
 
         $hotel = DB::table('hotels')->where('id', $id)->get()->toArray();
         $data = $request->data;
-        return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data, 'checkin'=>$checkin, 'checkout'=>$checkout]);
+        $bbb = $request->bbb;
+        $ccc = $request->ccc;
+        return view ('reserve/edit', ['hotel'=>$hotel , 'data'=>$data,'bbb'=>$bbb,'ccc'=>$ccc, 'checkin'=>$checkin, 'checkout'=>$checkout]);
     }
     public function check(Request $request){
         $reservation = new \App\Models\Reservation();
@@ -42,6 +52,8 @@ class ReservationController extends Controller
         $reservation->checkout_date = $request->checkout_date;
         $hotel = DB::table('hotels')->where('id', $request->hotel_id)->get()->toArray();
         $data = $request->data;
+        $bbb = $request->bbb;
+        $ccc = $request->ccc;
 
 
         $is_overlapped = false;
@@ -74,7 +86,7 @@ class ReservationController extends Controller
         ]);
         $day = $end->diff($begin);
 
-        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price, 'day'=>$day]);
+        return view ('reserve/check', ['reservation' => $reservation, 'data'=>$data,'bbb'=>$bbb,'ccc'=>$ccc, 'hotel'=>$hotel, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price, 'day'=>$day]);
 
     }
     public function confirm(Request $request){
