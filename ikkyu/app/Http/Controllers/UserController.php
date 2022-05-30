@@ -82,7 +82,7 @@ class UserController extends Controller
         if ($request->id) {
             $query->where('id', 'LIKE', '%' . $request->id . '%');
         }
-        $users = $query->orderBy('id')->paginate(3);
+        $users = $query->orderBy('id')->paginate(5);
         return view('/admin/user_index', ['users' => $users]);
     }
 
