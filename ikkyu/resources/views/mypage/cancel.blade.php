@@ -19,7 +19,7 @@
         <input type="hidden" name="id" value="{{$reservations[0]->id}}">
         <button type="submit" class="btn btn-outline-danger" data-mdb-ripple-color="dark" name="submit">キャンセルする</button>
       </form>
-      <button type="button" onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">戻る</button>
+      <button type="button" onclick="location.href='/mypage/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" name="return">会員情報へ</button>
     </div>
   </div>
 </div>
