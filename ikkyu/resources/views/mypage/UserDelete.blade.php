@@ -2,13 +2,15 @@
 
 @section('content')
 
-<div
+<!--<div
   class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
   style="background-image: url('/images/beach_background.jpg');"
 >
   <h1 class="mb-3 h2">会員退会確認</h1>
+</div>-->
+<div class="text-center">
+  <h1 class="mb-3 h2">会員退会確認</h1>
 </div>
-
 <!--未宿泊の予約があるかどうかでif-->
 <div class="d-flex justify-content-center"> <!--tableをセンターに表示-->
 <div class="card" style="width: 40rem;"> <!--tableをcard化-->    
