@@ -21,6 +21,7 @@ class UserController extends Controller
         $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
         //dd($hotel);
         $reservation[$i]->name=$hotel[0]->name;
+        $reservation[$i]->price=$hotel[0]->price;
         $i++;
         }
         return view('mypage/index', ['users' => $user,'reservations' => $reservation]);
