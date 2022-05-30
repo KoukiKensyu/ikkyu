@@ -16,7 +16,7 @@ class AdministratorSeeder extends Seeder
     {
         for($i = 1; $i <= 5; $i++){
             $administrator = new \App\Models\Administrator([
-                'name' => "管理者${i}",
+                'name' => $i,
                 'password' => bcrypt(11111111),
             ]);
            $administrator->save();
