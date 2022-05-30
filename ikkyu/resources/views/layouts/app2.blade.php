@@ -132,14 +132,6 @@
                                 </li>
                             @endif
                         @endguest
-
-                        <!-- delete later -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="/user_home/index">会員ホーム</a>
-                        </li>
-                        <li class="nav-item">
-                                    <a class="nav-link" href="/home/index">管理者ホーム</a>
-                        </li>
                     </ul>
                 </div>
             </div>
