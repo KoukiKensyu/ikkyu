@@ -19,6 +19,7 @@
   }*/
 </style>
 <!-- 会員情報タブ -->
+
 <div><div class="text-center">
   <h1 class="mb-3 h2">会員情報詳細</h1></div>
 <ul class="nav nav-pills mb-3 px-5" id="pills-tab" role="tablist">
@@ -110,7 +111,7 @@
         @foreach($reservations as $reserve)
         <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td>
         <td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td>
-        <td>{{$reserve->price * $reserve->day->d}}円</td><td><a href="cancel/{{$reserve->id}}" class="text-primary">キャンセル</a></td></tr>
+        <td>{{$reserve->price * $reserve->day->d * $reserve->rooms}}円</td><td><a href="cancel/{{$reserve->id}}" class="text-primary">キャンセル</a></td></tr>
         @endforeach
       </table>
     </div>
