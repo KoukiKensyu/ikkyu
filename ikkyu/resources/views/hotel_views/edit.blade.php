@@ -42,7 +42,7 @@
         </tr>
         <tr>
         <td><label class="form-label">金額/1部屋</label></td>
-        <td><input type="number" name="price" value="{{$hotel ->max_rooms}}" class="form-control" required></td>
+        <td><input type="number" name="price" value="{{$hotel ->price}}" class="form-control" required></td>
         </tr>
         <tr>
         <td><label class="form-label">コメント</label></td>
