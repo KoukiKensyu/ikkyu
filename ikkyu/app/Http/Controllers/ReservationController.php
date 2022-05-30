@@ -112,6 +112,12 @@ class ReservationController extends Controller
         $reservation[0]->name=$hotel[0]->name;
         $reservation[0]->price=$hotel[0]->price;
         //dd($reservation);
+        $begin = new DateTime($reservation[0]->checkin_date);
+        $end = new DateTime($reservation[0]->checkout_date);
+
+        $day = $end->diff($begin);
+
+        $reservation[0]->day=$day;
         return view('mypage/cancel', ['reservations' => $reservation]);
     }
 

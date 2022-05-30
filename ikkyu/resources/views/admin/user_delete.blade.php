@@ -16,9 +16,9 @@
 @if(!$reservations->isEmpty())
 <table border="1" class="table">
 <tr><th colspan="2">未宿泊の予約記録</th><th></th></tr>
-<tr><th>宿名</th><th>予約日</th><th>チェックイン</th><th>チェックアウト</th></tr>
+<tr><th>宿名</th><th>予約日</th><th>チェックイン</th><th>チェックアウト</th><th>金額</th></tr>
 @foreach($reservations as $reserve)
-<tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td></tr>
+<tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td><td>{{$reserve->price * $reserve->day->d}}円</td></tr>
 @endforeach
 </table>
 未宿泊の予定はキャンセルします<br>
