@@ -2,11 +2,13 @@
 
 @section('content')
 
-<div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+<!--<div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
   style="background-image: url('/images/beach_background.jpg');">
   <h1 class="mb-3 h2">会員情報変更</h1>
+</div>-->
+<div class="text-center">
+    <h1 class="mb-3 h2">会員情報変更</h1>
 </div>
-
 @include('commons/flash')
 
 <form class="needs-validation" action="{{route('mypage.edit_confirmation', $user->id)}}" method="POST">

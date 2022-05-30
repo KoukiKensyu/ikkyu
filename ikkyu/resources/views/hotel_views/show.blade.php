@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <table class="table">
 <tr><th colspan="2">宿詳細情報</th></tr>
 <tr><th>宿名</th><td>{{ $hotel->name }}</td></tr>
