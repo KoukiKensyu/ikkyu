@@ -2,19 +2,6 @@
 
 @section('content')
 <!--<a href="../mypage/index">マイページ</a>-->
-<!-- Jumbotron 
-<div
-  class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
-  style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');"
->
-  <h1 class="mb-3 h2">会員ホーム</h1>
-
-  <p>
-    宿泊予約ならひとやすみ<br>
-    老舗旅館からビジネスホテルまで簡単検索
-  </p>
-</div>
- Jumbotron -->
 <h1>会員ホーム</h1>
 @include('commons/flash')
 <style>
