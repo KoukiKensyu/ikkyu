@@ -98,9 +98,10 @@ class ReservationController extends Controller
         $reservation->checkin_date = $request->checkin_date;
         $reservation->checkout_date = $request->checkout_date;
         $reservation->save();
+        $price = $request->R_price; 
         $user = DB::table('users')->where('id', $request->user_id)->get()->toArray();
         $hotel = DB::table('hotels')->where('id', $request->hotel_id)->get()->toArray();
-        return view('reserve/confirm', ['reservation' => $reservation,'hotel'=>$hotel, 'user'=>$user,'user_name' => $user[0]->name, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
+        return view('reserve/confirm', ['reservation' => $reservation,'price'=>$price,'hotel'=>$hotel, 'user'=>$user,'user_name' => $user[0]->name, 'hotel_name' => $hotel[0]->name, 'hotel_id' => $hotel[0]->id, 'hotel_price' => $hotel[0]->price]);
     }
     public function cancel_confirmation($id)
     {
@@ -109,7 +110,14 @@ class ReservationController extends Controller
         $hotel = DB::table('hotels')->where('id',$reservation[0]->hotel_id)->get();
         //dd($hotel);
         $reservation[0]->name=$hotel[0]->name;
+        $reservation[0]->price=$hotel[0]->price;
         //dd($reservation);
+        $begin = new DateTime($reservation[0]->checkin_date);
+        $end = new DateTime($reservation[0]->checkout_date);
+
+        $day = $end->diff($begin);
+
+        $reservation[0]->day=$day;
         return view('mypage/cancel', ['reservations' => $reservation]);
     }
 

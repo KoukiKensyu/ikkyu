@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \DateTime;
 //validation ignore用
 use Illuminate\Validation\Rule;
 
@@ -21,7 +22,17 @@ class UserController extends Controller
         $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
         //dd($hotel);
         $reservation[$i]->name=$hotel[0]->name;
+        $reservation[$i]->price=$hotel[0]->price;
+
+        $begin = new DateTime($reservation[$i]->checkin_date);
+        $end = new DateTime($reservation[$i]->checkout_date);
+
+        $day = $end->diff($begin);
+
+        $reservation[$i]->day=$day;
+
         $i++;
+
         }
         return view('mypage/index', ['users' => $user,'reservations' => $reservation]);
     }
@@ -81,7 +92,7 @@ class UserController extends Controller
         if ($request->id) {
             $query->where('id', 'LIKE', '%' . $request->id . '%');
         }
-        $users = $query->orderBy('id')->paginate(3);
+        $users = $query->orderBy('id')->paginate(5);
         return view('/admin/user_index', ['users' => $users]);
     }
 
@@ -141,6 +152,18 @@ class UserController extends Controller
         $hotel = DB::table('hotels')->where('id',$reserve->hotel_id)->get();
         //dd($hotel);
         $reservation[$i]->name=$hotel[0]->name;
+
+        $reservation[$i]->name=$hotel[0]->name;
+        $reservation[$i]->price=$hotel[0]->price;
+
+        $begin = new DateTime($reservation[$i]->checkin_date);
+        $end = new DateTime($reservation[$i]->checkout_date);
+
+        $day = $end->diff($begin);
+
+        $reservation[$i]->day=$day;
+   
+
         $i++;
         }
         return view('/admin/user_delete', ['user' => $user,'reservations' => $reservation]);

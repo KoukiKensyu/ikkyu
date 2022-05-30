@@ -22,7 +22,7 @@
         </tr>
         <tr>
         <td>金額</td>
-        <td>{{$hotel_price * $reservation->rooms}}円</td>
+        <td>{{$price}}円</td>
         </tr>
     </tbody>
 </table>
