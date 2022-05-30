@@ -29,14 +29,15 @@
 <div class="d-flex justify-content-end text-right">
     <form action="{{route('reserve.confirm')}}" method="post">
         @csrf
+        <?php $R_price = $hotel_price * $reservation->rooms * $day->d ?>
         <input type="hidden" name="hotel_id" value="{{$hotel[0]->id}}">
+        <input type="hidden" name="R_price" value="{{$R_price}}">
         <input type="hidden" name="user_id" value="{{Auth::id()}}">
         <input type="hidden" name="rooms" value="{{$reservation->rooms}}">
         <input type="hidden" name="checkin_date" value="{{$reservation->checkin_date}}">
         <input type="hidden" name="checkout_date" value="{{$reservation->checkout_date}}">
         <button class="btn btn-outline-danger btn-rounded active" type="submit">確定</button>
     </form>
-
     <form action="{{route('reserve.edit', $hotel[0]->id)}}" method="get">
         <input type="hidden" name="data" value="{{$data}}">
         <input type="hidden" name="bbb" value="{{$bbb}}">
