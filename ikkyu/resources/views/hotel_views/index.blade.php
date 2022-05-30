@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+  .btn-outline-primary{
+    width: 150px;
+    height: 45px;
+  }
+</style>
 <body>
     <div class="d-flex flex-row bd-highlight mb-3">
     <div class="p-2 bd-highlight">
@@ -23,7 +29,7 @@
         <div class="d-flex flex-row bd-highlight">
             <p><input class="p-2 bd-highlight" type="text" name="name" placeholder="宿名"></p>
             <!--<p class="p-2 bd-highlight"><label>分類<input type="text" name="hotel_type"></label></p>-->
-           <button class="p-2 bd-highlight btn btn-outline-primary btn-rounded active h-25" type="submit">検索</button>
+           <button class="p-2 bd-highlight btn btn-outline-primary btn-rounded active" type="submit">検索</button>
         </div>
         </form>
         <form action="{{route('hotels.create')}}">
