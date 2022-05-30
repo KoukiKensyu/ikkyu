@@ -86,7 +86,7 @@
 
 <tr class="align-middle ">
     <td><a href="/reserve/show/{{$hotel->id}}.php?aaa={{$remainRooms}}&bbb={{request('checkin_date')}}&ccc={{request('checkout_date')}}">
-    @if($hotel->id < 6 )
+    @if($hotel->id < 8 )
     <img src="/images/{{$hotel->id}}.jpg" width="163" height="130" alt="">
     @else<img src="/images/6.jpg" width="163" height="130" alt="">
     @endif
