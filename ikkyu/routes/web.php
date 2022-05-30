@@ -61,7 +61,9 @@ Route::patch('mypage/edit_confirmation', [UserController::class, 'store'])->name
 Route::get('mypage/UserDelete', [UserController::class,'delete_user_confirm']);//退会確認画面を表示
 Route::delete('/', [UserController::class,'destroy_user'])->name('mypage.delete');//退会処理
 Route::get('mypage/password_change_completion', [UserController::class, 'password_change_completion'])->name('mypage.password_change_completion');// パスワード変更完了画面
-
+Route::get('mypage/cancel/{id}',[ReservationController::class,'cancel_confirmation']);//予約キャンセル確認画面
+Route::delete('mypage/cancel', [ReservationController::class,'reserve_cancel'])->name('mypage.reserve_cancel');//予約削除処理
+Route::get('mypage/cancel_result',[ReservationController::class,'cancel_result']);//予約キャンセル完了画面
 
 // 宿予約関連-------------------------------------10~13
 Route::prefix('reserve')->group(function () {

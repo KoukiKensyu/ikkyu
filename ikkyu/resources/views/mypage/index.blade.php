@@ -80,7 +80,7 @@
           <div class="text-right">
             <button onclick="location.href='/mypage/edit'" class="btn btn-outline-danger" data-mdb-ripple-color="dark">変更</button>
             <button onclick="location.href='/mypage/UserDelete'" class="btn btn-danger btn-rounded">退会</button>
-            <button onclick="location.href='/user_home/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" >戻る</button>
+            <button onclick="location.href='/user_home/index'" class="btn btn-outline-info" data-mdb-ripple-color="dark" >会員ホームへ</button>
           </div>
         </div>
         </div>
@@ -99,7 +99,8 @@
         <tr><th colspan="2">予約中の宿</th><th></th></tr>
         <tr><th>宿名</th><th>予約日</th><th>チェックイン</th><th>チェックアウト</th></tr>
         @foreach($reservations as $reserve)
-        <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td></tr>
+        <tr><td>{{$reserve->name}}</td><td>{{$reserve->reserved_date}}</td><td>{{$reserve->checkin_date}}</td><td>{{$reserve->checkout_date}}</td>
+        <td><a href="cancel/{{$reserve->id}}" class="text-primary">キャンセル</a></td></tr>
         @endforeach
       </table>
     </div>
