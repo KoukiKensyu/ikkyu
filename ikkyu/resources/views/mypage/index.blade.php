@@ -10,6 +10,14 @@
 <p></p>
 </div>
 -->
+<style>
+  th{
+    white-space: nowrap;
+  }
+  /*td{
+    white-space: nowrap;
+  }*/
+</style>
 <!-- 会員情報タブ -->
 
 <div><div class="text-center">
