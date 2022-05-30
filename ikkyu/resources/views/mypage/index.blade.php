@@ -11,6 +11,7 @@
 </div>
 -->
 <!-- 会員情報タブ -->
+
 <div><div class="text-center">
   <h1 class="mb-3 h2">会員情報詳細</h1></div>
 <ul class="nav nav-pills mb-3 px-5" id="pills-tab" role="tablist">
