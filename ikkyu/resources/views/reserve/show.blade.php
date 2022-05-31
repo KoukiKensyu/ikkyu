@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row ">
                 <div class="col-md-8">
-                    <h2 class="display-6"><i class="fas fa-map-marker-alt"></i>　 {{$hotel[0]->name}}</h2> <!-- 文字大きくdisplay~-->
+                    <h2 class="display-6"><i class="fas fa-map-marker-alt"></i>　{{$hotel[0]->name}}</h2> <!-- 文字大きくdisplay~-->
                 </div>
 
                 <div class="col-md-4"> <!-- 右側にボタン-->
@@ -58,8 +58,8 @@
 
             <!--宿画像-->
                 <div class="col-md-6">
-                        <img src="/images/{{$hotel[0]->id}}.jpg"  class="img-fluid" alt="Wild Landscape">
-                        
+                        <img src="/images/{{$hotel[0]->id}}.jpg"  width="520" height="380"alt="">
+  
                     <br>
                     <p style="line-height:2rem">
                 </div>
@@ -82,7 +82,7 @@
                         <td>{{$hotel[0]->checkin_time}}/{{$hotel[0]->checkout_time}}</td>
                         </tr>
                         <tr>
-                        <th scope="col"><i class="fas fa-tenge"></i>　金額/部屋</th>
+                        <th scope="col"><i class="fas fa-yen-sign"></i>　金額/部屋</th>
                         <td>{{$hotel[0]->price}}円/部屋</td>
                         </tr>
                         <tr>
